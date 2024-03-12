@@ -1,6 +1,5 @@
 /* eslint-disable no-unsafe-negation */
 const Timeline = () => {
-  console.log("ok");
   (function () {
     // Vertical Timeline - by CodyHouse.co
     function VerticalTimeline(element) {

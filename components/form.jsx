@@ -1,4 +1,23 @@
-const Form = () => {
+import Article from "../components/article";
+// import myFile from "../src/test.txt";
+
+const Form = (props) => {
+  let idArticle = 0;
+
+  const buttonHandler = (e) => {
+    e.preventDefault();
+
+    // const rootBlog = ReactDOM.createRoot(document.getElementById(`blog_container`));
+    // const newDiv = document.createElement(`div`);
+    // newDiv.setAttribute("id", `${idArticle}`);
+
+    const test = props.articlesTable;
+    test.push(<Article id={idArticle} />);
+
+    props.updateBlogState(test);
+    idArticle++;
+  };
+  // console.log(props.articlesTable);
   return (
     <>
       <form>
@@ -19,7 +38,7 @@ const Form = () => {
           <label>Content:</label> <input type="text" name="blog_content" size="50" />
         </p>
 
-        <button>ADD</button>
+        <button onClick={buttonHandler}>ADD</button>
       </form>
     </>
   );
