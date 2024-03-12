@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 const Article = (props) => {
   return (
-    <>
-      <div className="cd-timeline__img cd-timeline__img--movie" id={props.id}>
+    <div className="cd-timeline__block">
+      <div className="cd-timeline__img cd-timeline__img--movie" id={props.articles.length}>
         <img src="../img/cd-icon-movie.svg" alt="Movie" />
       </div>
 
@@ -16,7 +17,7 @@ const Article = (props) => {
           <span className="cd-timeline__date">Jan 18</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

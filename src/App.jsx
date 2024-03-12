@@ -23,7 +23,7 @@ class App extends React.Component {
         <header className="cd-main-header text-center flex flex-column flex-center">
           <h1>Responsive Vertical Timeline</h1>
           <div className="add_content">
-            <Form articlesTable={this.state.articles} updateBlogState={this.updateBlogState} />
+            <Form allArticles={this.state.articles} updateBlogState={this.updateBlogState} />
           </div>
         </header>
 
@@ -50,7 +50,7 @@ class App extends React.Component {
               </div>
             </div>
 
-            <div className="cd-timeline__block" id={2}>
+            <div className="cd-timeline__block">
               <div className="cd-timeline__img cd-timeline__img--movie">
                 <img src="../img/cd-icon-movie.svg" alt="Movie" />
               </div>
@@ -71,10 +71,8 @@ class App extends React.Component {
               </div>
             </div>
 
-            <div className="cd-timeline__block" id={3}></div>
+            <ShowArticles articles={this.state.articles} />
           </div>
-
-          <ShowArticles articles={this.state.articles} />
         </section>
 
         {/* <Timeline /> */}

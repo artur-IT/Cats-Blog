@@ -1,21 +1,15 @@
+/* eslint-disable react/prop-types */
 import Article from "../components/article";
 // import myFile from "../src/test.txt";
 
 const Form = (props) => {
-  let idArticle = 0;
-
+  const articlesTable = props.allArticles;
   const buttonHandler = (e) => {
     e.preventDefault();
 
-    // const rootBlog = ReactDOM.createRoot(document.getElementById(`blog_container`));
-    // const newDiv = document.createElement(`div`);
-    // newDiv.setAttribute("id", `${idArticle}`);
+    articlesTable.push(<Article key={articlesTable.length} articles={articlesTable} />);
 
-    const test = props.articlesTable;
-    test.push(<Article id={idArticle} />);
-
-    props.updateBlogState(test);
-    idArticle++;
+    props.updateBlogState(articlesTable);
   };
   // console.log(props.articlesTable);
   return (
