@@ -1,9 +1,6 @@
 import React from "react";
-
-import Timeline from "../js/main";
-import ShowArticles from "../components/showArticles";
-import Form from "../components/form";
-import "../css/style.css";
+import ShowArticles from "/components/ShowArticles";
+import Form from "/components/Form";
 import "../css/addContent.css";
 
 class App extends React.Component {
@@ -12,7 +9,27 @@ class App extends React.Component {
     this.state = {
       articles: [],
     };
+
+    this.post = [];
   }
+
+  formHandler = () => {
+    let authorContent = document.querySelector(".author").value;
+    let dateContent = document.querySelector(".date_content").value;
+    let titleContent = document.querySelector(".title_content").value;
+    let blogContent = document.querySelector(".blog_content").value;
+
+    const tempObj = {
+      author: authorContent,
+      date: dateContent,
+      title: titleContent,
+      content: blogContent,
+    };
+
+    this.post.push(tempObj);
+
+    // console.log(author, dateContent, blogContent);
+  };
 
   // UPDATE state AFTER ADD ARTICLE FROM COMPONENT Form
   updateBlogState = (newArticle) => this.setState({ articles: newArticle });
@@ -23,7 +40,12 @@ class App extends React.Component {
         <header className="cd-main-header text-center flex flex-column flex-center">
           <h1>Responsive Vertical Timeline</h1>
           <div className="add_content">
-            <Form allArticles={this.state.articles} updateBlogState={this.updateBlogState} />
+            <Form
+              allArticles={this.state.articles}
+              post={this.post}
+              updateBlogState={this.updateBlogState}
+              formHandler={this.formHandler}
+            />
           </div>
         </header>
 

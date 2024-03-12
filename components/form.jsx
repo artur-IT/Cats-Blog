@@ -1,23 +1,22 @@
 /* eslint-disable react/prop-types */
-import Article from "../components/article";
+import Article from "./Article";
 // import myFile from "../src/test.txt";
 
 const Form = (props) => {
   const articlesTable = props.allArticles;
+
   const buttonHandler = (e) => {
     e.preventDefault();
-
-    articlesTable.push(<Article key={articlesTable.length} articles={articlesTable} />);
-
+    props.formHandler();
+    articlesTable.push(<Article key={articlesTable.length} articles={articlesTable} post={props.post} />);
     props.updateBlogState(articlesTable);
   };
-  // console.log(props.articlesTable);
   return (
     <>
       <form>
         <p>
           <label>Author:</label>
-          <select name="author">
+          <select className="author" name="author">
             <option></option>
             <option>Indi</option>
             <option>Tiger</option>
@@ -25,11 +24,15 @@ const Form = (props) => {
         </p>
 
         <p>
-          <label>Date:</label> <input type="date" name="date_content" />
+          <label>Date:</label> <input className="date_content" type="date" name="date_content" />
         </p>
 
         <p>
-          <label>Content:</label> <input type="text" name="blog_content" size="50" />
+          <label>Title:</label> <input className="title_content" type="text" name="title_content" size="30" />
+        </p>
+
+        <p>
+          <label>Content:</label> <input className="blog_content" type="text" name="blog_content" size="50" />
         </p>
 
         <button onClick={buttonHandler}>ADD</button>
