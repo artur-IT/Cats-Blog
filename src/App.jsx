@@ -1,5 +1,6 @@
 import React from "react";
 import ShowArticles from "/components/ShowArticles";
+import Article from "/components/Article";
 import Form from "/components/Form";
 import "../css/addContent.css";
 
@@ -7,10 +8,29 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      articles: [],
+      articles: [
+        {
+          author: "artur",
+          date: "01-01-2024",
+          title: "Mój tytuł",
+          content: "...treść....",
+        },
+        {
+          author: "kasia",
+          date: "03-03-2024",
+          title: "Tytuł 2",
+          content: "...treść....",
+        },
+      ],
     };
 
+    // All posts (1 post = 1 component Article)
     this.post = [];
+
+    // this.myFile = document.open("../src/test.txt");
+    // this.catPosts = new FileReader();
+    // this.catPosts.onload = "../src/test.txt";
+    // this.catPosts.readAsText(this.myFile);
   }
 
   formHandler = () => {
@@ -27,8 +47,22 @@ class App extends React.Component {
     };
 
     this.post.push(tempObj);
+  };
 
-    // console.log(author, dateContent, blogContent);
+  // Create tsble of Components with all posts from file / object
+  test = () => {
+    for (let i = 0; i < this.state.articles.length; i++) {
+      this.post.push(
+        <Article
+          author={this.state.articles[i].author}
+          date={this.state.articles[i].date}
+          title={this.state.articles[i].title}
+          content={this.state.articles[i].content}
+          key={i}
+        />
+      );
+    }
+    console.log(this.post);
   };
 
   // UPDATE state AFTER ADD ARTICLE FROM COMPONENT Form
@@ -93,11 +127,12 @@ class App extends React.Component {
               </div>
             </div>
 
-            <ShowArticles articles={this.state.articles} />
+            {this.test()}
+            <ShowArticles articles={this.post} />
+
+            {/* <Article articles={this.state.articles} post={this.post} key={0} /> */}
           </div>
         </section>
-
-        {/* <Timeline /> */}
       </>
     );
   }
