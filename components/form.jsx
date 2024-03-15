@@ -1,14 +1,11 @@
 /* eslint-disable react/prop-types */
-import Article from "/components/Article";
-// import myFile from "../src/test.txt";
 
 const Form = (props) => {
-  const articlesTable = props.allArticles;
+  const articlesTable = props.copyArticles;
 
   const buttonHandler = (e) => {
     e.preventDefault();
     props.formHandler();
-    articlesTable.push(<Article key={articlesTable.length} articles={articlesTable} post={props.post} />);
     props.updateBlogState(articlesTable);
   };
   return (

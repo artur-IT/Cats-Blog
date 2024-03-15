@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
+import { format, parse } from "@formkit/tempo";
+
 const Article = (props) => {
   // const index = props.articles.length;
   // const post = props.articles;
+  const addDate = format(new Date(), "medium");
 
+  console.log(props.date, addDate);
   return (
     <div className="cd-timeline__block" id={props.id}>
       <div className="cd-timeline__img cd-timeline__img--picture">
@@ -14,7 +18,7 @@ const Article = (props) => {
         <span>{props.date}</span> - <span>{props.author}</span>
         <p className="color-contrast-medium">{props.content}</p>
         <div className="flex justify-between items-center">
-          <span className="cd-timeline__date">Jan 18</span>
+          <span className="cd-timeline__date">{addDate}</span>
         </div>
       </div>
     </div>

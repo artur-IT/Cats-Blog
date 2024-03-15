@@ -26,6 +26,8 @@ class App extends React.Component {
       ],
     };
 
+    this.copyArticles = this.state.articles;
+
     // All posts in table of components (1 post = 1 component Article)
     this.posts = [];
 
@@ -42,23 +44,23 @@ class App extends React.Component {
     let blogContent = document.querySelector(".blog_content").value;
 
     const tempObj = {
-      id: this.posts.length,
+      id: this.copyArticles.length,
       author: authorContent,
       date: dateContent,
       title: titleContent,
       content: blogContent,
     };
 
-    this.posts.push(tempObj);
+    this.copyArticles.push(tempObj);
+    // this.setState({ articles: this.posts });
+    this.createArticlesTable();
   };
 
   // Create tsble of Components with all posts from file / object
   createArticlesTable = () => {
-    for (const el of this.state.articles) {
-      // console.log(el);
-      this.posts.push(<Article id={el.id} author={el.author} date={el.date} title={el.title} content={el.content} />);
-
-      console.log(this.posts);
+    this.posts = [];
+    for (const el of this.copyArticles) {
+      this.posts.push(<Article key={this.posts.length} author={el.author} date={el.date} title={el.title} content={el.content} />);
     }
   };
 
@@ -68,17 +70,10 @@ class App extends React.Component {
   render() {
     return (
       <>
-        {this.createArticlesTable()}
-
         <header className="cd-main-header text-center flex flex-column flex-center">
           <h1>Responsive Vertical Timeline</h1>
           <div className="add_content">
-            <Form
-              allArticles={this.state.articles}
-              post={this.post}
-              updateBlogState={this.updateBlogState}
-              formHandler={this.formHandler}
-            />
+            <Form copyArticles={this.copyArticles} post={this.post} updateBlogState={this.updateBlogState} formHandler={this.formHandler} />
           </div>
         </header>
 
@@ -125,7 +120,7 @@ class App extends React.Component {
                 </div>
               </div>
             </div>
-
+            {/* {this.createArticlesTable()} */}
             <ShowArticles posts={this.posts} />
           </div>
         </section>
