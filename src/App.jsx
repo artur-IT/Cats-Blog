@@ -10,12 +10,14 @@ class App extends React.Component {
     this.state = {
       articles: [
         {
+          id: 0,
           author: "artur",
           date: "01-01-2024",
           title: "Mój tytuł",
           content: "...treść....",
         },
         {
+          id: 1,
           author: "kasia",
           date: "03-03-2024",
           title: "Tytuł 2",
@@ -24,8 +26,8 @@ class App extends React.Component {
       ],
     };
 
-    // All posts (1 post = 1 component Article)
-    this.post = [];
+    // All posts in table of components (1 post = 1 component Article)
+    this.posts = [];
 
     // this.myFile = document.open("../src/test.txt");
     // this.catPosts = new FileReader();
@@ -40,29 +42,24 @@ class App extends React.Component {
     let blogContent = document.querySelector(".blog_content").value;
 
     const tempObj = {
+      id: this.posts.length,
       author: authorContent,
       date: dateContent,
       title: titleContent,
       content: blogContent,
     };
 
-    this.post.push(tempObj);
+    this.posts.push(tempObj);
   };
 
   // Create tsble of Components with all posts from file / object
-  test = () => {
-    for (let i = 0; i < this.state.articles.length; i++) {
-      this.post.push(
-        <Article
-          author={this.state.articles[i].author}
-          date={this.state.articles[i].date}
-          title={this.state.articles[i].title}
-          content={this.state.articles[i].content}
-          key={i}
-        />
-      );
+  createArticlesTable = () => {
+    for (const el of this.state.articles) {
+      // console.log(el);
+      this.posts.push(<Article id={el.id} author={el.author} date={el.date} title={el.title} content={el.content} />);
+
+      console.log(this.posts);
     }
-    console.log(this.post);
   };
 
   // UPDATE state AFTER ADD ARTICLE FROM COMPONENT Form
@@ -71,6 +68,8 @@ class App extends React.Component {
   render() {
     return (
       <>
+        {this.createArticlesTable()}
+
         <header className="cd-main-header text-center flex flex-column flex-center">
           <h1>Responsive Vertical Timeline</h1>
           <div className="add_content">
@@ -127,10 +126,7 @@ class App extends React.Component {
               </div>
             </div>
 
-            {this.test()}
-            <ShowArticles articles={this.post} />
-
-            {/* <Article articles={this.state.articles} post={this.post} key={0} /> */}
+            <ShowArticles posts={this.posts} />
           </div>
         </section>
       </>

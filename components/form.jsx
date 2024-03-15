@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import Article from "./Article";
+import Article from "/components/Article";
 // import myFile from "../src/test.txt";
 
 const Form = (props) => {

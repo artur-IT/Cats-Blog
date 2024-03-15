@@ -4,7 +4,7 @@ const Article = (props) => {
   // const post = props.articles;
 
   return (
-    <div className="cd-timeline__block" id={props.key}>
+    <div className="cd-timeline__block" id={props.id}>
       <div className="cd-timeline__img cd-timeline__img--picture">
         <img src="../img/paw.svg" alt="paw" />
       </div>
