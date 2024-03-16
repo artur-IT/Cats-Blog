@@ -12,14 +12,14 @@ class App extends React.Component {
         {
           id: 0,
           author: "artur",
-          date: "01-01-2024",
+          date: new Date("2024-01-30"),
           title: "Mój tytuł",
           content: "...treść....",
         },
         {
           id: 1,
           author: "kasia",
-          date: "03-03-2024",
+          date: new Date("2024-08-21"),
           title: "Tytuł 2",
           content: "...treść....",
         },
@@ -46,7 +46,7 @@ class App extends React.Component {
     const tempObj = {
       id: this.copyArticles.length,
       author: authorContent,
-      date: dateContent,
+      date: new Date(dateContent).toISOString(),
       title: titleContent,
       content: blogContent,
     };
