@@ -23,6 +23,13 @@ class App extends React.Component {
           title: "Tytuł 2",
           content: "...treść....",
         },
+        {
+          id: 2,
+          author: "jarek",
+          date: new Date("2024-12-24"),
+          title: "Tytuł 3",
+          content: "...treść....",
+        },
       ],
     };
 
@@ -79,28 +86,26 @@ class App extends React.Component {
 
         <section className="cd-timeline js-cd-timeline">
           <div className="container max-width-lg cd-timeline__container" id="blog_container">
+            {/* first post! */}
             <div className="cd-timeline__block">
               <div className="cd-timeline__img cd-timeline__img--picture">
-                <img src="../img/cd-icon-picture.svg" alt="Picture" />
+                <img src="../img/paw.svg" alt="Picture" />
               </div>
 
               <div className="cd-timeline__content text-component">
                 <h2>Title of section 1</h2>
                 <p className="color-contrast-medium">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure
-                  tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+                  tempora laudantium ipsa ad debitis unde?
                 </p>
 
                 <div className="flex justify-between items-center">
                   <span className="cd-timeline__date">Jan 14</span>
-                  <a href="#0" className="btn btn--subtle">
-                    Read more
-                  </a>
                 </div>
               </div>
             </div>
 
-            <div className="cd-timeline__block">
+            {/* <div className="cd-timeline__block">
               <div className="cd-timeline__img cd-timeline__img--movie">
                 <img src="../img/cd-icon-movie.svg" alt="Movie" />
               </div>
@@ -114,13 +119,11 @@ class App extends React.Component {
 
                 <div className="flex justify-between items-center">
                   <span className="cd-timeline__date">Jan 18</span>
-                  <a href="#0" className="btn btn--subtle">
-                    Read more
-                  </a>
                 </div>
               </div>
-            </div>
-            {/* {this.createArticlesTable()} */}
+            </div> */}
+
+            {this.createArticlesTable()}
             <ShowArticles posts={this.posts} />
           </div>
         </section>

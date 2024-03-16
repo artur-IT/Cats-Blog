@@ -12,24 +12,35 @@ const Form = (props) => {
     <>
       <form>
         <p>
-          <label>Author:</label>
-          <select className="author" name="author">
-            <option></option>
-            <option>Indi</option>
-            <option>Tiger</option>
-          </select>
+          <label>
+            Author:
+            <select className="author" name="author">
+              <option></option>
+              <option>Indi</option>
+              <option>Tiger</option>
+            </select>
+          </label>
         </p>
 
         <p>
-          <label>Date:</label> <input className="date_content" type="date" name="date_content" />
+          <label>
+            Date:
+            <input className="date_content" type="date" name="date_content" />
+          </label>
         </p>
 
         <p>
-          <label>Title:</label> <input className="title_content" type="text" name="title_content" size="30" />
+          <label>
+            Title:
+            <input className="title_content" type="text" name="title_content" size="30" />
+          </label>
         </p>
 
         <p>
-          <label>Content:</label> <input className="blog_content" type="text" name="blog_content" size="50" />
+          <label>
+            Content:
+            <input className="blog_content" type="text" name="blog_content" size="50" />
+          </label>
         </p>
 
         <button onClick={buttonHandler}>ADD</button>

@@ -1,13 +1,8 @@
 /* eslint-disable react/prop-types */
-import { format, parse } from "@formkit/tempo";
+import { format } from "@formkit/tempo";
 
 const Article = (props) => {
   const addDate = format(props.date, "medium");
-  // parse(props.data);
-  // const ISOdate = props.date.toISOString();
-  // const x = format(props.date, "D MMMM YYYY");
-
-  // console.log(props.date);
   return (
     <div className="cd-timeline__block" id={props.id}>
       <div className="cd-timeline__img cd-timeline__img--picture">
