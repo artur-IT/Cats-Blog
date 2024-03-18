@@ -1,6 +1,7 @@
 /* eslint-disable no-unsafe-negation */
-// const Timeline = () => {
+// const TimelineCodeJS = () => {
 (function () {
+  // console.log("test");
   // Vertical Timeline - by CodyHouse.co
   function VerticalTimeline(element) {
     this.element = element;
@@ -9,9 +10,11 @@
     this.contents = this.element.getElementsByClassName("cd-timeline__content");
     this.offset = 0.8;
     this.hideBlocks();
+    console.log(this.element, this.blocks, this.images, this.contents);
   }
 
   VerticalTimeline.prototype.hideBlocks = function () {
+    console.log("hmmm");
     if (!"classList" in document.documentElement) {
       return; // no animation on older browsers
     }
@@ -28,6 +31,7 @@
   };
 
   VerticalTimeline.prototype.showBlocks = function () {
+    console.log("showBlocks");
     if (!"classList" in document.documentElement) {
       return;
     }
@@ -60,6 +64,7 @@
 
     //show timeline blocks on scrolling
     window.addEventListener("scroll", function () {
+      console.log("ok");
       if (!scrolling) {
         scrolling = true;
         !window.requestAnimationFrame ? setTimeout(checkTimelineScroll, 250) : window.requestAnimationFrame(checkTimelineScroll);
@@ -68,6 +73,7 @@
   }
 
   function checkTimelineScroll() {
+    console.log("2345");
     verticalTimelinesArray.forEach(function (timeline) {
       timeline.showBlocks();
     });
@@ -76,4 +82,4 @@
 })();
 // };
 
-// export default Timeline;
+// export default TimelineCodeJS;
