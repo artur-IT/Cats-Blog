@@ -2,10 +2,18 @@ import React from "react";
 import ShowArticles from "/components/ShowArticles";
 import Article from "/components/Article";
 import Form from "/components/Form";
+import "/css/addContent.css";
+import { saveAs } from "file-saver";
+import testDB from "/js/testDB";
 
-import fs from "fs";
-// import require from "/js/require";
-import "../css/addContent.css";
+testDB();
+
+// read from file .js
+import data from "./postsJSON.js";
+// console.log(data);
+Object.assign(data.articles, { dom: "drzwi" });
+
+//-----------------
 
 // import TimmelineCodeJS from "/js/main";
 
@@ -45,82 +53,29 @@ class App extends React.Component {
   }
 
   test = () => {
-    fs.writeFile("moj_plik.txt", "okna");
+    let content = null;
+
+    // read from file .txt
+    fetch("/src/postsJSON.txt")
+      .then((res) => res.json())
+      .then((res) => {
+        content = res;
+        console.log(content);
+      });
+
+    // save to file .txt
+    // fetch("/src/NEWpostsJSON.txt", {
+    //   method: "post",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(content),
+    // })
+    //   .then((res) => res.json())
+    //   .then((res) => {
+    //     console.log(res);
+    //   });
   };
-
-  // testFILE = () => {
-  //   function writeToFile(d1, d2) {
-  //     var fso = new ActiveXObject("Scripting.FileSystemObject");
-  //     var fh = fso.OpenTextFile("data.txt", 8, false, 0);
-  //     fh.WriteLine(d1 + "," + d2);
-  //     fh.Close();
-  //   }
-  //   var submit = document.getElementById("submit");
-  //   submit.onclick = function () {
-  //     var id = document.getElementById("id").value;
-  //     var content = document.getElementById("content").value;
-  //     writeToFile(id, content);
-  //   };
-  // };
-
-  // saveIncome(){
-  //   var amount = 'okna'
-  //   var fo = fopen("//test.txt","w");
-  //   fwrite("../Data/Data.txt",amount);
-  //   fclose("../Data/Data.txt");
-  // }
-
-  // hmmmm = () => {
-  //   var blob = new Blob(["some text"], { type: "text/plain;charset=utf-8;" });
-  //   saveAs(blob, "thing.txt");
-  // };
-
-  // separator = "_*_";
-  // textBoxes = ["inputTextToSave1", "inputTextToSave2"];
-  // saveTextAsFile() {
-  //   var textToSave = "";
-  //   for (var a = 0; a < this.textBoxes.length; a++) {
-  //     textToSave +=
-  //       a < this.textBoxes.length - 1
-  //         ? document.getElementById(this.textBoxes[a]).value + this.separator
-  //         : document.getElementById(this.textBoxes[a]).value;
-  //   }
-  //   var textToSaveAsBlob = new Blob([textToSave], {
-  //     type: "text/plain",
-  //   });
-  //   var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-  //   var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
-
-  //   var downloadLink = document.createElement("a");
-  //   downloadLink.download = fileNameToSaveAs;
-  //   downloadLink.innerHTML = "Download File";
-  //   downloadLink.href = textToSaveAsURL;
-  //   downloadLink.onclick = this.destroyClickedElement;
-  //   downloadLink.style.display = "none";
-  //   document.body.appendChild(downloadLink);
-
-  //   downloadLink.click();
-  // }
-
-  // destroyClickedElement(event) {
-  //   document.body.removeChild(event.target);
-  // }
-
-  // loadFileAsText() {
-  //   var fileToLoad = "/test.txt";
-  //   console.log(fileToLoad);
-  //   // document.getElementById("fileToLoad").files[0];
-
-  //   var fileReader = new FileReader();
-  //   fileReader.onload = function (fileLoadedEvent) {
-  //     var textFromFileLoaded = fileLoadedEvent.target.result;
-  //     var textesArray = textFromFileLoaded.split(this.separator);
-  //     for (var a = 0; a < this.textBoxes.length; a++) {
-  //       document.getElementById(this.textBoxes[a]).value = textesArray[a];
-  //     }
-  //   };
-  //   fileReader.readAsText(fileToLoad, "UTF-8");
-  // }
 
   formHandler = () => {
     let authorContent = document.querySelector(".author").value;
@@ -155,7 +110,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        {this.test()}
+        {/* {this.testDB()} */}
         <header className="cd-main-header text-center flex flex-column flex-center">
           <h1>Responsive Vertical Timeline</h1>
           <div className="add_content">

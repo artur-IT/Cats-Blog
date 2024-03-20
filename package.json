@@ -13,6 +13,7 @@
     "@formkit/tempo": "^0.0.15",
     "file-saver": "^2.0.5",
     "fs": "^0.0.1-security",
+    "jsstore": "^4.7.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "requirejs": "^2.3.6"
