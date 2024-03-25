@@ -3,19 +3,11 @@ import ShowArticles from "/components/ShowArticles";
 import Article from "/components/Article";
 import Form from "/components/Form";
 import "/css/addContent.css";
-import { saveAs } from "file-saver";
-import testDB from "/js/testDB";
-
-testDB();
 
 // read from file .js
 import data from "./postsJSON.js";
-// console.log(data);
 Object.assign(data.articles, { dom: "drzwi" });
-
 //-----------------
-
-// import TimmelineCodeJS from "/js/main";
 
 class App extends React.Component {
   constructor() {
@@ -52,16 +44,28 @@ class App extends React.Component {
     this.posts = [];
   }
 
-  test = () => {
-    let content = null;
+  apiSavePosts({ title, date, body }) {
+    // const request =
+    // fetch("/src/postsJSON.txt", {
+    //   method: "post",
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //   body: { title, date, body },
+    // }).then((res) => console.log("Dodałem dane:", res));
 
+    this.apiReadPosts();
+
+    // if (request.ok) {
+    //   return request;
+    // } else {
+    //   throw Error(request.status);
+    // }
+  }
+
+  apiReadPosts = () => {
     // read from file .txt
     fetch("/src/postsJSON.txt")
       .then((res) => res.json())
-      .then((res) => {
-        content = res;
-        console.log(content);
-      });
+      .then((res) => console.log(res));
 
     // save to file .txt
     // fetch("/src/NEWpostsJSON.txt", {
@@ -110,7 +114,8 @@ class App extends React.Component {
   render() {
     return (
       <>
-        {/* {this.testDB()} */}
+        {/* {this.apiReadPosts()} */}
+        {this.apiSavePosts({ title: "tytuł.", date: "2024", body: "treść..." })}
         <header className="cd-main-header text-center flex flex-column flex-center">
           <h1>Responsive Vertical Timeline</h1>
           <div className="add_content">

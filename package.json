@@ -11,11 +11,14 @@
   },
   "dependencies": {
     "@formkit/tempo": "^0.0.15",
+    "@types/node": "^20.11.30",
     "file-saver": "^2.0.5",
     "fs": "^0.0.1-security",
     "jsstore": "^4.7.3",
+    "mongodb": "^6.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "require": "^0.4.4",
     "requirejs": "^2.3.6"
   },
   "devDependencies": {
@@ -27,5 +30,10 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "vite": "^5.1.4"
-  }
+  },
+  "main": "vite.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
