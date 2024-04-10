@@ -4,19 +4,9 @@ import Article from "/components/Article";
 import Form from "/components/Form";
 import "/css/addContent.css";
 
-// read all articles from file .js
+// read all articles from JSON file
 import articles from "/js/articles";
-
-let newPost = {
-  id: articles.length,
-  author: "artur",
-  date: new Date("2024-01-30"),
-  title: "Mój tytuł",
-  content: "...treść....",
-};
-// Object.assign(data.articles, { x });
 console.log(articles);
-//-----------------
 
 class App extends React.Component {
   constructor() {
@@ -31,8 +21,8 @@ class App extends React.Component {
     this.posts = [];
   }
 
-  // save to file .json
-  apiSavePosts = () => {
+  // save to JSON file
+  apiSavePosts = (newPost) => {
     fetch("http://localhost:3000/articles", {
       method: "POST",
       headers: {
@@ -45,20 +35,13 @@ class App extends React.Component {
       .catch((error) => console.error("Błąd:", error));
   };
 
-  // read from file .txt
-  // apiReadPosts = () => {
-  //   fetch("/src/postsJSON.txt")
-  //     .then((res) => res.json())
-  //     .then((res) => console.log(res));
-  // };
-
   formHandler = () => {
     let authorContent = document.querySelector(".author").value;
     let dateContent = document.querySelector(".date_content").value;
     let titleContent = document.querySelector(".title_content").value;
     let blogContent = document.querySelector(".blog_content").value;
 
-    const tempObj = {
+    const newArticle = {
       id: this.copyArticles.length,
       author: authorContent,
       date: new Date(dateContent).toISOString(),
@@ -66,13 +49,14 @@ class App extends React.Component {
       content: blogContent,
     };
 
-    this.copyArticles.push(tempObj);
+    this.copyArticles.push(newArticle);
     // this.setState({ articles: this.posts });
-    this.createArticlesTable();
+    this.createArticlesComponentTable();
+    this.apiSavePosts(newArticle);
   };
 
   // Create tsble of Components with all posts from file / object
-  createArticlesTable = () => {
+  createArticlesComponentTable = () => {
     this.posts = [];
     for (const el of this.copyArticles) {
       this.posts.push(<Article key={this.posts.length} author={el.author} date={el.date} title={el.title} content={el.content} />);
@@ -89,37 +73,13 @@ class App extends React.Component {
         <header className="cd-main-header text-center flex flex-column flex-center">
           <h1>Responsive Vertical Timeline</h1>
           <div className="add_content">
-            <Form
-              copyArticles={this.copyArticles}
-              post={this.post}
-              updateBlogState={this.updateBlogState}
-              formHandler={this.apiSavePosts}
-            />
+            <Form copyArticles={this.copyArticles} post={this.post} updateBlogState={this.updateBlogState} formHandler={this.formHandler} />
           </div>
         </header>
 
         <section className="cd-timeline js-cd-timeline">
           <div className="container max-width-lg cd-timeline__container" id="blog_container">
-            {/* first post! */}
-            <div className="cd-timeline__block">
-              <div className="cd-timeline__img cd-timeline__img--picture">
-                <img src="../img/paw.svg" alt="Picture" />
-              </div>
-
-              <div className="cd-timeline__content text-component">
-                <h2>Title of section 1</h2>
-                <p className="color-contrast-medium">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure
-                  tempora laudantium ipsa ad debitis unde?
-                </p>
-
-                <div className="flex justify-between items-center">
-                  <span className="cd-timeline__date">Jan 14</span>
-                </div>
-              </div>
-            </div>
-
-            {this.createArticlesTable()}
+            {this.createArticlesComponentTable()}
             <ShowArticles posts={this.posts} />
           </div>
         </section>
