@@ -1,3 +1,53 @@
+.layout {
+  max-width: 800px;
+  height: auto;
+
+  display: grid;
+  grid:
+    "title title_field" 1fr
+    "content content_field" 1fr
+    "date date_field" 1fr
+    "author author_field" 1fr
+    "empty button" 1fr
+    / 1fr 1fr;
+  gap: 8px;
+}
+
+.title {
+  grid-area: title;
+  text-align: right;
+}
+.title_field {
+  grid-area: title_field;
+}
+.content {
+  grid-area: content;
+  text-align: right;
+}
+.content_field {
+  grid-area: content_field;
+}
+.date {
+  grid-area: date;
+  text-align: right;
+}
+.date_field {
+  grid-area: date_field;
+}
+.author {
+  grid-area: author;
+  text-align: right;
+}
+.author_field {
+  grid-area: author_field;
+}
+.empty {
+  grid-area: empty;
+}
+.button {
+  grid-area: button;
+}
+
 .add_content {
   text-align: left;
 }
@@ -5,14 +55,28 @@
 select {
   width: auto;
   margin-left: 10px;
-  /* padding: 10px; */
+  padding: 5px;
   border: none;
   border-radius: 4px;
 }
 
 input {
-  margin-left: 10px;
-  /* padding: 10px; */
+  /* margin: 3px 0px 3px 10px; */
+  padding: 5px;
   border: none;
   border-bottom: 2px solid red;
+}
+
+.btn_add {
+  width: 80px;
+  font-weight: bold;
+  margin-left: 10px;
+  padding: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn_add:hover {
+  background-color: yellow;
 }
