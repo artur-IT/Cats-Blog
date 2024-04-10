@@ -12,14 +12,15 @@
   "dependencies": {
     "@formkit/tempo": "^0.0.15",
     "@types/node": "^20.11.30",
-    "file-saver": "^2.0.5",
-    "fs": "^0.0.1-security",
-    "jsstore": "^4.7.3",
-    "mongodb": "6.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "require": "^0.4.4",
-    "requirejs": "^2.3.6"
+    "requirejs": "^2.3.6",
+    "util": "^0.12.5",
+    "util.promisify": "^1.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

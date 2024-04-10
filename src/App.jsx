@@ -4,38 +4,25 @@ import Article from "/components/Article";
 import Form from "/components/Form";
 import "/css/addContent.css";
 
-// read from file .js
-import data from "./postsJSON.js";
-Object.assign(data.articles, { dom: "drzwi" });
+// read all articles from file .js
+import articles from "/js/articles";
+
+let newPost = {
+  id: articles.length,
+  author: "artur",
+  date: new Date("2024-01-30"),
+  title: "Mój tytuł",
+  content: "...treść....",
+};
+// Object.assign(data.articles, { x });
+console.log(articles);
 //-----------------
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      articles: [
-        {
-          id: 0,
-          author: "artur",
-          date: new Date("2024-01-30"),
-          title: "Mój tytuł",
-          content: "...treść....",
-        },
-        {
-          id: 1,
-          author: "kasia",
-          date: new Date("2024-08-21"),
-          title: "Tytuł 2",
-          content: "...treść....",
-        },
-        {
-          id: 2,
-          author: "jarek",
-          date: new Date("2024-12-24"),
-          title: "Tytuł 3",
-          content: "...treść....",
-        },
-      ],
+      articles: articles,
     };
 
     this.copyArticles = this.state.articles;
@@ -44,42 +31,26 @@ class App extends React.Component {
     this.posts = [];
   }
 
-  apiSavePosts({ title, date, body }) {
-    // const request =
-    // fetch("/src/postsJSON.txt", {
-    //   method: "post",
-    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //   body: { title, date, body },
-    // }).then((res) => console.log("Dodałem dane:", res));
-
-    this.apiReadPosts();
-
-    // if (request.ok) {
-    //   return request;
-    // } else {
-    //   throw Error(request.status);
-    // }
-  }
-
-  apiReadPosts = () => {
-    // read from file .txt
-    fetch("/src/postsJSON.txt")
-      .then((res) => res.json())
-      .then((res) => console.log(res));
-
-    // save to file .txt
-    // fetch("/src/NEWpostsJSON.txt", {
-    //   method: "post",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(content),
-    // })
-    //   .then((res) => res.json())
-    //   .then((res) => {
-    //     console.log(res);
-    //   });
+  // save to file .json
+  apiSavePosts = () => {
+    fetch("http://localhost:3000/articles", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPost),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error("Błąd:", error));
   };
+
+  // read from file .txt
+  // apiReadPosts = () => {
+  //   fetch("/src/postsJSON.txt")
+  //     .then((res) => res.json())
+  //     .then((res) => console.log(res));
+  // };
 
   formHandler = () => {
     let authorContent = document.querySelector(".author").value;
@@ -115,11 +86,15 @@ class App extends React.Component {
     return (
       <>
         {/* {this.apiReadPosts()} */}
-        {this.apiSavePosts({ title: "tytuł.", date: "2024", body: "treść..." })}
         <header className="cd-main-header text-center flex flex-column flex-center">
           <h1>Responsive Vertical Timeline</h1>
           <div className="add_content">
-            <Form copyArticles={this.copyArticles} post={this.post} updateBlogState={this.updateBlogState} formHandler={this.formHandler} />
+            <Form
+              copyArticles={this.copyArticles}
+              post={this.post}
+              updateBlogState={this.updateBlogState}
+              formHandler={this.apiSavePosts}
+            />
           </div>
         </header>
 
@@ -143,24 +118,6 @@ class App extends React.Component {
                 </div>
               </div>
             </div>
-
-            {/* <div className="cd-timeline__block">
-              <div className="cd-timeline__img cd-timeline__img--movie">
-                <img src="../img/cd-icon-movie.svg" alt="Movie" />
-              </div>
-
-              <div className="cd-timeline__content text-component">
-                <h2>Title of section 2</h2>
-                <p className="color-contrast-medium">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure
-                  tempora laudantium ipsa ad debitis unde?
-                </p>
-
-                <div className="flex justify-between items-center">
-                  <span className="cd-timeline__date">Jan 18</span>
-                </div>
-              </div>
-            </div> */}
 
             {this.createArticlesTable()}
             <ShowArticles posts={this.posts} />
