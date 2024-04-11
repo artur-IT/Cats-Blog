@@ -58,6 +58,11 @@ class App extends React.Component {
   // Create tsble of Components with all posts from file / object
   createArticlesComponentTable = () => {
     this.posts = [];
+    //sort date publication from actual to old
+    this.copyArticles.sort((a, b) => {
+      return new Date(b.date) - new Date(a.date);
+    });
+
     for (const el of this.copyArticles) {
       this.posts.push(<Article key={this.posts.length} author={el.author} date={el.date} title={el.title} content={el.content} />);
     }
