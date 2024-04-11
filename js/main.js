@@ -73,6 +73,3 @@ window.addEventListener("load", function () {
     scrolling = false;
   }
 });
-// };
-
-// export default TimelineCodeJS;
