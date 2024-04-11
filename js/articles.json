@@ -1,7 +1,5 @@
 [
-  { "id": 0, "title": "Pierwszy artykuł", "content": "Treść pierwszego artykułu...", "author": "Jan Kowalski", "date": "2024-03-16" },
-  { "id": 1, "title": "Drugi artykuł", "content": "Treść drugiego artykułu...", "author": "Anna Nowak", "date": "2024-03-15" },
-  { "id": 2, "author": "artur", "date": "2024-01-30T00:00:00.000Z", "title": "Mój tytuł", "content": "...treść...." },
-  { "id": 3, "author": "Indi", "date": "2024-04-10T00:00:00.000Z", "title": "my titlesss", "content": "66787988uj" },
-  { "id": 4, "author": "Tiger", "date": "2024-04-01T00:00:00.000Z", "title": "tytuł", "content": "treść" }
+  { "id": 0, "author": "artur", "date": "2024-01-30", "title": "Mój tytuł", "content": "...treść...." },
+  { "id": 1, "author": "Indi", "date": "2024-04-10", "title": "my titlesss", "content": "66787988uj" },
+  { "id": 2, "author": "Tiger", "date": "2024-04-01", "title": "tytuł", "content": "treść" }
 ]

@@ -36,7 +36,7 @@ class App extends React.Component {
   };
 
   formHandler = () => {
-    let authorContent = document.querySelector(".author").value;
+    let authorContent = document.querySelector("select.author").value;
     let dateContent = document.querySelector(".date_content").value;
     let titleContent = document.querySelector(".title_content").value;
     let blogContent = document.querySelector(".blog_content").value;
@@ -44,7 +44,7 @@ class App extends React.Component {
     const newArticle = {
       id: this.copyArticles.length,
       author: authorContent,
-      date: new Date(dateContent).toISOString(),
+      date: new Date(dateContent).toISOString().substring(0, 10),
       title: titleContent,
       content: blogContent,
     };
@@ -71,7 +71,7 @@ class App extends React.Component {
       <>
         {/* {this.apiReadPosts()} */}
         <header className="cd-main-header text-center flex flex-column flex-center">
-          <h1>Responsive Vertical Timeline</h1>
+          <h1>Cat Blog - Our crazy / lazy life!</h1>
           <div className="add_content">
             <Form copyArticles={this.copyArticles} post={this.post} updateBlogState={this.updateBlogState} formHandler={this.formHandler} />
           </div>
