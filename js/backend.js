@@ -10,28 +10,28 @@ app.use((req, res, next) => {
   next();
 });
 
-// export default function fromAI() {
-app.use(express.json());
+(function backendDB() {
+  app.use(express.json());
 
-// Endpoint do zapisywania artykułów
-app.post("/articles", (req, res) => {
-  // Odebranie danych artykułu z żądania
-  const article = req.body;
+  // Endpoint do zapisywania artykułów
+  app.post("/articles", (req, res) => {
+    // Odebranie danych artykułu z żądania
+    const article = req.body;
 
-  // Wczytanie istniejących artykułów z pliku JSON
-  const existingArticles = JSON.parse(fs.readFileSync("articles.json", "utf-8"));
+    // Wczytanie istniejących artykułów z pliku JSON
+    const existingArticles = JSON.parse(fs.readFileSync("articles.json", "utf-8"));
 
-  // Dodanie nowego artykułu do listy artykułów
-  existingArticles.push(article);
+    // Dodanie nowego artykułu do listy artykułów
+    existingArticles.push(article);
 
-  // Zapisanie zaktualizowanej listy artykułów do pliku JSON
-  fs.writeFileSync("articles.json", JSON.stringify(existingArticles));
+    // Zapisanie zaktualizowanej listy artykułów do pliku JSON
+    fs.writeFileSync("articles.json", JSON.stringify(existingArticles));
 
-  // Wysłanie odpowiedzi
-  res.json({ message: "Artykuł został zapisany." });
-});
+    // Wysłanie odpowiedzi
+    res.json({ message: "Artykuł został zapisany." });
+  });
 
-app.listen(3000, () => {
-  console.log("Serwer uruchomiony na porcie 3000");
-});
-// }
+  app.listen(3000, () => {
+    console.log("Serwer uruchomiony na porcie 3000");
+  });
+})();
