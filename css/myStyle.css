@@ -1,0 +1,15 @@
+.login {
+  position: absolute;
+  top: 0;
+  left: 50%-50px;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  background-color: yellowgreen;
+  cursor: pointer;
+}
+
+span {
+  font-style: italic;
+  font-weight: 700;
+}

@@ -12,28 +12,28 @@ const Form = (props) => {
     <>
       <section className="layout">
         <div className="title">
-          <label>Title:</label>
+          <p>Title:</p>
         </div>
         <div className="title_field">
-          <input className="title_content" type="text" name="title_content" size="30" />
+          <input className="title_content" type="text" name="title_content" />
         </div>
 
         <div className="content">
-          <label>Content:</label>
+          <p>Content:</p>
         </div>
         <div className="content_field">
-          <input className="blog_content" type="text" name="blog_content" size="50" />
+          <textarea className="blog_content" type="text" name="blog_content" />
         </div>
 
         <div className="date">
-          <label>Date:</label>
+          <p>Date:</p>
         </div>
         <div className="date_field">
           <input className="date_content" type="date" name="date_content" />
         </div>
 
-        <div className="author">
-          <label>Author:</label>
+        <div className="author_label">
+          <p>Author:</p>
         </div>
         <div className="author_field">
           <select className="author" name="author">

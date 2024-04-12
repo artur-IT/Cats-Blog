@@ -1,18 +1,19 @@
 import React from "react";
 import ShowArticles from "/components/ShowArticles";
 import Article from "/components/Article";
-import Form from "/components/Form";
-import "/css/addContent.css";
+import Form from "/components/AddPostForm";
+import "/css/addPostForm.css";
+import "/css/myStyle.css";
 
 // read all articles from JSON file
 import articles from "/js/articles";
-console.log(articles);
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       articles: articles,
+      login: false,
     };
 
     this.copyArticles = this.state.articles;
@@ -34,6 +35,9 @@ class App extends React.Component {
       .then((data) => console.log(data))
       .catch((error) => console.error("Błąd:", error));
   };
+
+  // show / hide addPostForm
+  loginHandle = () => this.setState((prevState) => ({ login: !prevState.login }));
 
   formHandler = () => {
     let authorContent = document.querySelector("select.author").value;
@@ -74,12 +78,21 @@ class App extends React.Component {
   render() {
     return (
       <>
-        {/* {this.apiReadPosts()} */}
         <header className="cd-main-header text-center flex flex-column flex-center">
-          <h1>Cat Blog - Our crazy / lazy life!</h1>
-          <div className="add_content">
-            <Form copyArticles={this.copyArticles} post={this.post} updateBlogState={this.updateBlogState} formHandler={this.formHandler} />
+          <div className="login" onClick={this.loginHandle}>
+            Login
           </div>
+          <h1>Cat Blog - our crazy, lazy life</h1>
+          {this.state.login ? (
+            <div className="add_content">
+              <Form
+                copyArticles={this.copyArticles}
+                post={this.post}
+                updateBlogState={this.updateBlogState}
+                formHandler={this.formHandler}
+              />
+            </div>
+          ) : null}
         </header>
 
         <section className="cd-timeline js-cd-timeline">

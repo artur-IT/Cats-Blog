@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700");
+/* @import url("https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700"); */
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
+
 *,
 *::after,
 *::before {
@@ -985,7 +987,7 @@ svg {
 body {
   font-size: 1em;
   font-size: var(--text-base-size, 1em);
-  font-family: "Droid Serif", serif;
+  font-family: "PT Sans Narrow", sans-serif;
   font-family: var(--font-primary, sans-serif);
   color: hsl(240, 4%, 20%);
   color: var(--color-contrast-high, #313135);
@@ -1376,9 +1378,6 @@ u,
   transform: translateY(-100%);
   width: 0;
   height: 0;
-  border: 8px solid transparent;
-  border-bottom-color: hsl(355, 90%, 61%);
-  border-bottom-color: var(--color-error);
 }
 .form__msg-error--is-visible {
   position: relative;
@@ -3128,7 +3127,7 @@ mark {
   --cd-color-6-s: 85%;
   --cd-color-6-l: 61%;
   --cd-header-height: 200px;
-  --font-primary: "Droid Serif", serif;
+  --font-primary: "PT Sans", sans-serif;
   --font-secondary: "Open Sans", sans-serif;
 }
 @supports (--css: variables) {
@@ -3149,7 +3148,7 @@ mark {
   -moz-osx-font-smoothing: grayscale;
 }
 .cd-main-header h1 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "PT Sans Narrow", sans-serif;
   font-family: var(--font-secondary);
   color: inherit;
 }
@@ -3161,11 +3160,11 @@ mark {
   color: var(--cd-color-3);
   background-color: hsl(205, 38%, 93.45%);
   background-color: hsl(var(--cd-color-2-h), var(--cd-color-2-s), calc(var(--cd-color-2-l) * 1.05));
-  font-family: "Droid Serif", serif;
+  font-family: "PT Sans Narrow", sans-serif;
   font-family: var(--font-primary);
 }
 .cd-timeline h2 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "PT Sans Narrow", sans-serif;
   font-family: var(--font-secondary);
   font-weight: 700;
 }
