@@ -1,0 +1,47 @@
+.login-panel {
+  position: absolute;
+  top: 50px;
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: rgb(0, 0, 0, 80%);
+}
+
+.login-panel h2 {
+  text-align: center;
+}
+
+.login-panel .form-group {
+  margin-bottom: 10px;
+}
+
+.login-panel label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-panel input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.login-panel button {
+  padding: 10px 15px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-panel .links {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-panel .links a {
+  display: inline-block;
+  margin: 0 15px;
+}

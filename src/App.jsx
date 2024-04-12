@@ -1,9 +1,10 @@
 import React from "react";
 import ShowArticles from "/components/ShowArticles";
 import Article from "/components/Article";
-import Form from "/components/AddPostForm";
+import { LoginPanel } from "../components/LoginPanel";
+import "../css/myStyle.css";
 import "/css/addPostForm.css";
-import "/css/myStyle.css";
+import "/css/loginPanel.css";
 
 // read all articles from JSON file
 import articles from "/js/articles";
@@ -14,6 +15,7 @@ class App extends React.Component {
     this.state = {
       articles: articles,
       login: false,
+      showNewPost: false,
     };
 
     this.copyArticles = this.state.articles;
@@ -36,8 +38,17 @@ class App extends React.Component {
       .catch((error) => console.error("Błąd:", error));
   };
 
+  // show / hide LoginPanel
+  loginTopButtonHandle = (e) => {
+    e.preventDefault();
+    this.setState((prevState) => ({ login: !prevState.login }));
+  };
+
   // show / hide addPostForm
-  loginHandle = () => this.setState((prevState) => ({ login: !prevState.login }));
+  showNewPostHandle = (e) => {
+    e.preventDefault();
+    this.setState((prevState) => ({ showNewPost: !prevState.showNewPost }));
+  };
 
   formHandler = () => {
     let authorContent = document.querySelector("select.author").value;
@@ -79,20 +90,24 @@ class App extends React.Component {
     return (
       <>
         <header className="cd-main-header text-center flex flex-column flex-center">
-          <div className="login" onClick={this.loginHandle}>
+          <div className="login_top_btn" onClick={this.loginTopButtonHandle}>
             Login
           </div>
-          <h1>Cat Blog - our crazy, lazy life</h1>
+
           {this.state.login ? (
-            <div className="add_content">
-              <Form
-                copyArticles={this.copyArticles}
-                post={this.post}
-                updateBlogState={this.updateBlogState}
-                formHandler={this.formHandler}
-              />
-            </div>
+            <LoginPanel
+              state={this.state.login}
+              copyArticles={this.copyArticles}
+              post={this.post}
+              updateBlogState={this.updateBlogState}
+              formHandler={this.formHandler}
+              loginHandle={this.loginHandle}
+              showNewPost={this.state.showNewPost}
+              showNewPostHandle={this.showNewPostHandle}
+            />
           ) : null}
+
+          <h1>Cat Blog - our crazy, lazy life</h1>
         </header>
 
         <section className="cd-timeline js-cd-timeline">
