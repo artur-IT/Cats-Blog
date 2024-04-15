@@ -2,6 +2,7 @@ import React from "react";
 import ShowArticles from "/components/ShowArticles";
 import Article from "/components/Article";
 import { LoginPanel } from "../components/LoginPanel";
+import FormAddPost from "/components/FormAddPost";
 import "../css/myStyle.css";
 import "/css/addPostForm.css";
 import "/css/loginPanel.css";
@@ -16,8 +17,6 @@ class App extends React.Component {
       articles: articles,
       login: false,
       showNewPost: false,
-      // user: "cats",
-      // pass: "miau123",
     };
 
     this.copyArticles = this.state.articles;
@@ -41,13 +40,13 @@ class App extends React.Component {
   };
 
   // show / hide LoginPanel
-  loginTopButtonHandle = (e) => {
-    e.preventDefault();
+  loginTopButtonHandle = () => {
+    // e.preventDefault();
     this.setState((prevState) => ({ login: !prevState.login }));
   };
 
   // show / hide addPostForm
-  showNewPostHandle = () => {
+  showNewPostWindow = () => {
     // e.preventDefault();
     this.setState((prevState) => ({ showNewPost: !prevState.showNewPost }));
   };
@@ -105,7 +104,8 @@ class App extends React.Component {
               formHandler={this.formHandler}
               loginHandle={this.loginHandle}
               showNewPost={this.state.showNewPost}
-              showNewPostHandle={this.showNewPostHandle}
+              showNewPostWindow={this.showNewPostWindow}
+              loginTopButtonHandle={this.loginTopButtonHandle}
             />
           ) : null}
 
@@ -118,6 +118,18 @@ class App extends React.Component {
             <ShowArticles posts={this.posts} />
           </div>
         </section>
+
+        {/* popup with add new post form after successful login */}
+        {this.state.showNewPost ? (
+          <div className="add_content">
+            <FormAddPost
+              copyArticles={this.copyArticles}
+              post={this.post}
+              updateBlogState={this.updateBlogState}
+              formHandler={this.formHandler}
+            />
+          </div>
+        ) : null}
       </>
     );
   }
