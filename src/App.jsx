@@ -16,6 +16,8 @@ class App extends React.Component {
       articles: articles,
       login: false,
       showNewPost: false,
+      // user: "cats",
+      // pass: "miau123",
     };
 
     this.copyArticles = this.state.articles;
@@ -45,8 +47,8 @@ class App extends React.Component {
   };
 
   // show / hide addPostForm
-  showNewPostHandle = (e) => {
-    e.preventDefault();
+  showNewPostHandle = () => {
+    // e.preventDefault();
     this.setState((prevState) => ({ showNewPost: !prevState.showNewPost }));
   };
 

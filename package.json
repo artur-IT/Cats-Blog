@@ -13,6 +13,7 @@
     "@formkit/tempo": "^0.0.15",
     "@types/node": "^20.11.30",
     "express": "^4.19.2",
+    "gh-pages": "^6.1.1",
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.0",
     "react": "^18.2.0",
