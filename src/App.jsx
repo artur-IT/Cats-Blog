@@ -3,6 +3,7 @@ import ShowArticles from "/components/ShowArticles";
 import Article from "/components/Article";
 import { LoginPanel } from "../components/LoginPanel";
 import FormAddPost from "/components/FormAddPost";
+import CatsInfo from "/components/CatsInfo";
 import "../css/myStyle.css";
 import "/css/addPostForm.css";
 import "/css/loginPanel.css";
@@ -96,6 +97,8 @@ class App extends React.Component {
           <div className="login_top_btn" onClick={this.loginTopButtonHandle}>
             Login
           </div>
+
+          <CatsInfo />
 
           {this.state.login ? (
             <LoginPanel

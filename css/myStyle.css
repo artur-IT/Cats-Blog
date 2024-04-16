@@ -1,12 +1,29 @@
+.cats_indi,
+.cats_tiger,
 .login_top_btn {
   position: absolute;
   top: 0;
-  left: 50%-50px;
   width: 100px;
   height: 40px;
   line-height: 40px;
   background-color: yellowgreen;
   cursor: pointer;
+}
+
+.login_top_btn {
+  left: 50%-50px;
+}
+
+.cats_info {
+  position: absolute;
+  top: 0;
+  width: 220px;
+  height: 40px;
+  right: 5%;
+}
+
+.cats_tiger {
+  right: 0;
 }
 
 .cd-main-header {
