@@ -41,13 +41,11 @@ class App extends React.Component {
 
   // show / hide LoginPanel
   loginTopButtonHandle = () => {
-    // e.preventDefault();
     this.setState((prevState) => ({ login: !prevState.login }));
   };
 
   // show / hide addPostForm
   showNewPostWindow = () => {
-    // e.preventDefault();
     this.setState((prevState) => ({ showNewPost: !prevState.showNewPost }));
   };
 
@@ -66,7 +64,6 @@ class App extends React.Component {
     };
 
     this.copyArticles.push(newArticle);
-    // this.setState({ articles: this.posts });
     this.createArticlesComponentTable();
     this.apiSavePosts(newArticle);
   };
