@@ -114,13 +114,14 @@ class App extends React.Component {
           <h1>Cat Blog - our crazy, lazy life</h1>
         </header>
 
+        <img src="img/wave.svg" className="wave" alt="wave" />
+
         <section className="cd-timeline js-cd-timeline">
           <div className="container max-width-lg cd-timeline__container" id="blog_container">
             {this.createArticlesComponentTable()}
             <ShowArticles posts={this.posts} />
           </div>
         </section>
-
         {/* popup with add new post form after successful login */}
         {this.state.showNewPost ? (
           <div className="add_content">

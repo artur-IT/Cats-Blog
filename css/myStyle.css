@@ -9,7 +9,15 @@
   cursor: pointer;
 }
 
+.cd-main-header {
+  background-color: #0099ff;
+}
+
 span {
   font-style: italic;
   font-weight: 700;
+}
+
+.wave {
+  position: absolute;
 }
