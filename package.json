@@ -10,13 +10,12 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@formkit/tempo": "^0.0.15",
     "@types/node": "^20.11.30",
     "express": "^4.19.2",
-    "gh-pages": "^6.1.1",
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.0",
     "react": "^18.2.0",
@@ -34,6 +33,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "gh-pages": "^6.1.1",
     "vite": "^5.1.4"
   },
   "main": "vite.config.js",
