@@ -55,17 +55,22 @@ class App extends React.Component {
     let titleContent = document.querySelector(".title_content").value;
     let blogContent = document.querySelector(".blog_content").value;
 
-    const newArticle = {
-      id: this.copyArticles.length,
-      author: authorContent,
-      date: new Date(dateContent).toISOString().substring(0, 10),
-      title: titleContent,
-      content: blogContent,
-    };
+    if ((authorContent && dateContent && titleContent && blogContent) !== "") {
+      const newArticle = {
+        id: this.copyArticles.length,
+        author: authorContent,
+        date: new Date(dateContent).toISOString().substring(0, 10),
+        title: titleContent,
+        content: blogContent,
+      };
 
-    this.copyArticles.push(newArticle);
-    this.createArticlesComponentTable();
-    this.apiSavePosts(newArticle);
+      this.copyArticles.push(newArticle);
+      this.createArticlesComponentTable();
+      this.apiSavePosts(newArticle);
+    } else {
+      alert("Wszystkie pola muszą być wypełnione!");
+      return;
+    }
   };
 
   // Create tsble of Components with all posts from file / object
