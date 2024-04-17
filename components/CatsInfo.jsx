@@ -6,7 +6,7 @@ const CatsInfo = () => {
     <section className="cats_info">
       <div className="cats_indi" onClick={() => showIndi()}>
         Indi
-        <img src="img/indi.jpg" className="indi" alt="Indi" />
+        <img src="img/indi2.jpg" className="indi" alt="Indi" />
       </div>
       <div className="cats_tiger" onClick={() => showTiger()}>
         Tiger

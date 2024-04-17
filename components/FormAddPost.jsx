@@ -11,6 +11,7 @@ const Form = (props) => {
   return (
     <>
       <section className="layout">
+        <h3 className="title_top">New Post</h3>
         <div className="title">
           <p>Title:</p>
         </div>
