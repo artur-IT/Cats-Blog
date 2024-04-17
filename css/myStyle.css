@@ -1,3 +1,8 @@
+.login_top_btn {
+  left: 50%-50px;
+}
+
+/* Author's - start */
 .cats_indi,
 .cats_tiger,
 .login_top_btn {
@@ -10,21 +15,54 @@
   cursor: pointer;
 }
 
-.login_top_btn {
-  left: 50%-50px;
-}
-
 .cats_info {
   position: absolute;
   top: 0;
-  width: 220px;
+  width: 320px;
   height: 40px;
   right: 5%;
+  /* border: 2px solid #fff; */
+  z-index: 5;
+}
+
+.cats_indi,
+.cats_tiger {
+  width: 150px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 0.8rem;
+  transition: 0.5s;
 }
 
 .cats_tiger {
+  width: 150px;
   right: 0;
 }
+
+img.indi {
+  position: relative;
+  top: -190px;
+  transition: 0.5s;
+  border-radius: 15px;
+  z-index: -1;
+}
+
+img.tiger {
+  position: relative;
+  top: -268px;
+  transition: 0.5s;
+  z-index: -1;
+  border-radius: 15px;
+}
+
+img.indi_show {
+  top: 0;
+}
+
+img.tiger_show {
+  top: 0;
+}
+/* Author's - end  */
 
 .cd-main-header {
   background-color: #0099ff;
