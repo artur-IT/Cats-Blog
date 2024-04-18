@@ -1,5 +1,5 @@
 .login_top_btn {
-  left: 50%-50px;
+  right: calc(10% - 50px);
 }
 
 /* Author's - start */
@@ -20,8 +20,6 @@
   top: 0;
   width: 320px;
   height: 40px;
-  right: 5%;
-  /* border: 2px solid #fff; */
   z-index: 5;
 }
 

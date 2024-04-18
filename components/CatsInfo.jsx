@@ -1,4 +1,5 @@
 const CatsInfo = () => {
+  const authorName = (name) => console.log(name);
   const showIndi = () => document.querySelector(".indi").classList.toggle("indi_show");
   const showTiger = () => document.querySelector(".tiger").classList.toggle("tiger_show");
 
