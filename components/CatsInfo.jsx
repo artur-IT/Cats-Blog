@@ -1,16 +1,13 @@
 const CatsInfo = () => {
-  const authorName = (name) => console.log(name);
   const showIndi = () => document.querySelector(".indi").classList.toggle("indi_show");
   const showTiger = () => document.querySelector(".tiger").classList.toggle("tiger_show");
 
   return (
     <section className="cats_info">
-      <div className="cats_indi" onClick={() => showIndi()}>
-        Indi
+      <div className="cats_indi" onMouseEnter={() => showIndi()} onMouseOut={() => showIndi()}>
         <img src="img/indi2.jpg" className="indi" alt="Indi" />
       </div>
-      <div className="cats_tiger" onClick={() => showTiger()}>
-        Tiger
+      <div className="cats_tiger" onMouseEnter={() => showTiger()} onMouseOut={() => showTiger()}>
         <img src="img/tiger.jpg" className="tiger" alt="Tiger" />
       </div>
     </section>
