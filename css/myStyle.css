@@ -1,5 +1,8 @@
 .login_top_btn {
   right: calc(10% - 50px);
+  font-size: 1rem;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 /* Author's - start */
