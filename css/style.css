@@ -1,5 +1,5 @@
-/* @import url("https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700"); */
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
 
 *,
 *::after,
@@ -3148,8 +3148,9 @@ mark {
   -moz-osx-font-smoothing: grayscale;
 }
 .cd-main-header h1 {
-  font-family: "PT Sans Narrow", sans-serif;
-  font-family: var(--font-secondary);
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
   color: inherit;
 }
 .cd-timeline {
