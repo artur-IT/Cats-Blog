@@ -1,5 +1,4 @@
 import express from "express";
-
 import fs from "fs";
 
 const app = express();
@@ -35,3 +34,28 @@ app.use((req, res, next) => {
     console.log("Serwer uruchomiony na porcie 3000");
   });
 })();
+
+//----------------------
+// kod pozwala pobrać plik z komputera użytkownika i zapisać go w folderze /public projektu:
+// app.use(express.static("public"));
+// const upload = multer({ dest: "public/" });
+
+// app.post("/upload", upload.single("file"), (req, res) => {
+//   const file = req.file;
+//   if (!file) {
+//     return res.status(400).send("Brak pliku do uploadu");
+//   }
+
+//   res.send("Plik " + file.originalname + " został zapisany.");
+// });
+const path = require("path");
+const uploadPath = path.join(__dirname, "public", "files");
+
+app.post("/upload", (req, res) => {
+  const file = req.body;
+
+  // fs.writeFileSync("files/image.jpg", file);
+  fs.writeFileSync(path.join(uploadPath, "image.jpg"), file);
+  console.log("save file!");
+  res.send("Plik zapisany!");
+});

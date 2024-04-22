@@ -116,7 +116,12 @@ class App extends React.Component {
 
           <h1>Cat Blog - our crazy, lazy life</h1>
         </header>
-
+        {/* ----------- */}
+        <form id="uploadForm">
+          <input type="file" id="fileInput" />
+          <button id="sendButton">Wyślij</button>
+        </form>
+        {/* -------------- */}
         <img src="img/wave.svg" className="wave" alt="wave" />
 
         <section className="cd-timeline js-cd-timeline">
