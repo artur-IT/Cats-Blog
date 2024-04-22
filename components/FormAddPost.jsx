@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 const Form = (props) => {
   const articlesTable = props.copyArticles;
 
@@ -8,6 +6,36 @@ const Form = (props) => {
     props.formHandler();
     props.updateBlogState(articlesTable);
   };
+
+  document.addEventListener("load", () => {
+    document.querySelector(".uploader__input").addEventListener("change", validateFiles);
+  });
+  // document.querySelector(".uploader__input").addEventListener("change", validateFiles);
+  function validateFiles(e) {
+    const [file] = e.target.files;
+
+    if (file && file.name.includes(".jpg") && file.type === "image") {
+      // możemy zająć się obsługą pliku
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        console.log(event.target.result);
+      };
+      // reader.readAsText(file);
+    } else {
+      console.log("Nieprawidłowy plik, wgraj plik jpg.");
+    }
+
+    if (file.size > 100000) {
+      console.log("Przekroczono limit wielkości pliku.");
+      return;
+    }
+
+    if (file.name.length > 15) {
+      console.log("Plik ma za długą nazwę. Dozwolona liczba znaków: 45.");
+      return;
+    }
+  }
+
   return (
     <>
       <section className="layout">
@@ -42,6 +70,19 @@ const Form = (props) => {
             <option>Indi</option>
             <option>Tiger</option>
           </select>
+        </div>
+
+        <div className="file">
+          <form className="uploader">
+            <label className="uploader__label">
+              Wybierz plik JPG:
+              <input className="uploader__input" type="file" accept=".jpg" />
+            </label>
+          </form>
+          {/* <p>Plik:</p>
+        </div>
+        <div className="file_field">
+          <input className="uploader__input" type="file" accept="image/jpg," /> */}
         </div>
 
         <div className="empty"></div>

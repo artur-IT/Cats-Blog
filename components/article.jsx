@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { format } from "@formkit/tempo";
 
 const Article = (props) => {

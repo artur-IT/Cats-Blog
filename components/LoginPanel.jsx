@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 export const LoginPanel = (props) => {
   // eslint-disable-next-line react/prop-types
   const permissions = {

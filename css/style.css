@@ -3268,6 +3268,7 @@ mark {
   box-shadow: 0 3px 0 hsl(205, 38%, 89%);
   box-shadow: 0 3px 0 var(--cd-color-2);
   /* box-shadow: 10px 10px 30px #727272; */
+  box-shadow: 5px 5px 5px gray;
 }
 .cd-timeline__content::before {
   content: "";
