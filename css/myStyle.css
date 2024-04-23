@@ -41,14 +41,24 @@
   font-size: 1rem;
   font-weight: bold;
   transition: 0.5s;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .cats_tiger {
   width: 150px;
   right: 0;
 }
+.cats_tiger:hover {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
 .cats_tiger:hover:before {
   content: "Tiger";
+}
+.cats_indi:hover {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 .cats_indi:hover:before {
   content: "Indi";
@@ -60,6 +70,8 @@ img.indi {
   transition: 0.5s;
   border: 7px solid #9acd32;
   z-index: -1;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 img.tiger {
@@ -68,6 +80,8 @@ img.tiger {
   transition: 0.5s;
   z-index: -1;
   border: 7px solid #9acd32;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 img.indi_show {

@@ -12,7 +12,7 @@ export const LoginPanel = (props) => {
     if (userData === permissions.user && passData === permissions.pass) {
       props.loginTopButtonHandle();
       props.showNewPostWindow();
-    } else alert("Złe dane logowania!");
+    } else alert("Bad login or password!");
   };
 
   return (
@@ -33,7 +33,7 @@ export const LoginPanel = (props) => {
         </div>
 
         <button type="submit" onClick={checkPremissions}>
-          Zaloguj
+          Login
         </button>
       </form>
     </section>
