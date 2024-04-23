@@ -27,24 +27,26 @@
 //   });
 // });
 
-window.addEventListener("load", () => {
-  const fileInput = document.getElementById("fileInput");
-  const sendButton = document.getElementById("sendButton");
+// window.addEventListener("load", () => {
+//   const fileInput = document.getElementById("fileInput");
+//   const sendButton = document.getElementById("sendButton");
 
-  sendButton.addEventListener("click", (e) => {
-    const reader = new FileReader();
-    e.preventDefault();
-    const file = fileInput.files[0];
+//   sendButton.addEventListener("click", (e) => {
+//     const reader = new FileReader();
+//     e.preventDefault();
+//     const file = fileInput.files[0];
 
-    reader.onload = () => {
-      const file = reader.result;
+//     reader.onload = () => {
+//       const file = reader.result;
 
-      fetch("/upload", {
-        method: "POST",
-        body: file,
-      });
-    };
+//       fetch("/upload", {
+//         method: "POST",
+//         body: file,
+//       });
+//     };
 
-    reader.readAsDataURL(file);
-  });
-});
+//     reader.readAsDataURL(file);
+//   });
+// });
+
+// TEST file upload

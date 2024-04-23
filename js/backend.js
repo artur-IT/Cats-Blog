@@ -48,14 +48,5 @@ app.use((req, res, next) => {
 
 //   res.send("Plik " + file.originalname + " został zapisany.");
 // });
-const path = require("path");
-const uploadPath = path.join(__dirname, "public", "files");
-
-app.post("/upload", (req, res) => {
-  const file = req.body;
-
-  // fs.writeFileSync("files/image.jpg", file);
-  fs.writeFileSync(path.join(uploadPath, "image.jpg"), file);
-  console.log("save file!");
-  res.send("Plik zapisany!");
-});
+// const path = require("path");
+// const uploadPath = path.join(__dirname, "public", "files");

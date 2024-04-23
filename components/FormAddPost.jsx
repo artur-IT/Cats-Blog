@@ -10,7 +10,8 @@ const Form = (props) => {
   document.addEventListener("load", () => {
     document.querySelector(".uploader__input").addEventListener("change", validateFiles);
   });
-  // document.querySelector(".uploader__input").addEventListener("change", validateFiles);
+
+  // TEST file upload
   function validateFiles(e) {
     const [file] = e.target.files;
 
@@ -72,18 +73,14 @@ const Form = (props) => {
           </select>
         </div>
 
-        <div className="file">
+        {/* <div className="file">
           <form className="uploader">
             <label className="uploader__label">
               Wybierz plik JPG:
               <input className="uploader__input" type="file" accept=".jpg" />
             </label>
           </form>
-          {/* <p>Plik:</p>
-        </div>
-        <div className="file_field">
-          <input className="uploader__input" type="file" accept="image/jpg," /> */}
-        </div>
+        </div> */}
 
         <div className="empty"></div>
         <div className="button">
