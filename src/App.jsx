@@ -1,6 +1,6 @@
 import React from "react";
-import ShowArticles from "components/ShowArticles";
-import Article from "components/Article";
+import ShowArticles from "../components/ShowArticles";
+import Article from "../components/Article";
 import { LoginPanel } from "../components/LoginPanel";
 import FormAddPost from "/components/FormAddPost";
 import CatsInfo from "/components/CatsInfo";
