@@ -1,7 +1,7 @@
 import React from "react";
-import ShowArticles from "../components/ShowArticles";
-import Article from "../components/Article";
-import { LoginPanel } from "../components/LoginPanel";
+import ShowArticles from "../Components/ShowArticles";
+import Article from "../Components/Article";
+import { LoginPanel } from "../Components/LoginPanel";
 import FormAddPost from "/components/FormAddPost";
 import CatsInfo from "/components/CatsInfo";
 import "../css/myStyle.css";
