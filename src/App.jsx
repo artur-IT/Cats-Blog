@@ -45,7 +45,7 @@ class App extends React.Component {
     this.setState((prevState) => ({ login: !prevState.login }));
   };
 
-  loginTopButtonBlock = () => {
+  loginTopButtonHide = () => {
     if (this.state.showNewPost === true) {
       document.querySelector(".login_top_btn").style.display = "none";
     }
@@ -94,12 +94,25 @@ class App extends React.Component {
     }
   };
 
+  // Change paw bg-color when author Tiger / Indi
+  changePawColor = () => {
+    window.onload = () => {
+      document.querySelectorAll("span").forEach((el) => {
+        if (el.textContent === "Indi") {
+          el.parentElement.previousSibling.style.backgroundColor = "yellow";
+        }
+      });
+    };
+  };
+
   // UPDATE state AFTER ADD ARTICLE FROM COMPONENT Form
   updateBlogState = (newArticle) => this.setState({ articles: newArticle });
 
   render() {
     return (
       <>
+        {this.changePawColor()}
+
         <header className="cd-main-header text-center flex flex-column flex-center">
           <div className="login_top_btn" onClick={this.loginTopButtonHandle}>
             Login
@@ -146,7 +159,7 @@ class App extends React.Component {
               updateBlogState={this.updateBlogState}
               formHandler={this.formHandler}
               showNewPostWindow={this.showNewPostWindow}
-              loginTopButtonBlock={this.loginTopButtonBlock}
+              loginTopButtonHide={this.loginTopButtonHide}
             />
           </div>
         ) : null}

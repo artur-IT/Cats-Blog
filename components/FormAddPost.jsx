@@ -1,12 +1,12 @@
 const Form = (props) => {
   const articlesTable = props.copyArticles;
-  props.loginTopButtonBlock();
+  props.loginTopButtonHide();
 
   const buttonAddHandler = (e) => {
     e.preventDefault();
     props.formHandler();
     props.updateBlogState(articlesTable);
-    props.loginTopButtonBlock();
+    props.loginTopButtonHide();
   };
 
   // document.addEventListener("load", () => {

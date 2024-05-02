@@ -106,3 +106,7 @@ span {
 .wave {
   position: absolute;
 }
+
+.paw_bg-color {
+  background-color: yellow;
+}
