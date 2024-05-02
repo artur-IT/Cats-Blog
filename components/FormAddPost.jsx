@@ -1,17 +1,22 @@
 const Form = (props) => {
   const articlesTable = props.copyArticles;
+  props.loginTopButtonBlock();
 
   const buttonAddHandler = (e) => {
     e.preventDefault();
     props.formHandler();
     props.updateBlogState(articlesTable);
+    props.loginTopButtonBlock();
   };
 
-  document.addEventListener("load", () => {
-    document.querySelector(".uploader__input").addEventListener("change", validateFiles);
-  });
+  // document.addEventListener("load", () => {
+  //   document.querySelector(".uploader__input").addEventListener("change", validateFiles);
+  // });
 
-  const buttonCloseHandler = () => props.showNewPostWindow();
+  const buttonCloseHandler = () => {
+    props.showNewPostWindow();
+    document.querySelector(".login_top_btn").style.display = "block";
+  };
 
   // TEST file upload
   function validateFiles(e) {

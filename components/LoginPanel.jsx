@@ -1,5 +1,4 @@
 export const LoginPanel = (props) => {
-  // eslint-disable-next-line react/prop-types
   const permissions = {
     user: "cats",
     pass: "m",

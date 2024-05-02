@@ -45,6 +45,12 @@ class App extends React.Component {
     this.setState((prevState) => ({ login: !prevState.login }));
   };
 
+  loginTopButtonBlock = () => {
+    if (this.state.showNewPost === true) {
+      document.querySelector(".login_top_btn").style.display = "none";
+    }
+  };
+
   // show / hide addPostForm
   showNewPostWindow = () => {
     this.setState((prevState) => ({ showNewPost: !prevState.showNewPost }));
@@ -68,6 +74,7 @@ class App extends React.Component {
       this.copyArticles.push(newArticle);
       this.createArticlesComponentTable();
       this.apiSavePosts(newArticle);
+      this.showNewPostWindow();
     } else {
       alert("Wszystkie pola muszą być wypełnione!");
       return;
@@ -139,6 +146,7 @@ class App extends React.Component {
               updateBlogState={this.updateBlogState}
               formHandler={this.formHandler}
               showNewPostWindow={this.showNewPostWindow}
+              loginTopButtonBlock={this.loginTopButtonBlock}
             />
           </div>
         ) : null}
