@@ -7,7 +7,7 @@
   width: 100px;
   height: 40px;
   line-height: 40px;
-  background-color: yellowgreen;
+  background-color: hsl(111, 51%, 60%);
   cursor: pointer;
 }
 
@@ -68,7 +68,7 @@ img.indi {
   position: relative;
   top: -190px;
   transition: 0.5s;
-  border: 7px solid #9acd32;
+  border: 7px solid hsl(111, 51%, 60%);
   z-index: -1;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -79,7 +79,7 @@ img.tiger {
   top: -268px;
   transition: 0.5s;
   z-index: -1;
-  border: 7px solid #9acd32;
+  border: 7px solid hsl(111, 51%, 60%);
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
