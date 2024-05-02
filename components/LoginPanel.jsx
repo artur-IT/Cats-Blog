@@ -12,7 +12,7 @@ export const LoginPanel = (props) => {
     if (userData === permissions.user && passData === permissions.pass) {
       props.loginTopButtonHandle();
       props.showNewPostWindow();
-    } else alert("Bad login or password!");
+    } else alert("Zły login lub hasło!");
   };
 
   return (
@@ -20,14 +20,14 @@ export const LoginPanel = (props) => {
       <form>
         <div className="form-group">
           <label>
-            user:
+            admin:
             <input type="user" name="user" />
           </label>
         </div>
 
         <div className="form-group">
           <label>
-            password:
+            hasło:
             <input type="new-password" name="pass" />
           </label>
         </div>

@@ -42,33 +42,33 @@ const Form = (props) => {
   return (
     <>
       <section className="layout">
-        <h3 className="title_top">New Post</h3>
+        <h3 className="title_top">Krótki Post</h3>
         <div className="close" onClick={buttonCloseHandler}>
           x
         </div>
         <div className="title">
-          <p>Title:</p>
+          <p>Tytuł</p>
         </div>
         <div className="title_field">
           <input className="title_content" type="text" name="title_content" />
         </div>
 
         <div className="content">
-          <p>Content:</p>
+          <p>Treść</p>
         </div>
         <div className="content_field">
           <textarea className="blog_content" type="text" name="blog_content" />
         </div>
 
         <div className="date">
-          <p>Date:</p>
+          <p>Data</p>
         </div>
         <div className="date_field">
           <input className="date_content" type="date" name="date_content" />
         </div>
 
         <div className="author_label">
-          <p>Author:</p>
+          <p>Autor</p>
         </div>
         <div className="author_field">
           <select className="author" name="author">
@@ -90,7 +90,7 @@ const Form = (props) => {
         <div className="empty"></div>
         <div className="button">
           <button className="btn_add" onClick={buttonAddHandler}>
-            ADD
+            Dodaj
           </button>
         </div>
       </section>
