@@ -1,5 +1,5 @@
-const ShowArticles = (props) => {
-  return <>{props.posts}</>;
+const ShowArticles = ({ posts }) => {
+  return <>{posts}</>;
 };
 
 export default ShowArticles;

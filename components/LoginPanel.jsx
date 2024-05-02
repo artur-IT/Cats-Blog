@@ -1,7 +1,7 @@
-export const LoginPanel = (props) => {
+export const LoginPanel = ({ showNewPostWindow, loginTopButton }) => {
   const permissions = {
     user: "cats",
-    pass: "m",
+    pass: "crazy",
   };
 
   const checkPremissions = () => {
@@ -9,8 +9,8 @@ export const LoginPanel = (props) => {
     const passData = document.querySelector('input[name="pass"]').value;
 
     if (userData === permissions.user && passData === permissions.pass) {
-      props.loginTopButtonHandle();
-      props.showNewPostWindow();
+      loginTopButton();
+      showNewPostWindow();
     } else alert("Zły login lub hasło!");
   };
 
@@ -20,14 +20,14 @@ export const LoginPanel = (props) => {
         <div className="form-group">
           <label>
             admin:
-            <input type="user" name="user" />
+            <input type="user" name="user" placeholder="cats" />
           </label>
         </div>
 
         <div className="form-group">
           <label>
             hasło:
-            <input type="new-password" name="pass" />
+            <input type="new-password" name="pass" placeholder="crazy" />
           </label>
         </div>
 

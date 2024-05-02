@@ -1,20 +1,20 @@
-const Form = (props) => {
-  const articlesTable = props.copyArticles;
-  props.loginTopButtonHide();
+const FormAddPost = ({ copyArticles, showNewPostWindow, loginTopButtonHide, formAddHandle, updateBlogState }) => {
+  const articlesTable = copyArticles;
+  loginTopButtonHide();
 
   const buttonAddHandler = (e) => {
     e.preventDefault();
-    props.formHandler();
-    props.updateBlogState(articlesTable);
-    props.loginTopButtonHide();
+    formAddHandle();
+    updateBlogState(articlesTable);
+    loginTopButtonHide();
   };
 
   // document.addEventListener("load", () => {
   //   document.querySelector(".uploader__input").addEventListener("change", validateFiles);
   // });
 
-  const buttonCloseHandler = () => {
-    props.showNewPostWindow();
+  const buttonCloseHandle = () => {
+    showNewPostWindow();
     document.querySelector(".login_top_btn").style.display = "block";
   };
 
@@ -48,7 +48,7 @@ const Form = (props) => {
     <>
       <section className="layout">
         <h3 className="title_top">Krótki Post</h3>
-        <div className="close" onClick={buttonCloseHandler}>
+        <div className="close" onClick={buttonCloseHandle}>
           x
         </div>
         <div className="title">
@@ -103,4 +103,4 @@ const Form = (props) => {
   );
 };
 
-export default Form;
+export default FormAddPost;

@@ -5,7 +5,7 @@ import { LoginPanel } from "../components/LoginPanel";
 import FormAddPost from "/components/FormAddPost";
 import CatsInfo from "/components/CatsInfo";
 import "../css/myStyle.css";
-import "/css/addPostForm.css";
+import "/css/formAddPost.css";
 import "/css/loginPanel.css";
 
 // read all articles from JSON file
@@ -41,22 +41,16 @@ class App extends React.Component {
   };
 
   // show / hide LoginPanel
-  loginTopButtonHandle = () => {
-    this.setState((prevState) => ({ login: !prevState.login }));
-  };
+  loginTopButton = () => this.setState((prevState) => ({ login: !prevState.login }));
 
-  loginTopButtonHide = () => {
-    if (this.state.showNewPost === true) {
-      document.querySelector(".login_top_btn").style.display = "none";
-    }
-  };
+  // Hide button after login and show when post added
+  loginTopButtonHide = () => (this.state.showNewPost === true ? (document.querySelector(".login_top_btn").style.display = "none") : null);
 
   // show / hide addPostForm
-  showNewPostWindow = () => {
-    this.setState((prevState) => ({ showNewPost: !prevState.showNewPost }));
-  };
+  showNewPostWindow = () => this.setState((prevState) => ({ showNewPost: !prevState.showNewPost }));
 
-  formHandler = () => {
+  // Add new post form
+  formAddHandle = () => {
     let authorContent = document.querySelector("select.author").value;
     let dateContent = document.querySelector(".date_content").value;
     let titleContent = document.querySelector(".title_content").value;
@@ -75,20 +69,18 @@ class App extends React.Component {
       this.createArticlesComponentTable();
       this.apiSavePosts(newArticle);
       this.showNewPostWindow();
-    } else {
-      alert("Wszystkie pola muszą być wypełnione!");
-      return;
-    }
+    } else alert("Wszystkie pola muszą być wypełnione!");
+    return;
   };
 
   // Create tsble of Components with all posts from file / object
   createArticlesComponentTable = () => {
     this.posts = [];
-    //sort date publication from actual to old
-    this.copyArticles.sort((a, b) => {
-      return new Date(b.date) - new Date(a.date);
-    });
 
+    //sort date publication from actual to old
+    this.copyArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    // create table of components with articles
     for (const el of this.copyArticles) {
       this.posts.push(<Article key={this.posts.length} author={el.author} date={el.date} title={el.title} content={el.content} />);
     }
@@ -96,13 +88,10 @@ class App extends React.Component {
 
   // Change paw bg-color when author Tiger / Indi
   changePawColor = () => {
-    window.onload = () => {
-      document.querySelectorAll("span").forEach((el) => {
-        if (el.textContent === "Indi") {
-          el.parentElement.previousSibling.style.backgroundColor = "yellow";
-        }
-      });
-    };
+    window.onload = () =>
+      document
+        .querySelectorAll("span")
+        .forEach((el) => (el.textContent === "Indi" ? (el.parentElement.previousSibling.style.backgroundColor = "yellow") : null));
   };
 
   // UPDATE state AFTER ADD ARTICLE FROM COMPONENT Form
@@ -114,10 +103,11 @@ class App extends React.Component {
         {this.changePawColor()}
 
         <header className="cd-main-header text-center flex flex-column flex-center">
-          <div className="login_top_btn" onClick={this.loginTopButtonHandle}>
+          <div className="login_top_btn" onClick={this.loginTopButton}>
             Login
           </div>
 
+          {/* Author's pictures */}
           <CatsInfo />
 
           {this.state.login ? (
@@ -130,7 +120,7 @@ class App extends React.Component {
               loginHandle={this.loginHandle}
               showNewPost={this.state.showNewPost}
               showNewPostWindow={this.showNewPostWindow}
-              loginTopButtonHandle={this.loginTopButtonHandle}
+              loginTopButton={this.loginTopButton}
             />
           ) : null}
 
@@ -150,6 +140,7 @@ class App extends React.Component {
             <ShowArticles posts={this.posts} />
           </div>
         </section>
+
         {/* popup with add new post form after successful login */}
         {this.state.showNewPost ? (
           <div className="add_content">
@@ -157,7 +148,7 @@ class App extends React.Component {
               copyArticles={this.copyArticles}
               post={this.post}
               updateBlogState={this.updateBlogState}
-              formHandler={this.formHandler}
+              formAddHandle={this.formAddHandle}
               showNewPostWindow={this.showNewPostWindow}
               loginTopButtonHide={this.loginTopButtonHide}
             />
