@@ -138,6 +138,7 @@ class App extends React.Component {
               post={this.post}
               updateBlogState={this.updateBlogState}
               formHandler={this.formHandler}
+              showNewPostWindow={this.showNewPostWindow}
             />
           </div>
         ) : null}

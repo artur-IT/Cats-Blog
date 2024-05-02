@@ -1,7 +1,7 @@
 const Form = (props) => {
   const articlesTable = props.copyArticles;
 
-  const buttonHandler = (e) => {
+  const buttonAddHandler = (e) => {
     e.preventDefault();
     props.formHandler();
     props.updateBlogState(articlesTable);
@@ -10,6 +10,8 @@ const Form = (props) => {
   document.addEventListener("load", () => {
     document.querySelector(".uploader__input").addEventListener("change", validateFiles);
   });
+
+  const buttonCloseHandler = () => props.showNewPostWindow();
 
   // TEST file upload
   function validateFiles(e) {
@@ -41,6 +43,9 @@ const Form = (props) => {
     <>
       <section className="layout">
         <h3 className="title_top">New Post</h3>
+        <div className="close" onClick={buttonCloseHandler}>
+          x
+        </div>
         <div className="title">
           <p>Title:</p>
         </div>
@@ -84,7 +89,7 @@ const Form = (props) => {
 
         <div className="empty"></div>
         <div className="button">
-          <button className="btn_add" onClick={buttonHandler}>
+          <button className="btn_add" onClick={buttonAddHandler}>
             ADD
           </button>
         </div>

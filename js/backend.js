@@ -36,17 +36,3 @@ app.use((req, res, next) => {
 })();
 
 //----------------------
-// kod pozwala pobrać plik z komputera użytkownika i zapisać go w folderze /public projektu:
-// app.use(express.static("public"));
-// const upload = multer({ dest: "public/" });
-
-// app.post("/upload", upload.single("file"), (req, res) => {
-//   const file = req.file;
-//   if (!file) {
-//     return res.status(400).send("Brak pliku do uploadu");
-//   }
-
-//   res.send("Plik " + file.originalname + " został zapisany.");
-// });
-// const path = require("path");
-// const uploadPath = path.join(__dirname, "public", "files");

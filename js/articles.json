@@ -1,5 +1,11 @@
 [
   { "id": 1, "author": "Tiger", "date": "2024-04-02", "title": "my titlesss", "content": "yhujiii" },
   { "id": 2, "author": "Tiger", "date": "2024-05-01", "title": "Lazy day", "content": "fffgyyyyyyyyyyyyyyyyy" },
-  { "id": 3, "author": "Indi", "date": "2024-02-01", "title": "my titlesss", "content": "ggggfdfdswss" }
+  {
+    "id": 3,
+    "author": "Indi",
+    "date": "2024-05-02",
+    "title": "Poranny głód ",
+    "content": "Rano byłem taki głodny że prawie wydrapałem drzwi do pokoju. Ale moja Pani wstała i przywitała mnie zaspana. Ale mięsko dała i... znowu zamknęła drzwi! Chyba poszła dalej spać? "
+  }
 ]
