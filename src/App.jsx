@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+
 import ShowArticles from "./ShowArticles";
 import Article from "./Article";
 import { LoginPanel } from "../components/LoginPanel";
@@ -9,25 +11,30 @@ import "/css/formAddPost.css";
 import "/css/loginPanel.css";
 
 // read all articles from JSON file
-import articles from "/js/articles";
+import allArticles from "/js/articles";
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      articles: articles,
-      login: false,
-      showNewPost: false,
-    };
+function App() {
+  const [articles, setArticles] = useState(allArticles);
+  const [login, setLogin] = useState(false);
+  const [showNewPost, setShowNewPost] = useState(false);
+  let posts = [];
 
-    this.copyArticles = this.state.articles;
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     articles: articles,
+  //     login: false,
+  //     showNewPost: false,
+  //   };
 
-    // All posts in table of components (1 post = 1 component Article)
-    this.posts = [];
-  }
+  //   this.copyArticles = this.state.articles;
+
+  // All posts in table of components (1 post = 1 component Article)
+  //   this.posts = [];
+  // }
 
   // save to JSON file
-  apiSavePosts = (newPost) => {
+  const apiSavePosts = (newPost) => {
     fetch("http://localhost:3000/articles", {
       method: "POST",
       headers: {
@@ -41,16 +48,16 @@ class App extends React.Component {
   };
 
   // show / hide LoginPanel
-  loginTopButton = () => this.setState((prevState) => ({ login: !prevState.login }));
+  const loginTopButton = () => setLogin(!login);
 
   // Hide button after login and show when post added
-  loginTopButtonHide = () => (this.state.showNewPost === true ? (document.querySelector(".login_top_btn").style.display = "none") : null);
+  const loginTopButtonHide = () => showNewPost === true && (document.querySelector(".login_top_btn").style.display = "none");
 
   // show / hide addPostForm
-  showNewPostWindow = () => this.setState((prevState) => ({ showNewPost: !prevState.showNewPost }));
+  const showNewPostWindow = () => setShowNewPost(!showNewPost);
 
   // Add new post form
-  formAddHandle = () => {
+  const formAddHandle = () => {
     let authorContent = document.querySelector("select.author").value;
     let dateContent = document.querySelector(".date_content").value;
     let titleContent = document.querySelector(".title_content").value;
@@ -74,20 +81,20 @@ class App extends React.Component {
   };
 
   // Create tsble of Components with all posts from file / object
-  createArticlesComponentTable = () => {
-    this.posts = [];
+  const createArticlesComponentTable = () => {
+    posts = [];
 
     //sort date publication from actual to old
-    this.copyArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     // create table of components with articles
-    for (const el of this.copyArticles) {
-      this.posts.push(<Article key={this.posts.length} author={el.author} date={el.date} title={el.title} content={el.content} />);
+    for (const el of articles) {
+      posts.push(<Article key={posts.length} author={el.author} date={el.date} title={el.title} content={el.content} />);
     }
   };
 
   // Change paw bg-color when author Tiger / Indi
-  changePawColor = () => {
+  const changePawColor = () => {
     window.onload = () =>
       document
         .querySelectorAll("span")
@@ -95,66 +102,64 @@ class App extends React.Component {
   };
 
   // UPDATE state AFTER ADD ARTICLE FROM COMPONENT Form
-  updateBlogState = (newArticle) => this.setState({ articles: newArticle });
+  const updateBlogState = (newArticle) => setArticles(newArticle);
 
-  render() {
-    return (
-      <>
-        {this.changePawColor()}
+  return (
+    <>
+      {changePawColor()}
 
-        <header className="cd-main-header text-center flex flex-column flex-center">
-          <div className="login_top_btn" onClick={this.loginTopButton}>
-            Login
-          </div>
+      <header className="cd-main-header text-center flex flex-column flex-center">
+        <div className="login_top_btn" onClick={loginTopButton}>
+          Login
+        </div>
 
-          {/* Author's pictures */}
-          <CatsInfo />
+        {/* Author's pictures */}
+        <CatsInfo />
 
-          {this.state.login ? (
-            <LoginPanel
-              state={this.state.login}
-              copyArticles={this.copyArticles}
-              post={this.post}
-              updateBlogState={this.updateBlogState}
-              showNewPost={this.state.showNewPost}
-              showNewPostWindow={this.showNewPostWindow}
-              loginTopButton={this.loginTopButton}
-            />
-          ) : null}
+        {login && (
+          <LoginPanel
+            state={login}
+            copyArticles={articles}
+            post={posts}
+            updateBlogState={updateBlogState}
+            showNewPost={showNewPost}
+            showNewPostWindow={showNewPostWindow}
+            loginTopButton={loginTopButton}
+          />
+        )}
 
-          <h1>Cat Blog - our crazy, lazy life</h1>
-        </header>
-        {/* ----------- */}
-        {/* <form id="uploadForm">
+        <h1>Cat Blog - our crazy, lazy life</h1>
+      </header>
+      {/* ----------- */}
+      {/* <form id="uploadForm">
           <input type="file" id="fileInput" />
           <button id="sendButton">Wyślij</button>
         </form> */}
-        {/* -------------- */}
-        <img src="img/wave.svg" className="wave" alt="wave" />
+      {/* -------------- */}
+      <img src="img/wave.svg" className="wave" alt="wave" />
 
-        <section className="cd-timeline js-cd-timeline">
-          <div className="container max-width-lg cd-timeline__container" id="blog_container">
-            {this.createArticlesComponentTable()}
-            <ShowArticles posts={this.posts} />
-          </div>
-        </section>
+      <section className="cd-timeline js-cd-timeline">
+        <div className="container max-width-lg cd-timeline__container" id="blog_container">
+          {createArticlesComponentTable()}
+          <ShowArticles posts={posts} />
+        </div>
+      </section>
 
-        {/* popup with add new post form after successful login */}
-        {this.state.showNewPost ? (
-          <div className="add_content">
-            <FormAddPost
-              copyArticles={this.copyArticles}
-              post={this.post}
-              updateBlogState={this.updateBlogState}
-              formAddHandle={this.formAddHandle}
-              showNewPostWindow={this.showNewPostWindow}
-              loginTopButtonHide={this.loginTopButtonHide}
-            />
-          </div>
-        ) : null}
-      </>
-    );
-  }
+      {/* popup with add new post form after successful login */}
+      {showNewPost && (
+        <div className="add_content">
+          <FormAddPost
+            copyArticles={articles}
+            post={posts}
+            updateBlogState={updateBlogState}
+            formAddHandle={formAddHandle}
+            showNewPostWindow={showNewPostWindow}
+            loginTopButtonHide={loginTopButtonHide}
+          />
+        </div>
+      )}
+    </>
+  );
 }
 
 export default App;
