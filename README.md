@@ -1,4 +1,4 @@
-![screen or GIF of your app](https://via.placeholder.com/1000x300)
+![screen my app](/public/img/screen_project.png)
 
 # Cats Blog
 
