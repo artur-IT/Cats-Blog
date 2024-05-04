@@ -116,8 +116,6 @@ class App extends React.Component {
               copyArticles={this.copyArticles}
               post={this.post}
               updateBlogState={this.updateBlogState}
-              formHandler={this.formHandler}
-              loginHandle={this.loginHandle}
               showNewPost={this.state.showNewPost}
               showNewPostWindow={this.showNewPostWindow}
               loginTopButton={this.loginTopButton}
