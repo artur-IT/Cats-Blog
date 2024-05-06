@@ -134,3 +134,18 @@ input {
 .btn_add:hover {
   background-color: #99cc32;
 }
+
+@media (max-width: 600px) and (orientation: portrait) {
+  .layout {
+    max-width: 390px;
+    max-height: 440px;
+    background-color: #000;
+  }
+  .title_content,
+  .blog_content {
+    width: 250px;
+  }
+  .blog_content {
+    height: 150px;
+  }
+}
