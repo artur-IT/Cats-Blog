@@ -1,7 +1,6 @@
 import { format } from "@formkit/tempo";
 
-const Article = ({ author, date, id, title, content }) => {
-  // console.log(author, date, id, title, content);
+export const Article = ({ author, date, id, title, content }) => {
   const addDate = format(date, "medium");
   return (
     <div className="cd-timeline__block" id={id}>
@@ -20,5 +19,3 @@ const Article = ({ author, date, id, title, content }) => {
     </div>
   );
 };
-
-export default Article;

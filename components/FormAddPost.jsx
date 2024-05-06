@@ -1,5 +1,9 @@
-const FormAddPost = ({ copyArticles, showNewPostWindow, loginTopButtonHide, formAddHandle, updateBlogState }) => {
+export const FormAddPost = ({ copyArticles, showNewPost, showNewPostWindow, formAddHandle, updateBlogState }) => {
   const articlesTable = copyArticles;
+
+  // Hide button after login and show when post added
+  const loginTopButtonHide = () => showNewPost === true && (document.querySelector(".login_top_btn").style.display = "none");
+
   loginTopButtonHide();
 
   const buttonAddHandler = (e) => {
@@ -102,5 +106,3 @@ const FormAddPost = ({ copyArticles, showNewPostWindow, loginTopButtonHide, form
     </>
   );
 };
-
-export default FormAddPost;
