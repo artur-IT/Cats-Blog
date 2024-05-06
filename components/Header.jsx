@@ -11,7 +11,7 @@ export const Header = ({ login, loginState, copyArticles, posts, updateBlogState
       {/* Author's pictures */}
       <CatsInfo />
 
-      {/* Login panel to add new post */}
+      {/* Login panel for admin after to add new post */}
       {login && (
         <LoginPanel
           login={login}

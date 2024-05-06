@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 
 import { Header } from "/components/Header";
-import { ShowArticles } from "/components/ShowArticles";
 import { Article } from "/components/Article";
 import { FormAddPost } from "/components/FormAddPost";
 
@@ -34,6 +33,28 @@ function App() {
       .catch((error) => console.error("Błąd:", error));
   };
 
+  // Create tsble of Components with all posts from file / object
+  const createArticlesComponentTable = () => {
+    posts = [];
+
+    //sort date publication from actual to old
+    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    // create table of components with articles
+    for (const el of articles) {
+      posts.push(<Article key={posts.length} author={el.author} date={el.date} title={el.title} content={el.content} />);
+    }
+  };
+  const showArticles = (posts) => <>{posts}</>;
+
+  // Change paw bg-color when author Tiger / Indi
+  const changePawColor = () => {
+    window.onload = () =>
+      document
+        .querySelectorAll("span")
+        .forEach((el) => el.textContent === "Indi" && (el.parentElement.previousSibling.style.backgroundColor = "yellow"));
+  };
+
   // Add new post form handle
   const formAddHandle = () => {
     let authorContent = document.querySelector("select.author").value;
@@ -50,36 +71,12 @@ function App() {
         content: blogContent,
       };
 
-      let copyArticles = articles;
-
-      copyArticles.push(newArticle);
-      setArticles(copyArticles);
+      setArticles(...articles, newArticle);
       createArticlesComponentTable();
       apiSavePosts(newArticle);
       showNewPostWindow();
     } else alert("Wszystkie pola muszą być wypełnione!");
     return;
-  };
-
-  // Create tsble of Components with all posts from file / object
-  const createArticlesComponentTable = () => {
-    posts = [];
-
-    //sort date publication from actual to old
-    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-    // create table of components with articles
-    for (const el of articles) {
-      posts.push(<Article key={posts.length} author={el.author} date={el.date} title={el.title} content={el.content} />);
-    }
-  };
-
-  // Change paw bg-color when author Tiger / Indi
-  const changePawColor = () => {
-    window.onload = () =>
-      document
-        .querySelectorAll("span")
-        .forEach((el) => el.textContent === "Indi" && (el.parentElement.previousSibling.style.backgroundColor = "yellow"));
   };
 
   //STATE'S UPDATES...
@@ -109,7 +106,7 @@ function App() {
       <section className="cd-timeline js-cd-timeline">
         <div className="container max-width-lg cd-timeline__container" id="blog_container">
           {createArticlesComponentTable()}
-          <ShowArticles posts={posts} />
+          {showArticles(posts)}
           {changePawColor()}
         </div>
       </section>
