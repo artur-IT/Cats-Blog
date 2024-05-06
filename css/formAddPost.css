@@ -2,6 +2,7 @@
   position: absolute;
   top: 55%;
   left: 50%;
+  font-family: "Handlee";
   transform: translate(-50%, -50%);
   max-width: 800px;
   height: auto;
@@ -53,6 +54,12 @@
 }
 .title_content {
   width: 500px;
+}
+.title_content:focus,
+.blog_content:focus,
+.date_content:focus,
+.author:focus {
+  background-color: #e8eff5;
 }
 .content {
   grid-area: content;
