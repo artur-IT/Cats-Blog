@@ -15,7 +15,7 @@
     "date date_field" 1fr
     "author author_field" 1fr
     "empty button" 1fr
-    / 1fr 1fr;
+    / auto 1fr;
   z-index: 2;
   border: 7px solid #0099ff;
   background-color: rgb(0, 0, 0, 80%);

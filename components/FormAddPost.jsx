@@ -50,37 +50,37 @@ export const FormAddPost = ({ copyArticles, showNewPost, showNewPostWindow, form
 
   return (
     <>
-      <section className="layout">
+      <form className="layout" action="">
         <h3 className="title_top">Krótki Post</h3>
         <div className="close" onClick={buttonCloseHandle}>
           x
         </div>
         <div className="title">
-          <p>Tytuł</p>
+          <label htmlFor="title">Tytuł</label>
         </div>
         <div className="title_field">
-          <input className="title_content" type="text" name="title_content" />
+          <input className="title_content" type="text" name="title_content" id="title" />
         </div>
 
         <div className="content">
-          <p>Treść</p>
+          <label htmlFor="content">Treść</label>
         </div>
         <div className="content_field">
-          <textarea className="blog_content" type="text" name="blog_content" />
+          <textarea className="blog_content" type="text" name="content" id="content" />
         </div>
 
         <div className="date">
-          <p>Data</p>
+          <label htmlFor="date">Data</label>
         </div>
         <div className="date_field">
-          <input className="date_content" type="date" name="date_content" />
+          <input className="date_content" type="date" name="date" id="date" />
         </div>
 
         <div className="author_label">
-          <p>Autor</p>
+          <label htmlFor="author">Autor</label>
         </div>
         <div className="author_field">
-          <select className="author" name="author">
+          <select className="author" name="author" id="author">
             <option></option>
             <option>Indi</option>
             <option>Tiger</option>
@@ -102,7 +102,7 @@ export const FormAddPost = ({ copyArticles, showNewPost, showNewPostWindow, form
             Dodaj
           </button>
         </div>
-      </section>
+      </form>
     </>
   );
 };
