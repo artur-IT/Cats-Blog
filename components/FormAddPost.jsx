@@ -50,7 +50,7 @@ export const FormAddPost = ({ copyArticles, showNewPost, showNewPostWindow, form
 
   return (
     <>
-      <form className="layout" action="">
+      <form className="layout">
         <h3 className="title_top">Krótki Post</h3>
         <div className="close" onClick={buttonCloseHandle}>
           x

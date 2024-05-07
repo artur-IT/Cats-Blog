@@ -12,21 +12,20 @@ app.use((req, res, next) => {
 (function backendDB() {
   app.use(express.json());
 
-  // Endpoint do zapisywania artykułów
+  // Endpoint to seve articles
   app.post("/articles", (req, res) => {
-    // Odebranie danych artykułu z żądania
     const article = req.body;
 
-    // Wczytanie istniejących artykułów z pliku JSON
+    // Load articles from JSON
     const existingArticles = JSON.parse(fs.readFileSync("articles.json", "utf-8"));
 
-    // Dodanie nowego artykułu do listy artykułów
+    // Add article to list of all articles
     existingArticles.push(article);
 
-    // Zapisanie zaktualizowanej listy artykułów do pliku JSON
+    // Save updates articles list to JSON
     fs.writeFileSync("articles.json", JSON.stringify(existingArticles));
 
-    // Wysłanie odpowiedzi
+    // Send response with message
     res.json({ message: "Artykuł został zapisany." });
   });
 
@@ -34,5 +33,3 @@ app.use((req, res, next) => {
     console.log("Serwer uruchomiony na porcie 3000");
   });
 })();
-
-//----------------------
