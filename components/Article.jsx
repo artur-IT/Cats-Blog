@@ -1,6 +1,6 @@
 import { format } from "@formkit/tempo";
 
-export const Article = ({ author, date, id, title, content }) => {
+export const Article = ({ id, author, date, title, content }) => {
   const addDate = format(date, "medium");
   return (
     <div className="cd-timeline__block" id={id}>

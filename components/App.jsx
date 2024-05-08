@@ -9,12 +9,23 @@ import "../css/myStyle.css";
 import "/css/formAddPost.css";
 import "/css/loginPanel.css";
 
-import allArticles from "/js/articles.json";
+import articlesDB from "/js/articles.json";
 
 function App() {
-  const [articles, setArticles] = useState(allArticles);
+  articlesDB.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const showAllPosts = articlesDB.map((el) => {
+    return <Article key={el.id} id={el.id} author={el.author} date={el.date} title={el.title} content={el.content} />;
+  });
+
+  const [articles, setArticles] = useState(showAllPosts);
   const [login, setLogin] = useState(false);
   const [showNewPost, setShowNewPost] = useState(false);
+
+  // console.log(showAllPosts);
+  // setArticles(() => {
+  //  });
+  //   return [...showAllPosts];
+  // });
 
   // All posts in table of components (1 post = 1 component Article)
   let posts = [];
@@ -41,9 +52,9 @@ function App() {
     articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     // create table of components with articles
-    for (const el of articles) {
-      posts.push(<Article key={posts.length} author={el.author} date={el.date} title={el.title} content={el.content} />);
-    }
+    // for (const el of articles) {
+    //   posts.push(<Article key={posts.length} author={el.author} date={el.date} title={el.title} content={el.content} />);
+    // }
   };
   const showArticles = (posts) => <>{posts}</>;
 
@@ -106,7 +117,8 @@ function App() {
       <section className="cd-timeline js-cd-timeline">
         <div className="container max-width-lg cd-timeline__container" id="blog_container">
           {createArticlesComponentTable()}
-          {showArticles(posts)}
+          {/* {showArticles(posts)} */}
+          {articles}
           {changePawColor()}
         </div>
       </section>
