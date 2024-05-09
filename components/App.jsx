@@ -1,4 +1,5 @@
 import React from "react";
+import { nanoid } from "nanoid";
 import { useState } from "react";
 
 import { Header } from "/components/Header";
@@ -14,19 +15,13 @@ import articlesDB from "/js/articles.json";
 function App() {
   articlesDB.sort((a, b) => new Date(b.date) - new Date(a.date));
   const showAllPosts = articlesDB.map((el) => {
-    return <Article key={el.id} id={el.id} author={el.author} date={el.date} title={el.title} content={el.content} />;
+    return <Article key={el.id} author={el.author} date={el.date} title={el.title} content={el.content} />;
   });
 
   const [articles, setArticles] = useState(showAllPosts);
   const [login, setLogin] = useState(false);
   const [showNewPost, setShowNewPost] = useState(false);
-
-  // console.log(showAllPosts);
-  // setArticles(() => {
-  //  });
-  //   return [...showAllPosts];
-  // });
-
+  const randKey = nanoid(5);
   // All posts in table of components (1 post = 1 component Article)
   let posts = [];
 
@@ -46,7 +41,7 @@ function App() {
 
   // Create tsble of Components with all posts from file / object
   const createArticlesComponentTable = () => {
-    posts = [];
+    // posts = [];
 
     //sort date publication from actual to old
     articles.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -56,7 +51,6 @@ function App() {
     //   posts.push(<Article key={posts.length} author={el.author} date={el.date} title={el.title} content={el.content} />);
     // }
   };
-  const showArticles = (posts) => <>{posts}</>;
 
   // Change paw bg-color when author Tiger / Indi
   const changePawColor = () => {
@@ -82,9 +76,21 @@ function App() {
         content: blogContent,
       };
 
-      setArticles(...articles, newArticle);
-      createArticlesComponentTable();
+      setArticles((prevState) => {
+        return [
+          <Article
+            key={newArticle.id}
+            author={newArticle.author}
+            date={newArticle.date}
+            title={newArticle.title}
+            content={newArticle.content}
+          />,
+          ...prevState,
+        ];
+      });
+      // createArticlesComponentTable();
       apiSavePosts(newArticle);
+      // hide Form AddPost
       showNewPostWindow();
     } else alert("Wszystkie pola muszą być wypełnione!");
     return;
@@ -100,24 +106,22 @@ function App() {
 
   return (
     <>
-      <Header
-        login={login}
-        loginState={login}
-        copyArticles={articles}
-        post={posts}
-        updateBlogState={updateBlogState}
-        showNewPost={showNewPost}
-        showNewPostWindow={showNewPostWindow}
-        loginTopButton={loginTopButton}
-      />
+      {/* <button
+        onClick={() => {
+          setArticles((prevState) => {
+            return [<Article />, ...prevState];
+          });
+        }}
+      >
+        Testy
+      </button> */}
+      <Header login={login} showNewPostWindow={showNewPostWindow} loginTopButton={loginTopButton} />
 
       <img src="img/wave.svg" className="wave" alt="blue wave" />
 
       {/* Section with all articles */}
       <section className="cd-timeline js-cd-timeline">
         <div className="container max-width-lg cd-timeline__container" id="blog_container">
-          {createArticlesComponentTable()}
-          {/* {showArticles(posts)} */}
           {articles}
           {changePawColor()}
         </div>
@@ -128,7 +132,6 @@ function App() {
         <div className="add_content">
           <FormAddPost
             copyArticles={articles}
-            post={posts}
             updateBlogState={updateBlogState}
             formAddHandle={formAddHandle}
             showNewPostWindow={showNewPostWindow}

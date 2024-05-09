@@ -1,9 +1,9 @@
 import { format } from "@formkit/tempo";
 
-export const Article = ({ id, author, date, title, content }) => {
+export const Article = ({ author, date, title, content }) => {
   const addDate = format(date, "medium");
   return (
-    <div className="cd-timeline__block" id={id}>
+    <div className="cd-timeline__block">
       <div className="cd-timeline__img cd-timeline__img--picture">
         <img src="img/paw.svg" alt="paw" />
       </div>
