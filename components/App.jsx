@@ -66,10 +66,11 @@ function App() {
     let dateContent = document.querySelector(".date_content").value;
     let titleContent = document.querySelector(".title_content").value;
     let blogContent = document.querySelector(".blog_content").value;
+    const newtKey = randKey;
 
     if ((authorContent && dateContent && titleContent && blogContent) !== "") {
       const newArticle = {
-        id: articles.length,
+        id: newtKey,
         author: authorContent,
         date: new Date(dateContent).toISOString().substring(0, 10),
         title: titleContent,
@@ -78,44 +79,35 @@ function App() {
 
       setArticles((prevState) => {
         return [
-          <Article
-            key={newArticle.id}
-            author={newArticle.author}
-            date={newArticle.date}
-            title={newArticle.title}
-            content={newArticle.content}
-          />,
           ...prevState,
+          <Article key={newtKey} author={newArticle.author} date={newArticle.date} title={newArticle.title} content={newArticle.content} />,
         ];
       });
+
       // createArticlesComponentTable();
       apiSavePosts(newArticle);
+
       // hide Form AddPost
       showNewPostWindow();
     } else alert("Wszystkie pola muszą być wypełnione!");
     return;
   };
 
-  //STATE'S UPDATES...
-  // show / hide LoginPanel
-  const loginTopButton = () => setLogin(!login);
   // show / hide addPostForm
   const showNewPostWindow = () => setShowNewPost(!showNewPost);
-  // UPDATE state AFTER ADD ARTICLE FROM COMPONENT Form
-  const updateBlogState = (newArticle) => setArticles(newArticle);
 
   return (
     <>
-      {/* <button
+      <button
         onClick={() => {
           setArticles((prevState) => {
-            return [<Article />, ...prevState];
+            return [<Article key={randKey} />, ...prevState];
           });
         }}
       >
         Testy
-      </button> */}
-      <Header login={login} showNewPostWindow={showNewPostWindow} loginTopButton={loginTopButton} />
+      </button>
+      <Header login={login} showNewPostWindow={showNewPostWindow} loginTopButton={() => setLogin(!login)} />
 
       <img src="img/wave.svg" className="wave" alt="blue wave" />
 
@@ -132,7 +124,7 @@ function App() {
         <div className="add_content">
           <FormAddPost
             copyArticles={articles}
-            updateBlogState={updateBlogState}
+            updateBlogState={(newArticle) => setArticles(newArticle)}
             formAddHandle={formAddHandle}
             showNewPostWindow={showNewPostWindow}
             showNewPost={showNewPost}
