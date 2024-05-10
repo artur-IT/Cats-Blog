@@ -60,38 +60,38 @@ function App() {
         .forEach((el) => el.textContent === "Indi" && (el.parentElement.previousSibling.style.backgroundColor = "yellow"));
   };
 
-  // Add new post form handle
-  const formAddHandle = () => {
-    let authorContent = document.querySelector("select.author").value;
-    let dateContent = document.querySelector(".date_content").value;
-    let titleContent = document.querySelector(".title_content").value;
-    let blogContent = document.querySelector(".blog_content").value;
-    const newtKey = randKey;
+  // // Add new post form handle
+  // const formAddHandle = () => {
+  //   let authorContent = document.querySelector("select.author").value;
+  //   let dateContent = document.querySelector(".date_content").value;
+  //   let titleContent = document.querySelector(".title_content").value;
+  //   let blogContent = document.querySelector(".blog_content").value;
+  //   const newKey = randKey;
+  //   let newArticle = null;
 
-    if ((authorContent && dateContent && titleContent && blogContent) !== "") {
-      const newArticle = {
-        id: newtKey,
-        author: authorContent,
-        date: new Date(dateContent).toISOString().substring(0, 10),
-        title: titleContent,
-        content: blogContent,
-      };
+  //   if ((authorContent && dateContent && titleContent && blogContent) !== "") {
+  //     newArticle = {
+  //       id: newtKey,
+  //       author: authorContent,
+  //       date: new Date(dateContent).toISOString().substring(0, 10),
+  //       title: titleContent,
+  //       content: blogContent,
+  //     };
 
-      setArticles((prevState) => {
-        return [
-          ...prevState,
-          <Article key={newtKey} author={newArticle.author} date={newArticle.date} title={newArticle.title} content={newArticle.content} />,
-        ];
-      });
+  //     // createArticlesComponentTable();
+  //     apiSavePosts(newArticle);
 
-      // createArticlesComponentTable();
-      apiSavePosts(newArticle);
-
-      // hide Form AddPost
-      showNewPostWindow();
-    } else alert("Wszystkie pola muszą być wypełnione!");
-    return;
-  };
+  //     // hide Form AddPost
+  //     showNewPostWindow();
+  //   } else alert("Wszystkie pola muszą być wypełnione!");
+  //   return setArticles((prevState) => {
+  //     return [
+  //       <Article key={newKey} author={newArticle.author} date={newArticle.date} title={newArticle.title} content={newArticle.content} />,
+  //       ,
+  //       ...prevState,
+  //     ];
+  //   });
+  // };
 
   // show / hide addPostForm
   const showNewPostWindow = () => setShowNewPost(!showNewPost);
@@ -123,11 +123,15 @@ function App() {
       {showNewPost && (
         <div className="add_content">
           <FormAddPost
-            copyArticles={articles}
+            articles={articles}
             updateBlogState={(newArticle) => setArticles(newArticle)}
-            formAddHandle={formAddHandle}
+            // formAddHandle={formAddHandle}
             showNewPostWindow={showNewPostWindow}
             showNewPost={showNewPost}
+            randKey={randKey}
+            apiSavePosts={apiSavePosts}
+            setArticles={setArticles}
+            setShowNewPost={() => setShowNewPost(!showNewPost)}
           />
         </div>
       )}

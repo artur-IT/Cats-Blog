@@ -1,15 +1,48 @@
-export const FormAddPost = ({ copyArticles, showNewPost, showNewPostWindow, formAddHandle, updateBlogState }) => {
-  const articlesTable = copyArticles;
+import { Article } from "/components/Article";
 
+export const FormAddPost = ({ articles, setShowNewPost, setArticles, randKey, apiSavePosts, showNewPost, showNewPostWindow }) => {
   // Hide button after login and show when post added
   const loginTopButtonHide = () => showNewPost === true && (document.querySelector(".login_top_btn").style.display = "none");
 
   loginTopButtonHide();
 
+  // Add new post form handle
+  const formAddHandle = () => {
+    let authorContent = document.querySelector("select.author").value;
+    let dateContent = document.querySelector(".date_content").value;
+    let titleContent = document.querySelector(".title_content").value;
+    let blogContent = document.querySelector(".blog_content").value;
+    const newKey = randKey;
+    let newArticle = null;
+
+    if ((authorContent && dateContent && titleContent && blogContent) !== "") {
+      newArticle = {
+        id: newKey,
+        author: authorContent,
+        date: new Date(dateContent).toISOString().substring(0, 10),
+        title: titleContent,
+        content: blogContent,
+      };
+
+      // createArticlesComponentTable();
+      apiSavePosts(newArticle);
+
+      // hide Form AddPost
+      setShowNewPost();
+    } else alert("Wszystkie pola muszą być wypełnione!");
+    return setArticles((prevState) => {
+      return [
+        <Article key={newKey} author={newArticle.author} date={newArticle.date} title={newArticle.title} content={newArticle.content} />,
+        ,
+        ...prevState,
+      ];
+    });
+  };
+
   const buttonAddHandler = (e) => {
     e.preventDefault();
     formAddHandle();
-    updateBlogState(articlesTable);
+    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
     loginTopButtonHide();
   };
 
@@ -23,30 +56,30 @@ export const FormAddPost = ({ copyArticles, showNewPost, showNewPostWindow, form
   };
 
   // TEST file upload
-  function validateFiles(e) {
-    const [file] = e.target.files;
+  // function validateFiles(e) {
+  //   const [file] = e.target.files;
 
-    if (file && file.name.includes(".jpg") && file.type === "image") {
-      // możemy zająć się obsługą pliku
-      const reader = new FileReader();
-      reader.onload = function (event) {
-        console.log(event.target.result);
-      };
-      // reader.readAsText(file);
-    } else {
-      console.log("Nieprawidłowy plik, wgraj plik jpg.");
-    }
+  //   if (file && file.name.includes(".jpg") && file.type === "image") {
+  //     // możemy zająć się obsługą pliku
+  //     const reader = new FileReader();
+  //     reader.onload = function (event) {
+  //       console.log(event.target.result);
+  //     };
+  //     // reader.readAsText(file);
+  //   } else {
+  //     console.log("Nieprawidłowy plik, wgraj plik jpg.");
+  //   }
 
-    if (file.size > 100000) {
-      console.log("Przekroczono limit wielkości pliku.");
-      return;
-    }
+  //   if (file.size > 100000) {
+  //     console.log("Przekroczono limit wielkości pliku.");
+  //     return;
+  //   }
 
-    if (file.name.length > 15) {
-      console.log("Plik ma za długą nazwę. Dozwolona liczba znaków: 45.");
-      return;
-    }
-  }
+  //   if (file.name.length > 15) {
+  //     console.log("Plik ma za długą nazwę. Dozwolona liczba znaków: 45.");
+  //     return;
+  //   }
+  // }
 
   return (
     <>
