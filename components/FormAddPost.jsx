@@ -1,17 +1,19 @@
 import { Article } from "/components/Article";
 
-export const FormAddPost = ({ articles, setShowNewPost, setArticles, randKey, apiSavePosts, showNewPost, showNewPostWindow }) => {
+export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts, showNewPost, showNewPostWindow }) => {
   // Hide button after login and show when post added
-  const loginTopButtonHide = () => showNewPost === true && (document.querySelector(".login_top_btn").style.display = "none");
+  const loginTopBtn = document.querySelector(".login_top_btn");
+  const loginTopButtonHide = () => (showNewPost ? (loginTopBtn.style.display = "none") : (loginTopBtn.style.display = "block"));
 
   loginTopButtonHide();
 
   // Add new post form handle
   const formAddHandle = () => {
-    let authorContent = document.querySelector("select.author").value;
-    let dateContent = document.querySelector(".date_content").value;
-    let titleContent = document.querySelector(".title_content").value;
-    let blogContent = document.querySelector(".blog_content").value;
+    const authorContent = document.querySelector("select.author").value;
+    const dateContent = document.querySelector(".date_content").value;
+    const titleContent = document.querySelector(".title_content").value;
+    const blogContent = document.querySelector(".blog_content").value;
+
     const newKey = randKey;
     let newArticle = null;
 
@@ -24,7 +26,7 @@ export const FormAddPost = ({ articles, setShowNewPost, setArticles, randKey, ap
         content: blogContent,
       };
 
-      // createArticlesComponentTable();
+      // save new post to DataBase in .json
       apiSavePosts(newArticle);
 
       // hide Form AddPost
@@ -42,8 +44,6 @@ export const FormAddPost = ({ articles, setShowNewPost, setArticles, randKey, ap
   const buttonAddHandler = (e) => {
     e.preventDefault();
     formAddHandle();
-    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-    loginTopButtonHide();
   };
 
   // document.addEventListener("load", () => {
@@ -52,7 +52,7 @@ export const FormAddPost = ({ articles, setShowNewPost, setArticles, randKey, ap
 
   const buttonCloseHandle = () => {
     showNewPostWindow();
-    document.querySelector(".login_top_btn").style.display = "block";
+    loginTopBtn.style.display = "block";
   };
 
   // TEST file upload
