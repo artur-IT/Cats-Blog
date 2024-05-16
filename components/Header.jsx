@@ -1,12 +1,14 @@
 import CatsInfo from "/components/CatsInfo";
 import { LoginPanel } from "/components/LoginPanel";
 
-export const Header = ({ login, showNewPostWindow, loginTopButton }) => {
+export const Header = ({ login, showNewPostWindow, loginTopButton, showNewPost }) => {
   return (
     <header className="cd-main-header text-center flex flex-column flex-center">
-      <div className="login_top_btn" onClick={loginTopButton}>
-        Login
-      </div>
+      {showNewPost ? null : (
+        <div className="login_top_btn" onClick={loginTopButton}>
+          Login
+        </div>
+      )}
 
       {/* Author's pictures */}
       <CatsInfo />

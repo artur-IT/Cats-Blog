@@ -52,7 +52,7 @@ function App() {
 
   return (
     <>
-      <Header login={login} showNewPostWindow={showNewPostWindow} loginTopButton={() => setLogin(!login)} />
+      <Header login={login} showNewPostWindow={showNewPostWindow} loginTopButton={() => setLogin(!login)} showNewPost={showNewPost} />
 
       <img src="img/wave.svg" className="wave" alt="blue wave" />
 
