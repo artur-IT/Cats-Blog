@@ -35,7 +35,6 @@ function App() {
       body: JSON.stringify(newPost),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
       .catch((error) => console.error("Błąd:", error));
   };
 

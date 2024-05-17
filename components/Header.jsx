@@ -4,7 +4,7 @@ import { LoginPanel } from "/components/LoginPanel";
 export const Header = ({ login, showNewPostWindow, loginTopButton, showNewPost }) => {
   return (
     <header className="cd-main-header text-center flex flex-column flex-center">
-      {showNewPost ? null : (
+      {!showNewPost && (
         <div className="login_top_btn" onClick={loginTopButton}>
           Login
         </div>

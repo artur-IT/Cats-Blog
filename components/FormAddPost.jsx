@@ -9,22 +9,16 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts
 
   // Add new post form handle
   const formAddHandle = () => {
-    const authorContent = document.querySelector("select.author").value;
+    const author = document.querySelector("select.author").value;
     const dateContent = document.querySelector(".date_content").value;
-    const titleContent = document.querySelector(".title_content").value;
-    const blogContent = document.querySelector(".blog_content").value;
+    const title = document.querySelector(".title_content").value;
+    const content = document.querySelector(".blog_content").value;
 
-    const newKey = randKey;
+    const id = randKey;
     let newArticle = null;
 
-    if ((authorContent && dateContent && titleContent && blogContent) !== "") {
-      newArticle = {
-        id: newKey,
-        author: authorContent,
-        date: new Date(dateContent).toISOString().substring(0, 10),
-        title: titleContent,
-        content: blogContent,
-      };
+    if ((author && dateContent && title && content) !== "") {
+      newArticle = { id, author, date: new Date(dateContent).toISOString().substring(0, 10), title, content };
 
       // save new post to DataBase in .json
       apiSavePosts(newArticle);
@@ -34,14 +28,14 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts
     } else alert("Wszystkie pola muszą być wypełnione!");
     return setArticles((prevState) => {
       return [
-        <Article key={newKey} author={newArticle.author} date={newArticle.date} title={newArticle.title} content={newArticle.content} />,
+        <Article key={id} author={newArticle.author} date={newArticle.date} title={newArticle.title} content={newArticle.content} />,
         ,
         ...prevState,
       ];
     });
   };
 
-  const buttonAddHandler = (e) => {
+  const buttonAddHandle = (e) => {
     e.preventDefault();
     formAddHandle();
   };
@@ -50,7 +44,7 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts
   //   document.querySelector(".uploader__input").addEventListener("change", validateFiles);
   // });
 
-  const buttonCloseHandle = () => {
+  const iconXCloseHandle = () => {
     showNewPostWindow();
     loginTopBtn.style.display = "block";
   };
@@ -85,7 +79,7 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts
     <>
       <form className="layout">
         <h3 className="title_top">Krótki Post</h3>
-        <div className="close" onClick={buttonCloseHandle}>
+        <div className="close" onClick={iconXCloseHandle}>
           x
         </div>
         <div className="title">
@@ -131,7 +125,7 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts
 
         <div className="empty"></div>
         <div className="button">
-          <button className="btn_add" onClick={buttonAddHandler}>
+          <button className="btn_add" onClick={buttonAddHandle}>
             Dodaj
           </button>
         </div>
