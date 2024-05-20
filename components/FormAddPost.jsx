@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Article } from "/components/Article";
 
 export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts, showNewPostWindow }) => {
@@ -83,6 +83,7 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts
             type="text"
             name="title_content"
             id="title"
+            maxLength={50}
           />
         </div>
 
@@ -97,6 +98,7 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts
             type="text"
             name="content"
             id="content"
+            maxLength={250}
           />
         </div>
 
