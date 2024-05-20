@@ -1,4 +1,5 @@
 import CatsInfo from "/components/CatsInfo";
+import { ImageUpload } from "./ImageUpload";
 import { LoginPanel } from "/components/LoginPanel";
 
 export const Header = ({ login, showNewPostWindow, loginTopButton, showNewPost }) => {
@@ -12,6 +13,8 @@ export const Header = ({ login, showNewPostWindow, loginTopButton, showNewPost }
 
       {/* Author's pictures */}
       <CatsInfo />
+
+      <ImageUpload />
 
       {/* Login panel for admin after to add new post */}
       {login && <LoginPanel showNewPostWindow={showNewPostWindow} loginTopButton={loginTopButton} />}

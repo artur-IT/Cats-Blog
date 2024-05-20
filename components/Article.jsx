@@ -4,7 +4,7 @@ export const Article = ({ author, date, title, content }) => {
   const addPostDate = format(date, "medium");
   return (
     <div className="cd-timeline__block">
-      <div className="cd-timeline__img cd-timeline__img--picture">
+      <div className={`cd-timeline__img cd-timeline__img--picture ${author === "Indi" && "paw_bg-yellow"}`} data-content="Indi">
         <img src="img/paw.svg" alt="paw" />
       </div>
 

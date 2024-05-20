@@ -35,36 +35,6 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts
     });
   };
 
-  // document.addEventListener("load", () => {
-  //   document.querySelector(".uploader__input").addEventListener("change", validateFiles);
-  // });
-
-  // TEST file upload
-  // function validateFiles(e) {
-  //   const [file] = e.target.files;
-
-  //   if (file && file.name.includes(".jpg") && file.type === "image") {
-  //     // możemy zająć się obsługą pliku
-  //     const reader = new FileReader();
-  //     reader.onload = function (event) {
-  //       console.log(event.target.result);
-  //     };
-  //     // reader.readAsText(file);
-  //   } else {
-  //     console.log("Nieprawidłowy plik, wgraj plik jpg.");
-  //   }
-
-  //   if (file.size > 100000) {
-  //     console.log("Przekroczono limit wielkości pliku.");
-  //     return;
-  //   }
-
-  //   if (file.name.length > 15) {
-  //     console.log("Plik ma za długą nazwę. Dozwolona liczba znaków: 45.");
-  //     return;
-  //   }
-  // }
-
   return (
     <>
       <form className="layout">
@@ -119,15 +89,6 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts
             <option>Tiger</option>
           </select>
         </div>
-
-        {/* <div className="file">
-          <form className="uploader">
-            <label className="uploader__label">
-              Wybierz plik JPG:
-              <input className="uploader__input" type="file" accept=".jpg" />
-            </label>
-          </form>
-        </div> */}
 
         <div className="empty"></div>
         <div className="button">

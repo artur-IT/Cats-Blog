@@ -1,0 +1,11 @@
+#preview {
+  margin: 10px 0;
+  max-width: 350px;
+  height: auto;
+}
+
+#fileInput,
+#uploadButton {
+  padding: 10px;
+  cursor: pointer;
+}
