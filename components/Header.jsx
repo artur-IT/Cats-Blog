@@ -14,7 +14,7 @@ export const Header = ({ login, showNewPostWindow, loginTopButton, showNewPost }
       {/* Author's pictures */}
       <CatsInfo />
 
-      <ImageUpload />
+      {/* <ImageUpload />* /}
 
       {/* Login panel for admin after to add new post */}
       {login && <LoginPanel showNewPostWindow={showNewPostWindow} loginTopButton={loginTopButton} />}
