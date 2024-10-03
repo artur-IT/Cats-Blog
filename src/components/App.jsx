@@ -1,13 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
-import { Header } from "/components/Header";
-import { Article } from "/components/Article";
-import { FormAddPost } from "/components/FormAddPost";
+import { Header } from "../components/Header";
+import { Article } from "../components/Article";
+import { FormAddPost } from "../components/FormAddPost";
 
 import "../css/myStyle.css";
-import "/css/formAddPost.css";
-import "/css/loginPanel.css";
+import "../css/formAddPost.css";
+import "../css/loginPanel.css";
 
 function App() {
   const [articlesDB, setArticles] = useState([]);
@@ -17,7 +17,7 @@ function App() {
 
   // get posts
   const getPosts = () => {
-    return fetch("../js/articles.json")
+    return fetch("/src/js/articles.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

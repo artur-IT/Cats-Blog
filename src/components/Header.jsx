@@ -1,6 +1,6 @@
-import CatsInfo from "/components/CatsInfo";
+import CatsInfo from "../components/CatsInfo";
 import { ImageUpload } from "./ImageUpload";
-import { LoginPanel } from "/components/LoginPanel";
+import { LoginPanel } from "../components/LoginPanel";
 
 export const Header = ({ login, showNewPostWindow, loginTopButton, showNewPost }) => {
   return (

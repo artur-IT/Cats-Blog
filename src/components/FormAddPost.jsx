@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Article } from "/components/Article";
+import { Article } from "../components/Article";
 
 export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts, showNewPostWindow }) => {
   // Show button 'Login' after click X to close addPostForm
