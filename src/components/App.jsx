@@ -16,16 +16,30 @@ function App() {
   const randKey = nanoid(5);
 
   // get posts
+  // const getPosts = () => {
+  //   return fetch("/src/js/articles.json")
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setArticles(data.sort((a, b) => new Date(b.date) - new Date(a.date)));
+  //     })
+  //     .catch((error) => console.error("Błąd:", error));
+  // };
   const getPosts = () => {
-    return fetch("/src/js/articles.json")
+    return fetch("/api/getArticles")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        return response.json();
+        return response;
       })
       .then((data) => {
-        setArticles(data.sort((a, b) => new Date(b.date) - new Date(a.date)));
+        // console.log(data);
+        setArticles(data);
       })
       .catch((error) => console.error("Błąd:", error));
   };
@@ -35,16 +49,28 @@ function App() {
   }, []);
 
   // save to JSON file
-  const apiSavePosts = (newPost) => {
-    fetch("http://localhost:5173/Cats-Blog/js/articles.json", {
+  // const apiSavePosts = (newPost) => {
+  //   fetch("http://localhost:5173/Cats-Blog/js/articles.json", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(newPost),
+  //   })
+  //     .then((response) => response.json())
+  //     .catch((error) => console.error("Błąd:", error));
+  // };
+
+  const addNewArticle = async (articleData) => {
+    const response = await fetch("/api/saveArticle", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPost),
-    })
-      .then((response) => response.json())
-      .catch((error) => console.error("Błąd:", error));
+      body: JSON.stringify(articleData),
+    });
+    const data = await response.json();
+    return data;
   };
 
   // show / hide addPostForm

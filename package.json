@@ -15,8 +15,9 @@
   "dependencies": {
     "@formkit/tempo": "^0.0.15",
     "@types/node": "^20.11.30",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "mongodb": "^6.5.0",
+    "mongodb": "^6.9.0",
     "mongoose": "^8.3.0",
     "multer": "^1.4.5-lts.1",
     "nanoid": "^5.0.7",
