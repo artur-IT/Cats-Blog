@@ -11,6 +11,10 @@ export default defineConfig({
           }
         : undefined,
   },
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+  },
   plugins: [react()],
   base: "/",
 });
