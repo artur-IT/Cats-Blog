@@ -14,29 +14,9 @@ function App() {
   const [login, setLogin] = useState(false);
   const [showNewPost, setShowNewPost] = useState(false);
   const randKey = nanoid(5);
-
-  // get posts
-  // const getPosts = () => {
-  //   return fetch("/src/js/articles.json")
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       setArticles(data.sort((a, b) => new Date(b.date) - new Date(a.date)));
-  //     })
-  //     .catch((error) => console.error("Błąd:", error));
-  // };
   const getPosts = () => {
     return fetch("/api/getArticles")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response;
-      })
+      .then((data) => data.json())
       .then((data) => {
         // console.log(data);
         setArticles(data);
