@@ -35,8 +35,8 @@ connectToDatabase();
 // get posts from MongoDB
 app.get("/api/getArticles", async (req, res) => {
   try {
-    // await client.connect();
-    // const database = client.db("myFirstBase");
+    await client.connect();
+    const database = client.db("myFirstBase");
     const articles = database.collection("posts");
     console.log(articles);
     const result = await articles.find().sort({ date: -1 }).toArray();
