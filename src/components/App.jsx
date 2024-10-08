@@ -14,13 +14,12 @@ function App() {
   const [login, setLogin] = useState(false);
   const [showNewPost, setShowNewPost] = useState(false);
   const randKey = nanoid(5);
+
+  // get articles from MongoDB
   const getPosts = () => {
     return fetch("/api/getArticles")
       .then((data) => data.json())
-      .then((data) => {
-        // console.log(data);
-        setArticles(data);
-      })
+      .then((data) => setArticles(data))
       .catch((error) => console.error("Błąd:", error));
   };
 
