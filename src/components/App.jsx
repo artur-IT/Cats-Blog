@@ -5,6 +5,8 @@ import { Header } from "../components/Header";
 import { Article } from "../components/Article";
 import { FormAddPost } from "../components/FormAddPost";
 
+import "../css/style.css";
+
 import "../css/myStyle.css";
 import "../css/formAddPost.css";
 import "../css/loginPanel.css";
