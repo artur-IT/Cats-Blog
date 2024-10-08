@@ -26,32 +26,19 @@ function App() {
 
   useEffect(() => {
     getPosts();
-  }, []);
+  }, [articlesDB]);
 
-  // save to JSON file
-  // const apiSavePosts = (newPost) => {
-  //   fetch("http://localhost:5173/Cats-Blog/js/articles.json", {
+  // const addNewArticle = async (articleData) => {
+  //   const response = await fetch("/api/saveArticle", {
   //     method: "POST",
   //     headers: {
   //       "Content-Type": "application/json",
   //     },
-  //     body: JSON.stringify(newPost),
-  //   })
-  //     .then((response) => response.json())
-  //     .catch((error) => console.error("Błąd:", error));
+  //     body: JSON.stringify(articleData),
+  //   });
+  //   const data = await response.json();
+  //   return data;
   // };
-
-  const addNewArticle = async (articleData) => {
-    const response = await fetch("/api/saveArticle", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(articleData),
-    });
-    const data = await response.json();
-    return data;
-  };
 
   // show / hide addPostForm
   const showNewPostWindow = () => setShowNewPost(!showNewPost);
@@ -69,20 +56,20 @@ function App() {
         </div>
       </section>
       {/* Popup with add new post form after successful login */}
-      {showNewPost && (
-        <div className="add_content">
-          <FormAddPost
-            articles={articlesDB}
-            updateBlogState={(newArticle) => setArticles(newArticle)}
-            showNewPostWindow={showNewPostWindow}
-            showNewPost={showNewPost}
-            randKey={randKey}
-            apiSavePosts={apiSavePosts}
-            setArticles={setArticles}
-            setShowNewPost={() => setShowNewPost(!showNewPost)}
-          />
-        </div>
-      )}
+      {/* {showNewPost && ( */}
+      <div className="add_content">
+        <FormAddPost
+          articles={articlesDB}
+          updateBlogState={(newArticle) => setArticles(newArticle)}
+          showNewPostWindow={showNewPostWindow}
+          showNewPost={showNewPost}
+          randKey={randKey}
+          getPosts={getPosts}
+          setArticles={setArticles}
+          setShowNewPost={() => setShowNewPost(!showNewPost)}
+        />
+      </div>
+      {/* )} */}
     </>
   );
 }

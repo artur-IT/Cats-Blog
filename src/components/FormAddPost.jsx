@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Article } from "../components/Article";
 
-export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts, showNewPostWindow }) => {
+export const FormAddPost = ({ setShowNewPost, setArticles, randKey, getPosts, showNewPostWindow }) => {
   // Show button 'Login' after click X to close addPostForm
   const iconXCloseHandle = () => showNewPostWindow();
 
@@ -11,7 +11,7 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts
   const [content, setContent] = useState("");
 
   // Add new post form handle
-  const formAddHandle = (e) => {
+  const formAddHandle = async (e) => {
     e.preventDefault();
     const id = randKey;
     let newArticle = null;
@@ -19,20 +19,22 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, apiSavePosts
     if (author && content && title && content && date) {
       newArticle = { id, author, date: new Date(date).toISOString().substring(0, 10), title, content };
 
-      // save new post to DataBase in .json
-      apiSavePosts(newArticle);
+      // SavePosts(newArticle);
+      fetch("/api/addArticle", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ title, content, date, author }),
+      });
+
+      // console.log(getPosts());
 
       // hide Form AddPost
-      setShowNewPost();
+      // setShowNewPost();
     } else return alert("Wszystkie pola muszą być wypełnione!");
 
-    return setArticles((prevState) => {
-      return [
-        <Article key={id} author={newArticle.author} date={newArticle.date} title={newArticle.title} content={newArticle.content} />,
-        ,
-        ...prevState,
-      ];
-    });
+    // return setArticles(getPosts());
   };
 
   return (
