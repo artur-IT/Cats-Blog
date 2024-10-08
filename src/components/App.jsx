@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     getPosts();
-  }, [articlesDB]);
+  }, []);
 
   // const addNewArticle = async (articleData) => {
   //   const response = await fetch("/api/saveArticle", {

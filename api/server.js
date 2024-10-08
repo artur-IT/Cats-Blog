@@ -5,9 +5,20 @@ const port = 3000;
 app.use(express.json());
 
 // const uri = process.env.MONGODB_URI;
+//------------------------------------------
+// OPEN CONNECTION TO MONGODB
 const uri =
   "mongodb+srv://vercel-admin-user-6703a71951df322efc1f187a:FNGsib8AhXU4LJp8@cluster0.r4uz6i5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri);
+
+async function connectToDatabase() {
+  if (!client.isConnected()) {
+    await client.connect();
+  }
+  return client.db("myFirstBase");
+}
+connectToDatabase();
+//-------------------------------------------
 
 // CHECK CONNECT TO DATABASE !!
 // async function connectToDatabase() {
@@ -24,9 +35,10 @@ const client = new MongoClient(uri);
 // get posts from MongoDB
 app.get("/api/getArticles", async (req, res) => {
   try {
-    await client.connect();
-    const database = client.db("myFirstBase");
+    // await client.connect();
+    // const database = client.db("myFirstBase");
     const articles = database.collection("posts");
+    console.log(articles);
     const result = await articles.find().sort({ date: -1 }).toArray();
     res.json(result);
   } catch (error) {
@@ -38,10 +50,9 @@ app.get("/api/getArticles", async (req, res) => {
 
 // save new post to MongoDB
 app.post("/api/addArticle", async (req, res) => {
-  // console.log("co jest w body?: ", req.body);
   try {
-    await client.connect();
-    const database = client.db("myFirstBase");
+    // await client.connect();
+    // const database = client.db("myFirstBase");
     const articles = database.collection("posts");
     const newArticle = req.body;
     const result = await articles.insertOne(newArticle);
