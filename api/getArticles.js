@@ -8,7 +8,8 @@ export default async function handler(req, res) {
       const result = await articles.find().sort({ date: -1 }).toArray();
       res.status(200).json(result);
     } catch (error) {
-      res.status(500).json({ error: "Nie udało się pobrać artykułów" });
+      console.error("Błąd podczas pobierania artykułów:", error);
+      res.status(500).json({ error: "Nie udało się pobrać artykułów", details: error.message });
     }
   } else {
     res.setHeader("Allow", ["GET"]);
