@@ -12,12 +12,16 @@ const uri =
 const client = new MongoClient(uri);
 
 async function connectToDatabase() {
-  if (!client.isConnected()) {
+  try {
     await client.connect();
+    console.log("Połączono z bazą danych MongoDB");
+    return client.db("myFirstBase");
+  } catch (error) {
+    console.error("Błąd połączenia z bazą danych:", error);
+    process.exit(1);
   }
-  return client.db("myFirstBase");
 }
-connectToDatabase();
+// connectToDatabase();
 //-------------------------------------------
 
 // CHECK CONNECT TO DATABASE !!
@@ -35,16 +39,13 @@ connectToDatabase();
 // get posts from MongoDB
 app.get("/api/getArticles", async (req, res) => {
   try {
-    // await client.connect();
-    // const database = client.db("myFirstBase");
+    const database = await connectToDatabase();
     const articles = database.collection("posts");
-    console.log(articles);
+    // console.log(articles);
     const result = await articles.find().sort({ date: -1 }).toArray();
     res.json(result);
   } catch (error) {
     res.status(500).json({ error: "Nie udało się pobrać artykułów" });
-  } finally {
-    await client.close();
   }
 });
 

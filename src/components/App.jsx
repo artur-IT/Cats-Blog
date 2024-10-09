@@ -18,10 +18,13 @@ function App() {
 
   // get articles from MongoDB
   const getPosts = () => {
-    return fetch("/api/getArticles")
-      .then((data) => data.json())
-      .then((data) => setArticles(data))
-      .catch((error) => console.error("Błąd:", error));
+    return (
+      fetch("/api/getArticles")
+        .then((data) => data.json())
+        .then((data) => setArticles(data))
+        // .then((data) => console.log(data))
+        .catch((error) => console.error("Błąd:", error))
+    );
   };
 
   useEffect(() => {
