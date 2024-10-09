@@ -14,16 +14,16 @@ const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 
 export async function connectToDatabase() {
-  if (!client.isConnected()) await client.connect();
-  return client.db("myFirstBase");
-  // try {
-  //   await client.connect();
-  //   console.log("Połączono z bazą danych MongoDB");
-  //   return client.db("myFirstBase");
-  // } catch (error) {
-  //   console.error("Błąd połączenia z bazą danych:", error);
-  //   process.exit(1);
-  // }
+  // if (!client.isConnected()) await client.connect();
+  // return client.db("myFirstBase");
+  try {
+    await client.connect();
+    console.log("Połączono z bazą danych MongoDB");
+    return client.db("myFirstBase");
+  } catch (error) {
+    console.error("Błąd połączenia z bazą danych:", error);
+    process.exit(1);
+  }
 }
 //-------------------------------------------
 // get posts from MongoDB
