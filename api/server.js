@@ -1,12 +1,14 @@
+// Plik TYLKO do lokalnego TESTOWANIA - pobierania i zapisywania danych !!!
+//-------------------------------------------------------------------------
 import express from "express";
 import { MongoClient } from "mongodb";
 const app = express();
 const port = 3000;
 app.use(express.json());
 
-// const uri = process.env.MONGODB_URI;
 //------------------------------------------
 // OPEN CONNECTION TO MONGODB
+// const uri = process.env.MONGODB_URI;
 const uri =
   "mongodb+srv://vercel-admin-user-6703a71951df322efc1f187a:FNGsib8AhXU4LJp8@cluster0.r4uz6i5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri);
@@ -23,17 +25,17 @@ export default async function connectToDatabase() {
 }
 //-------------------------------------------
 // get posts from MongoDB
-// app.get("/api/getArticles", async (req, res) => {
-//   try {
-//     const database = await connectToDatabase();
-//     const articles = database.collection("posts");
-//     // console.log(articles);
-//     const result = await articles.find().sort({ date: -1 }).toArray();
-//     res.json(result);
-//   } catch (error) {
-//     res.status(500).json({ error: "Nie udało się pobrać artykułów" });
-//   }
-// });
+app.get("/api/getArticles", async (req, res) => {
+  try {
+    const database = await connectToDatabase();
+    const articles = database.collection("posts");
+    // console.log(articles);
+    const result = await articles.find().sort({ date: -1 }).toArray();
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: "Nie udało się pobrać artykułów" });
+  }
+});
 
 // save new post to MongoDB
 app.post("/api/addArticle", async (req, res) => {
