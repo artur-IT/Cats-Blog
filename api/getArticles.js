@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../api/server";
+import { connectToDatabase } from "./server";
 import Cors from "cors";
 
 const cors = Cors({
