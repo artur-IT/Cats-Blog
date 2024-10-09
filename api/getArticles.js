@@ -1,5 +1,6 @@
 // import { connectToDatabase } from "server";
 
+import { MongoClient } from "mongodb";
 //------------------------------------------
 // OPEN CONNECTION TO MONGODB
 // const uri = process.env.MONGODB_URI;
