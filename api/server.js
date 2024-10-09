@@ -11,7 +11,7 @@ const uri =
   "mongodb+srv://vercel-admin-user-6703a71951df322efc1f187a:FNGsib8AhXU4LJp8@cluster0.r4uz6i5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri);
 
-async function connectToDatabase() {
+export default async function connectToDatabase() {
   try {
     await client.connect();
     console.log("Połączono z bazą danych MongoDB");
@@ -52,16 +52,13 @@ app.get("/api/getArticles", async (req, res) => {
 // save new post to MongoDB
 app.post("/api/addArticle", async (req, res) => {
   try {
-    // await client.connect();
-    // const database = client.db("myFirstBase");
+    const database = await connectToDatabase();
     const articles = database.collection("posts");
     const newArticle = req.body;
     const result = await articles.insertOne(newArticle);
     res.status(201).json({ message: "Artykuł dodany pomyślnie", id: result.insertedId });
   } catch (error) {
     res.status(500).json({ error: "Nie udało się dodać artykułu", details: error.message });
-  } finally {
-    await client.close();
   }
 });
 
