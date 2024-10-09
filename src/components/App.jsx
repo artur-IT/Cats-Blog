@@ -20,7 +20,7 @@ function App() {
   const getPosts = () => {
     return (
       fetch("/api/getArticles")
-        .then((data) => data.json())
+        // .then((data) => data.json())
         // .then((data) => console.log(data))
         .then((data) => setArticles(data))
         .catch((error) => console.error("Błąd:", error))
