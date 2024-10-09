@@ -21,33 +21,19 @@ export default async function connectToDatabase() {
     process.exit(1);
   }
 }
-// connectToDatabase();
 //-------------------------------------------
-
-// CHECK CONNECT TO DATABASE !!
-// async function connectToDatabase() {
-//   try {
-//     await client.connect();
-//     console.log("Połączono z bazą danych MongoDB");
-//   } catch (error) {
-//     console.error("Błąd połączenia z bazą danych:", error);
-//     process.exit(1);
-//   }
-// }
-// connectToDatabase();
-
 // get posts from MongoDB
-app.get("/api/getArticles", async (req, res) => {
-  try {
-    const database = await connectToDatabase();
-    const articles = database.collection("posts");
-    // console.log(articles);
-    const result = await articles.find().sort({ date: -1 }).toArray();
-    res.json(result);
-  } catch (error) {
-    res.status(500).json({ error: "Nie udało się pobrać artykułów" });
-  }
-});
+// app.get("/api/getArticles", async (req, res) => {
+//   try {
+//     const database = await connectToDatabase();
+//     const articles = database.collection("posts");
+//     // console.log(articles);
+//     const result = await articles.find().sort({ date: -1 }).toArray();
+//     res.json(result);
+//   } catch (error) {
+//     res.status(500).json({ error: "Nie udało się pobrać artykułów" });
+//   }
+// });
 
 // save new post to MongoDB
 app.post("/api/addArticle", async (req, res) => {
