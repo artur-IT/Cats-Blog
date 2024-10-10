@@ -36,18 +36,6 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, getPosts, sh
     } else {
       alert("Wszystkie pola muszą być wypełnione!");
     }
-
-    // fetch("/api/addArticle", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ title, content, date, author }),
-    // });
-
-    // hide Form AddPost
-    // setShowNewPost();
-    // } else return alert("Wszystkie pola muszą być wypełnione!");
   };
 
   return (

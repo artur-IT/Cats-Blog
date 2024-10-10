@@ -7,7 +7,6 @@ export default async function handler(req, res) {
       const database = await connectToDatabase();
       const articles = database.collection("posts");
       const result = await articles.find().sort({ date: -1 }).toArray();
-      console.log("wynik pobrania: ", result);
       res.status(200).json(result);
     } catch (error) {
       console.error("Błąd podczas pobierania artykułów:", error);
