@@ -2,9 +2,9 @@
 import { connectToDatabase } from "./dbConnection.js";
 import Cors from "cors";
 
-const cors = Cors({
-  methods: ["GET", "HEAD"],
-});
+// const cors = Cors({
+//   methods: ["GET", "HEAD"],
+// });
 
 function runMiddleware(req, res, fn) {
   return new Promise((resolve, reject) => {
