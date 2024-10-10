@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 
 *,
 *::after,
@@ -295,13 +295,13 @@ svg {
   -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
 }
-[class*="grid-gap"] {
+[class*='grid-gap'] {
   margin-bottom: 1em * -1;
   margin-bottom: calc(var(--grid-gap, 1em) * -1);
   margin-right: 1em * -1;
   margin-right: calc(var(--grid-gap, 1em) * -1);
 }
-[class*="grid-gap"] > * {
+[class*='grid-gap'] > * {
   margin-bottom: 1em;
   margin-bottom: var(--grid-gap, 1em);
   margin-right: 1em;
@@ -987,7 +987,7 @@ svg {
 body {
   font-size: 1em;
   font-size: var(--text-base-size, 1em);
-  font-family: "PT Sans Narrow", sans-serif;
+  font-family: 'PT Sans Narrow', sans-serif;
   font-family: var(--font-primary, sans-serif);
   color: hsl(240, 4%, 20%);
   color: var(--color-contrast-high, #313135);
@@ -996,6 +996,7 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: 'Handlee', sans-serif;
   color: hsl(240, 8%, 12%);
   color: var(--color-contrast-higher, #1c1c21);
   line-height: 1.2;
@@ -1368,7 +1369,7 @@ u,
   clip: rect(1px, 1px, 1px, 1px);
 }
 .form__msg-error::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0.75em;
   left: var(--space-sm);
@@ -2838,7 +2839,7 @@ u,
   padding-bottom: 75%;
 }
 :root,
-[data-theme="default"] {
+[data-theme='default'] {
   --color-primary-darker: hsl(220, 90%, 36%);
   --color-primary-darker-h: 220;
   --color-primary-darker-s: 90%;
@@ -3083,17 +3084,17 @@ mark {
   box-shadow: 0 0 0 3px hsla(220, 90%, 56%, 0.2);
   box-shadow: 0 0 0 3px var(--color-shadow);
 }
-.form-control[aria-invalid="true"] {
+.form-control[aria-invalid='true'] {
   border-color: hsl(355, 90%, 61%);
   border-color: var(--color-error);
 }
-.form-control[aria-invalid="true"]:focus {
+.form-control[aria-invalid='true']:focus {
   --color-shadow: hsla(355, 90%, 61%, 0.2);
   --color-shadow: hsla(var(--color-error-h), var(--color-error-s), var(--color-error-l), 0.2);
   box-shadow: undefined;
   box-shadow: 0 0 0 3px var(--color-shadow);
 }
-.form-control[aria-invalid="true"]:focus:focus {
+.form-control[aria-invalid='true']:focus:focus {
   box-shadow: 0 0 0 3px hsla(355, 90%, 61%, 0.2);
   box-shadow: 0 0 0 3px var(--color-shadow);
 }
@@ -3127,8 +3128,8 @@ mark {
   --cd-color-6-s: 85%;
   --cd-color-6-l: 61%;
   --cd-header-height: 200px;
-  --font-primary: "PT Sans", sans-serif;
-  --font-secondary: "Open Sans", sans-serif;
+  --font-primary: 'PT Sans', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
 }
 @supports (--css: variables) {
   @media (min-width: 64rem) {
@@ -3148,7 +3149,7 @@ mark {
   -moz-osx-font-smoothing: grayscale;
 }
 .cd-main-header h1 {
-  font-family: "Handlee", cursive;
+  font-family: 'Handlee', cursive;
   font-weight: 400;
   font-style: normal;
   color: inherit;
@@ -3161,11 +3162,11 @@ mark {
   color: var(--cd-color-3);
   background-color: hsl(205, 38%, 93.45%);
   background-color: hsl(var(--cd-color-2-h), var(--cd-color-2-s), calc(var(--cd-color-2-l) * 1.05));
-  font-family: "PT Sans Narrow", sans-serif;
+  font-family: 'PT Sans Narrow', sans-serif;
   font-family: var(--font-primary);
 }
 .cd-timeline h2 {
-  font-family: "PT Sans Narrow", sans-serif;
+  font-family: 'PT Sans Narrow', sans-serif;
   font-family: var(--font-secondary);
   font-weight: 700;
 }
@@ -3175,7 +3176,7 @@ mark {
   padding: var(--space-md) 0;
 }
 .cd-timeline__container::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 18px;
@@ -3221,8 +3222,14 @@ mark {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px hsl(0, 0%, 100%), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 0 0 4px var(--color-white), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 0 0 4px hsl(0, 0%, 100%),
+    inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 0 0 4px var(--color-white),
+    inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 .cd-timeline__img img {
   width: 24px;
@@ -3271,7 +3278,7 @@ mark {
   box-shadow: 5px 5px 5px gray;
 }
 .cd-timeline__content::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 16px;
   right: 100%;

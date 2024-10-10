@@ -18,13 +18,10 @@ function App() {
 
   // get articles from MongoDB
   const getPosts = () => {
-    return (
-      fetch("/api/getArticles")
-        .then((data) => data.json())
-        // .then((data) => console.log(data))
-        .then((data) => setArticles(data))
-        .catch((error) => console.error("Błąd:", error))
-    );
+    return fetch("/api/getArticles")
+      .then((data) => data.json())
+      .then((data) => setArticles(data))
+      .catch((error) => console.error("Błąd:", error));
   };
 
   useEffect(() => {
@@ -47,20 +44,20 @@ function App() {
         </div>
       </section>
       {/* Popup with add new post form after successful login */}
-      {/* {showNewPost && ( */}
-      <div className="add_content">
-        <FormAddPost
-          articles={articlesDB}
-          updateBlogState={(newArticle) => setArticles(newArticle)}
-          showNewPostWindow={showNewPostWindow}
-          showNewPost={showNewPost}
-          randKey={randKey}
-          getPosts={getPosts}
-          setArticles={setArticles}
-          setShowNewPost={() => setShowNewPost(!showNewPost)}
-        />
-      </div>
-      {/* )} */}
+      {showNewPost && (
+        <div className="add_content">
+          <FormAddPost
+            articles={articlesDB}
+            updateBlogState={(newArticle) => setArticles(newArticle)}
+            showNewPostWindow={showNewPostWindow}
+            showNewPost={showNewPost}
+            randKey={randKey}
+            getPosts={getPosts}
+            setArticles={setArticles}
+            setShowNewPost={() => setShowNewPost(!showNewPost)}
+          />
+        </div>
+      )}
     </>
   );
 }

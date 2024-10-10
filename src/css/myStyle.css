@@ -54,14 +54,14 @@
   border-bottom-left-radius: 0px;
 }
 .cats_tiger:hover:before {
-  content: "Tiger";
+  content: 'Tiger';
 }
 .cats_indi:hover {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
 }
 .cats_indi:hover:before {
-  content: "Indi";
+  content: 'Indi';
 }
 
 img.indi {
@@ -92,6 +92,10 @@ img.tiger_show {
   top: 0px;
 }
 /* Author's - end  */
+
+h3 {
+  color: #fff;
+}
 
 .cd-main-header {
   background-color: #0099ff;
