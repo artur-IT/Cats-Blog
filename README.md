@@ -2,7 +2,7 @@
 
 # Cats Blog
 
-See the live version of [Cats Blog](https://artur-it.github.io/Cats-Blog/).
+See the live version of [Cats Blog](https://artur-it.github.io/Cats-Blog/) on Vercel.
 
 It's simple, short blog authoring my 2 young cat's. Indi & Tiger. He's describe own crazy life in our flat.
 
@@ -20,60 +20,22 @@ It's simple, short blog authoring my 2 young cat's. Indi & Tiger. He's describe 
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![REACT](https://img.shields.io/badge/react-%23323330.svg?style=for-the-badge&logo=react&logoColor=%23F7DF1E)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
 &nbsp;
 
 ## 🤔 Solutions provided in the project
 
-- one
+- connect to MongoDB database
+- load posts from MongoDB
+- save posts from Vercel platform to MongoDB
 
-&nbsp;
-
-- two:
-
-```
-some example code
-
-more code :)
-```
-
-&nbsp;
-
-- three
-
-| Issue | Solution             |     |
-| ----- | -------------------- | --- |
-| one   | `short code example` |     |
-| two   | `short code example` |     |
-| thre  | `short code example` |     |
-
-&nbsp;
-
-- four - some shortcut <kbd>Ctrl</kbd> + <kbd>C</kbd>
-
-&nbsp;
-
-- five - example with a screenshot
-  <img alt='what it is' src="https://via.placeholder.com/500x200" />
-
-&nbsp;
+![](/public/img/connectToDB.png)
 
 ## 💭 Conclusions for future projects
 
 - add 1 small image to post
-- add new post from site by server-side rendering
-
-#### This is the first issue:
-
-```
-and this is a code example
-```
-
-#### This is the second issue:
-
-```
-and this is a code example
-```
 
 &nbsp;
 
@@ -87,8 +49,9 @@ Find me on [LinkedIn](https://www.linkedin.com/in/artur-matysiak-285892224/)
 
 ## 👏 Thanks
 
+God for patience and perseverance to do it.
+
 ### Responsive Vertical Timeline
 
 An easy to customize, responsive timeline.
-
 [Article on CodyHouse](https://codyhouse.co/gem/vertical-timeline)
