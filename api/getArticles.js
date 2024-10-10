@@ -1,5 +1,5 @@
 // import { connectToDatabase } from "./server";
-import { connectToDatabase } from "./dbConnection";
+import { connectToDatabase } from "./dbConnection.js";
 import Cors from "cors";
 
 const cors = Cors({

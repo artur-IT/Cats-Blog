@@ -1,3 +1,7 @@
 {
-  "rewrites": [{ "source": "/api/(.*)", "destination": "/api/$1" }]
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs14.x"
+    }
+  }
 }
