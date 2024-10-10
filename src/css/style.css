@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:slnt@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 
 *,
@@ -2985,7 +2985,7 @@ u,
   --radius: 0.25em;
 }
 :root {
-  --font-primary: sans-serif;
+  --font-primary: 'Afacad Flux', sans-serif;
   --text-base-size: 1em;
   --text-scale-ratio: 1.2;
   --text-xs: calc(1em / var(--text-scale-ratio) / var(--text-scale-ratio));
@@ -2995,7 +2995,7 @@ u,
   --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
   --text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
   --text-xxxl: calc(var(--text-xxl) * var(--text-scale-ratio));
-  --body-line-height: 1.4;
+  --body-line-height: 1.1;
   --heading-line-height: 1.2;
   --font-primary-capital-letter: 1;
 }
@@ -3129,7 +3129,7 @@ mark {
   --cd-color-6-s: 85%;
   --cd-color-6-l: 61%;
   --cd-header-height: 200px;
-  --font-primary: 'PT Sans', sans-serif;
+  --font-primary: 'Afacad Flux', sans-serif;
   --font-secondary: 'Open Sans', sans-serif;
 }
 @supports (--css: variables) {
@@ -3476,7 +3476,7 @@ mark {
     flex-grow: 0;
     will-change: transform;
     margin: 0;
-    font-size: 0.8em;
+    font-size: 0.9em;
     --line-height-multiplier: 1.2;
   }
   .cd-timeline__content::before {
