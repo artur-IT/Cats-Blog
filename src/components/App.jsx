@@ -31,18 +31,6 @@ function App() {
     getPosts();
   }, []);
 
-  // const addNewArticle = async (articleData) => {
-  //   const response = await fetch("/api/saveArticle", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(articleData),
-  //   });
-  //   const data = await response.json();
-  //   return data;
-  // };
-
   // show / hide addPostForm
   const showNewPostWindow = () => setShowNewPost(!showNewPost);
 

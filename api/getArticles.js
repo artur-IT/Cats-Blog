@@ -1,16 +1,6 @@
 import { connectToDatabase } from "./dbConnection.js";
 
-// function runMiddleware(req, res, fn) {
-//   return new Promise((resolve, reject) => {
-//     fn(req, res, (result) => {
-//       if (result instanceof Error) {
-//         return reject(result);
-//       }
-//       return resolve(result);
-//     });
-//   });
-// }
-
+// Get all posts from MongoDB
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {

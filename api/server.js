@@ -1,7 +1,7 @@
 // Plik TYLKO do lokalnego TESTOWANIA - pobierania i zapisywania danych !!!
 //-------------------------------------------------------------------------
 import express from "express";
-import { connectToDatabase } from "./dbConnection";
+import { connectToDatabase } from "./dbConnection.js";
 const app = express();
 const port = 3000;
 app.use(express.json());
