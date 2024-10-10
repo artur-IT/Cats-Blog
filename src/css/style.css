@@ -3290,6 +3290,7 @@ mark {
   border-right-color: var(--color-white);
 }
 .cd-timeline__content h2 {
+  font-family: var(--font-primary);
   color: hsl(206, 21%, 24%);
   color: var(--cd-color-1);
 }
