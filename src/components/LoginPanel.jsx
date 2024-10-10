@@ -1,7 +1,7 @@
 export const LoginPanel = ({ showNewPostWindow, loginTopButton }) => {
   const permissions = {
-    user: "cats",
-    pass: "crazy",
+    user: 'cats',
+    pass: 'crazy',
   };
 
   const checkPremissions = () => {
@@ -11,7 +11,7 @@ export const LoginPanel = ({ showNewPostWindow, loginTopButton }) => {
     if (userData === permissions.user && passData === permissions.pass) {
       loginTopButton();
       showNewPostWindow();
-    } else alert("Zły login lub hasło!");
+    } else alert('Zły login lub hasło!');
   };
 
   return (
@@ -20,14 +20,14 @@ export const LoginPanel = ({ showNewPostWindow, loginTopButton }) => {
         <div className="form-group">
           <label>
             admin:
-            <input type="user" name="user" placeholder="cats" />
+            <input type="user" name="user" />
           </label>
         </div>
 
         <div className="form-group">
           <label>
             hasło:
-            <input type="new-password" name="pass" placeholder="crazy" />
+            <input type="new-password" name="pass" />
           </label>
         </div>
 
