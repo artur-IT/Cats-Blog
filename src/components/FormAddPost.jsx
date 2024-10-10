@@ -1,19 +1,4 @@
 import { useState } from "react";
-import { Article } from "../components/Article";
-
-//----------
-// app.post("/api/addArticle", async (req, res) => {
-//   try {
-//     const db = await connectToDatabase();
-//     const articles = db.collection("posts");
-//     const result = await articles.insertOne(req.body);
-//     res.status(201).json({ message: "Artykuł dodany pomyślnie", id: result.insertedId });
-//   } catch (error) {
-//     console.error("Błąd przy dodawaniu artykułu:", error);
-//     res.status(500).json({ error: "Nie udało się dodać artykułu" });
-//   }
-// });
-//----------
 
 export const FormAddPost = ({ setShowNewPost, setArticles, randKey, getPosts, showNewPostWindow }) => {
   // Show button 'Login' after click X to close addPostForm
