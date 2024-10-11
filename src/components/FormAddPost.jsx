@@ -1,63 +1,59 @@
-import { useState } from "react";
+import { useForm } from 'react-hook-form';
 
-export const FormAddPost = ({ setShowNewPost, setArticles, randKey, getPosts, showNewPostWindow }) => {
-  // Show button 'Login' after click X to close addPostForm
-  const iconXCloseHandle = () => showNewPostWindow();
-
-  const [author, setAuthor] = useState("");
-  const [date, setDate] = useState("");
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-
+export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWindow }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   // Add new post form handle
-  const formAddHandle = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (data) => {
     const id = randKey;
-    let newArticle = null;
+    let newArticle = {
+      ...data,
+      id: randKey,
+      date: new Date(data.date).toISOString().substring(0, 10),
+    };
 
-    if (author && content && title && content && date) {
-      newArticle = { id, author, date: new Date(date).toISOString().substring(0, 10), title, content };
-
-      try {
-        const response = await fetch("/api/addArticle", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newArticle),
-        });
-        if (response.ok) {
-          getPosts();
-          setShowNewPost(false);
-        }
-      } catch (error) {
-        alert(error.message);
+    try {
+      const response = await fetch('/api/addArticle', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newArticle),
+      });
+      if (response.ok) {
+        getPosts();
+        setShowNewPost(false);
       }
-    } else {
-      alert("Wszystkie pola muszą być wypełnione!");
+    } catch (error) {
+      console.log('Wystąpił taki błąd podczas wysyłania formularza: ', error);
     }
   };
 
   return (
     <>
-      <form className="layout">
+      <form onSubmit={handleSubmit(onSubmit)} className="layout">
         <h3 className="title_top">Krótki Post</h3>
-        <div className="close" onClick={iconXCloseHandle}>
+        <div className="close" onClick={showNewPostWindow}>
           x
         </div>
+
         <div className="title">
           <label htmlFor="title">Tytuł</label>
         </div>
         <div className="title_field">
           <input
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-            className="title_content"
+            {...register('title', {
+              required: 'Tytuł jest wymagany',
+              maxLength: { value: 50, message: 'Maksymalna długość to 50 znaków' },
+            })}
+            className={`title_content ${errors.title ? 'error' : ''}`}
             type="text"
-            name="title_content"
             id="title"
-            maxLength={50}
           />
+          {errors.title && <span className="error-message">{errors.title.message}</span>}
         </div>
 
         <div className="content">
@@ -65,37 +61,45 @@ export const FormAddPost = ({ setShowNewPost, setArticles, randKey, getPosts, sh
         </div>
         <div className="content_field">
           <textarea
-            onChange={(e) => setContent(e.target.value)}
-            value={content}
-            className="blog_content"
-            type="text"
-            name="content"
+            {...register('content', {
+              required: 'Treść jest wymagana',
+              maxLength: { value: 250, message: 'Maksymalna długość to 250 znaków' },
+            })}
+            className={`blog_content ${errors.content ? 'error' : ''}`}
             id="content"
-            maxLength={250}
           />
+          {errors.content && <span className="error-message">{errors.content.message}</span>}
         </div>
 
         <div className="date">
           <label htmlFor="date">Data</label>
         </div>
         <div className="date_field">
-          <input onChange={(e) => setDate(e.target.value)} value={date} className="date_content" type="date" name="date" id="date" />
+          <input
+            {...register('date', { required: 'Data jest wymagana' })}
+            className={`date_content ${errors.date ? 'error' : ''}`}
+            type="date"
+            id="date"
+          />
         </div>
 
         <div className="author_label">
           <label htmlFor="author">Autor</label>
         </div>
         <div className="author_field">
-          <select className="author" onChange={(e) => setAuthor(e.target.value)} name="author" id="author" value={author}>
-            <option></option>
+          <select
+            {...register('author', { required: 'Autor jest wymagany' })}
+            className={`author ${errors.author ? 'error' : ''}`}
+            id="author"
+          >
+            <option value="">Wybierz</option>
             <option>Indi</option>
             <option>Tiger</option>
           </select>
         </div>
 
-        <div className="empty"></div>
         <div className="button">
-          <button className="btn_add" type="submit" onClick={formAddHandle}>
+          <button className="btn_add" type="submit">
             Dodaj
           </button>
         </div>

@@ -2,11 +2,11 @@
   position: absolute;
   top: 55%;
   left: 50%;
-  font-family: 'Handlee';
+  font-family: 'Afacad Flux';
   transform: translate(-50%, -50%);
   max-width: 800px;
   height: auto;
-  max-height: 520px;
+  max-height: 570px;
   padding: 30px;
   display: grid;
   grid:
@@ -133,6 +133,17 @@ input {
 
 .btn_add:hover {
   background-color: #99cc32;
+}
+
+.error {
+  border: 2px solid red;
+  background-color: #ffebee;
+}
+
+.error-message {
+  padding-bottom: 5px;
+  font-weight: 300;
+  color: orange;
 }
 
 @media (max-width: 600px) and (orientation: portrait) {
