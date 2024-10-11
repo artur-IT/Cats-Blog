@@ -18,22 +18,25 @@
     'empty button' 1fr
     / auto 1fr;
   z-index: 2;
-  border: 7px solid #0099ff;
+  border: 5px solid #0099ff;
   background-color: rgb(0, 0, 0, 80%);
-  border-radius: 30px;
+  border-radius: 20px;
 }
 
 .close {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 1.8rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-family: 'Afacad Flux', Helvetica, sans-serif;
   padding: 6px;
+  width: 30px;
   height: 30px;
-  line-height: 50%;
+  text-align: center;
+  line-height: 40%;
   background-color: #0099ff;
   cursor: pointer;
+  border-radius: 40%;
 }
 
 .title_top {
@@ -125,6 +128,7 @@ input {
   color: #fff;
   cursor: pointer;
   transition: 0.3s;
+  border-radius: 4px;
 }
 
 .btn_add:hover {

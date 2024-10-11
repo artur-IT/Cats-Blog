@@ -6,9 +6,9 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   // Add new post form handle
   const onSubmit = async (data) => {
-    const id = randKey;
     let newArticle = {
       ...data,
       id: randKey,
@@ -35,7 +35,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="layout">
-        <h3 className="title_top">Krótki Post</h3>
+        <h3 className="title_top">Nowy wpis</h3>
         <div className="close" onClick={showNewPostWindow}>
           x
         </div>
