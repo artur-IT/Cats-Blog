@@ -71,6 +71,7 @@ input {
   display: flex;
   justify-content: start;
   align-items: end;
+  flex-wrap: wrap;
 }
 
 .date,
@@ -110,8 +111,7 @@ input {
 
 @media (max-width: 600px) and (orientation: portrait) {
   .layout {
-    max-width: 390px;
-    max-height: 440px;
+    max-width: 400px;
     background-color: #000;
   }
   .title_content,
