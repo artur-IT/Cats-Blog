@@ -37,11 +37,11 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
       <form onSubmit={handleSubmit(onSubmit)} className="layout">
         <h3 className="title_top">Nowy wpis</h3>
         <div className="close" onClick={showNewPostWindow}>
-          x
+          <img src="../img/icon_close.svg" alt="close" />
         </div>
 
         <div className="title">
-          <label htmlFor="title">Tytuł</label>
+          <label>Tytuł</label>
         </div>
         <div className="title_field">
           <input
@@ -57,7 +57,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
         </div>
 
         <div className="content">
-          <label htmlFor="content">Treść</label>
+          <label>Treść</label>
         </div>
         <div className="content_field">
           <textarea
@@ -71,34 +71,34 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
           {errors.content && <span className="error-message">{errors.content.message}</span>}
         </div>
 
-        <div className="date">
-          <label htmlFor="date">Data</label>
-        </div>
-        <div className="date_field">
-          <input
-            {...register('date', { required: 'Data jest wymagana' })}
-            className={`date_content ${errors.date ? 'error' : ''}`}
-            type="date"
-            id="date"
-          />
-        </div>
+        <div className="container_date-author">
+          <div className="date">
+            <label>Data</label>
+            <div className="date_field">
+              <input
+                {...register('date', { required: 'Data jest wymagana' })}
+                className={`date_content ${errors.date ? 'error' : ''}`}
+                type="date"
+                id="date"
+              />
+            </div>
+          </div>
 
-        <div className="author_label">
-          <label htmlFor="author">Autor</label>
-        </div>
-        <div className="author_field">
-          <select
-            {...register('author', { required: 'Autor jest wymagany' })}
-            className={`author ${errors.author ? 'error' : ''}`}
-            id="author"
-          >
-            <option value="">Wybierz</option>
-            <option>Indi</option>
-            <option>Tiger</option>
-          </select>
-        </div>
+          <div className="author">
+            <label>Autor</label>
+            <div className="author_field">
+              <select
+                {...register('author', { required: 'Autor jest wymagany' })}
+                className={`author ${errors.author ? 'error' : ''}`}
+                id="author"
+              >
+                <option value="">Wybierz</option>
+                <option>Indi</option>
+                <option>Tiger</option>
+              </select>
+            </div>
+          </div>
 
-        <div className="button">
           <button className="btn_add" type="submit">
             Dodaj
           </button>
