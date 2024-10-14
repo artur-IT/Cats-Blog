@@ -1,7 +1,10 @@
 {
   "functions": {
     "api/*.js": {
-      "runtime": "@vercel/node@1.15.4"
+      "runtime": "@vercel/node@1.15.4",
+      "maxDuration": 10,
+      "memory": 1024,
+      "maxPayloadSize": "10mb"
     }
   }
 }

@@ -4,8 +4,10 @@ import express from 'express';
 import { connectToDatabase } from './dbConnection.js';
 const app = express();
 const port = 3000;
-app.use(express.json({ limit: '8mb' }));
-app.use(express.urlencoded({ limit: '8mb', extended: true }));
+// app.use(express.json({ limit: '8mb' }));
+// app.use(express.urlencoded({ limit: '8mb', extended: true }));
+app.use(express.json({ limit: process.env.MAX_BODY_SIZE || '10mb' }));
+app.use(express.urlencoded({ limit: process.env.MAX_BODY_SIZE || '10mb', extended: true }));
 
 // get posts from MongoDB
 app.get('/api/getArticles', async (req, res) => {
