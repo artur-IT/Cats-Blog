@@ -36,6 +36,7 @@ app.post('/api/addArticle', async (req, res) => {
     const database = await connectToDatabase();
     const articles = database.collection('posts');
     const newArticle = req.body;
+    console.log(newArticle);
     const result = await articles.insertOne(newArticle);
     res.status(201).json({ message: 'Artykuł dodany pomyślnie', id: result.insertedId });
   } catch (error) {
