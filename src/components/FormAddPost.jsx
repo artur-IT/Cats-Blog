@@ -62,54 +62,58 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
 
         <div className="title">
           <label>Tytuł</label>
-        </div>
-        <div className="title_field">
-          <input
-            {...register('title', {
-              required: 'Tytuł jest wymagany',
-              maxLength: { value: 50, message: 'Maksymalna długość to 50 znaków' },
-            })}
-            className={`title_content ${errors.title ? 'error' : ''}`}
-            type="text"
-            id="title"
-            disabled={isSubmitting}
-          />
-          {errors.title && <span className="error-message">{errors.title.message}</span>}
+          <div className="title_field">
+            <input
+              {...register('title', {
+                required: 'Tytuł jest wymagany',
+                maxLength: { value: 50, message: 'Maksymalna długość to 50 znaków' },
+              })}
+              className={`title_content ${errors.title ? 'error' : ''}`}
+              type="text"
+              id="title"
+              disabled={isSubmitting}
+            />
+            {errors.title && <span className="error-message">{errors.title.message}</span>}
+          </div>
         </div>
 
+        {/* Main content post */}
         <div className="content">
           <label>Treść</label>
-        </div>
-        <div className="content_field">
-          <textarea
-            {...register('content', {
-              required: 'Treść jest wymagana',
-              maxLength: { value: 250, message: 'Maksymalna długość to 250 znaków' },
-            })}
-            className={`blog_content ${errors.content ? 'error' : ''}`}
-            id="content"
-            disabled={isSubmitting}
-          />
-          {errors.content && <span className="error-message">{errors.content.message}</span>}
+
+          <div className="content_field">
+            <textarea
+              {...register('content', {
+                required: 'Treść jest wymagana',
+                maxLength: { value: 250, message: 'Maksymalna długość to 250 znaków' },
+              })}
+              className={`blog_content ${errors.content ? 'error' : ''}`}
+              id="content"
+              disabled={isSubmitting}
+            />
+            {errors.content && <span className="error-message">{errors.content.message}</span>}
+          </div>
         </div>
 
+        {/*  Image upload */}
         <div className="image">
           <input
             type="file"
             accept=".jpg,image/jpeg"
             {...register('image', {
               validate: {
-                fileSize: (files) => files[0]?.size <= 8000000 || 'Plik jest za duży (max 8MB)',
+                fileSize: (files) => files[0]?.size <= 8000000,
                 fileType: (files) =>
                   ['image/jpeg', 'image/jpg'].includes(files[0]?.type) || 'Dozwolony tylko format JPG',
               },
             })}
             disabled={isSubmitting}
           />
-          <label className="error-message">Zdjęcie (max 450px, format jpg)</label>
+          <label className="error-message">Zdjęcie (tylko format jpg)</label>
           {errors.image && <span className="error-message">{errors.image.message}</span>}
         </div>
 
+        {/* Date */}
         <div className="container_date-author">
           <div className="date">
             <label>Data</label>
@@ -124,6 +128,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
             </div>
           </div>
 
+          {/* Author */}
           <div className="author">
             <label>Autor</label>
             <div className="author_field">

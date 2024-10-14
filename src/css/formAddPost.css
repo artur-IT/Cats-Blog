@@ -6,7 +6,6 @@
   transform: translate(-50%, -50%);
   max-width: 800px;
   height: auto;
-  max-height: 670px;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -88,10 +87,6 @@ input {
   cursor: pointer;
   transition: 0.3s;
   border-radius: 4px;
-}
-
-.btn_add:hover {
-  background-color: #99cc32;
 }
 
 .btn_add:hover {
