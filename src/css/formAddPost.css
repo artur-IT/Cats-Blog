@@ -66,6 +66,10 @@ input {
   padding: 5px;
 }
 
+option {
+  width: auto;
+}
+
 .container_date-author {
   display: flex;
   justify-content: start;
