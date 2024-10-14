@@ -1,5 +1,7 @@
 import { useForm } from 'react-hook-form';
 import changeImageSize from '../js/changeImageSize.js';
+import ImageUploader from 'react-images-upload';
+import { useState } from 'react';
 
 export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWindow }) => {
   const {
@@ -7,6 +9,15 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm();
+
+  const [picture, setPicture] = useState(null);
+  // let resizedImage = null;
+  const onDrop = async (pictureFiles, pictureDataURLs) => {
+    if (pictureFiles.length > 0) {
+      const resizedImage = await changeImageSize(pictureFiles[0], 450);
+      setPicture(resizedImage);
+    }
+  };
 
   const fileToBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -21,11 +32,15 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
   const onSubmit = async (data) => {
     // Change image to Base64 format and resize it
     let imageBase64 = null;
-    let resizedImage = null;
-    if (data.image[0]) {
-      resizedImage = await changeImageSize(data.image[0], 450);
-      imageBase64 = await fileToBase64(resizedImage);
+
+    if (picture) {
+      imageBase64 = await fileToBase64(picture);
     }
+
+    // if (data.image[0]) {
+    //   resizedImage = await changeImageSize(data.image[0], 450);
+    //   imageBase64 = await fileToBase64(resizedImage);
+    // }
 
     let newArticle = {
       ...data,
@@ -96,7 +111,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
         </div>
 
         {/*  Image upload */}
-        <div className="image">
+        {/* <div className="image">
           <input
             type="file"
             accept=".jpg,image/jpeg"
@@ -104,14 +119,25 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
               validate: {
                 fileSize: (files) => files[0]?.size <= 8000000,
                 fileType: (files) =>
-                  ['image/jpeg', 'image/jpg'].includes(files[0]?.type) || 'Dozwolony tylko format JPG',
+                  ['image/jpeg', 'image/png', 'image/jpg'].includes(files[0]?.type) ||
+                  'Akceptowane formaty to JPEG i PNG',
               },
             })}
             disabled={isSubmitting}
           />
           <label className="error-message">Zdjęcie (tylko format jpg)</label>
           {errors.image && <span className="error-message">{errors.image.message}</span>}
-        </div>
+        </div> */}
+
+        <ImageUploader
+          withIcon={true}
+          buttonText="Wybierz obraz"
+          onChange={onDrop}
+          imgExtension={['.jpg', '.jpeg', '.png']}
+          maxFileSize={2000000}
+          singleImage={true}
+          withPreview={true}
+        />
 
         {/* Date */}
         <div className="container_date-author">
