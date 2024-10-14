@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import changeImageSize from '../js/changeImageSize.js';
-import ImageUploader from 'react-images-upload';
+import ImageUploader from './ImageUploader.jsx';
 import { useState } from 'react';
 
 export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWindow }) => {
@@ -11,13 +11,11 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
   } = useForm();
 
   const [picture, setPicture] = useState(null);
-  // let resizedImage = null;
-  const onDrop = async (pictureFiles, pictureDataURLs) => {
-    if (pictureFiles.length > 0) {
-      const resizedImage = await changeImageSize(pictureFiles[0], 450);
-      setPicture(resizedImage);
-    }
-  };
+  // const onDrop = (pictureFiles, pictureDataURLs) => {
+  //   if (pictureFiles.length > 0) {
+  //     setPicture(pictureFiles[0]);
+  //   }
+  // };
 
   const fileToBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -32,15 +30,11 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
   const onSubmit = async (data) => {
     // Change image to Base64 format and resize it
     let imageBase64 = null;
-
+    // let resizedImage = null;
     if (picture) {
+      // resizedImage = await changeImageSize(data.image[0], 450);
       imageBase64 = await fileToBase64(picture);
     }
-
-    // if (data.image[0]) {
-    //   resizedImage = await changeImageSize(data.image[0], 450);
-    //   imageBase64 = await fileToBase64(resizedImage);
-    // }
 
     let newArticle = {
       ...data,
@@ -129,15 +123,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
           {errors.image && <span className="error-message">{errors.image.message}</span>}
         </div> */}
 
-        <ImageUploader
-          withIcon={true}
-          buttonText="Wybierz obraz"
-          onChange={onDrop}
-          imgExtension={['.jpg', '.jpeg', '.png']}
-          maxFileSize={8000000}
-          singleImage={true}
-          withPreview={true}
-        />
+        <ImageUploader onImageUpload={setPicture} />
 
         {/* Date */}
         <div className="container_date-author">
