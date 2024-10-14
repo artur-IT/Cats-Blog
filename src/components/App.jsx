@@ -56,20 +56,20 @@ function App() {
         </div>
       </section>
       {/* Popup with add new post form after successful login */}
-      {/* {showNewPost && ( */}
-      <div className="add_content">
-        <FormAddPost
-          articles={articlesDB}
-          updateBlogState={(newArticle) => setArticles(newArticle)}
-          showNewPostWindow={showNewPostWindow}
-          showNewPost={showNewPost}
-          randKey={randKey}
-          getPosts={getPosts}
-          setArticles={setArticles}
-          setShowNewPost={() => setShowNewPost(!showNewPost)}
-        />
-      </div>
-      {/* )} */}
+      {showNewPost && (
+        <div className="add_content">
+          <FormAddPost
+            articles={articlesDB}
+            updateBlogState={(newArticle) => setArticles(newArticle)}
+            showNewPostWindow={showNewPostWindow}
+            showNewPost={showNewPost}
+            randKey={randKey}
+            getPosts={getPosts}
+            setArticles={setArticles}
+            setShowNewPost={() => setShowNewPost(!showNewPost)}
+          />
+        </div>
+      )}
     </>
   );
 }

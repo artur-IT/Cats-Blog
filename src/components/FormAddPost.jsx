@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import changeImageSize from '../js/changeImageSize.js';
 
 export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWindow }) => {
   const {
@@ -18,9 +19,12 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
 
   // Add new post form handle
   const onSubmit = async (data) => {
+    // Change image to Base64 format and resize it
     let imageBase64 = null;
+    let resizedImage = null;
     if (data.image[0]) {
-      imageBase64 = await fileToBase64(data.image[0]);
+      resizedImage = await changeImageSize(data.image[0], 450);
+      imageBase64 = await fileToBase64(resizedImage);
     }
 
     let newArticle = {
@@ -95,7 +99,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
             accept=".jpg,image/jpeg"
             {...register('image', {
               validate: {
-                fileSize: (files) => files[0]?.size <= 2000000 || 'Plik jest za duży (max 2MB)',
+                fileSize: (files) => files[0]?.size <= 8000000 || 'Plik jest za duży (max 8MB)',
                 fileType: (files) =>
                   ['image/jpeg', 'image/jpg'].includes(files[0]?.type) || 'Dozwolony tylko format JPG',
               },
