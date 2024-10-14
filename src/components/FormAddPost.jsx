@@ -134,7 +134,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
           buttonText="Wybierz obraz"
           onChange={onDrop}
           imgExtension={['.jpg', '.jpeg', '.png']}
-          maxFileSize={2000000}
+          maxFileSize={8000000}
           singleImage={true}
           withPreview={true}
         />
