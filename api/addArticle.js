@@ -3,8 +3,8 @@ import { connectToDatabase } from './dbConnection.js';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { id, title, content, author, date, imageUrl } = req.body;
-    console.log('To jest w ImageUrl: ', imageUrl);
+    const { id, title, content, author, date, picture } = req.body;
+    console.log('To jest w ImageUrl: ', picture);
     try {
       const database = await connectToDatabase();
       const articles = database.collection('posts');
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
         content,
         author,
         date,
-        imageUrl,
+        picture,
       });
 
       res.status(200).json({ message: 'Artykuł dodany pomyślnie', id: result.insertedId });
