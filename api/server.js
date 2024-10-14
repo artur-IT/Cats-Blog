@@ -1,5 +1,13 @@
 // Plik TYLKO do lokalnego TESTOWANIA - pobierania i zapisywania danych !!!
 //-------------------------------------------------------------------------
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb',
+    },
+  },
+};
+
 import express from 'express';
 import { connectToDatabase } from './dbConnection.js';
 const app = express();
