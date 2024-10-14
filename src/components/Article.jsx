@@ -15,7 +15,9 @@ export const Article = ({ author, date, title, content, picture }) => {
         <h2>{title}</h2>
         <span>{author}</span>
         <p className="color-contrast-medium">{content}</p>
-        <img src={picture} alt="image from this article" />
+
+        {picture && <img src={picture} alt="image from this article" />}
+
         <div className="flex justify-between items-center">
           <span className="cd-timeline__date">{addPostDate}</span>
         </div>
