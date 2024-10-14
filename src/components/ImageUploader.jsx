@@ -14,7 +14,7 @@ const ImageUploader = ({ onImageUpload }) => {
   };
 
   return (
-    <div>
+    <div className="file_area">
       <input type="file" accept="image/*" onChange={handleFileChange} />
       {preview && <img src={preview} alt="Preview" style={{ maxWidth: '100%', marginTop: '10px' }} />}
     </div>

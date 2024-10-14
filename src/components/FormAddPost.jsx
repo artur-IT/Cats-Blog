@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form';
-import changeImageSize from '../js/changeImageSize.js';
 import ImageUploader from './ImageUploader.jsx';
 import { useState } from 'react';
 
@@ -11,11 +10,6 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
   } = useForm();
 
   const [picture, setPicture] = useState(null);
-  // const onDrop = (pictureFiles, pictureDataURLs) => {
-  //   if (pictureFiles.length > 0) {
-  //     setPicture(pictureFiles[0]);
-  //   }
-  // };
 
   const fileToBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -30,14 +24,9 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
   const onSubmit = async (data) => {
     // Change image to Base64 format and resize it
     let imageBase64 = null;
-    // let resizedImage = null;
-    // console.log(picture);
     if (picture) {
-      // resizedImage = await changeImageSize(data.image[0], 450);
       imageBase64 = await fileToBase64(picture);
     }
-
-    // console.log(imageBase64);
 
     let newArticle = {
       ...data,
@@ -45,7 +34,6 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
       date: new Date(data.date).toISOString().substring(0, 10),
       picture: imageBase64,
     };
-    // console.log(newArticle);
 
     try {
       const response = await fetch('/api/addArticle', {
@@ -109,24 +97,6 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
         </div>
 
         {/*  Image upload */}
-        {/* <div className="image">
-          <input
-            type="file"
-            accept=".jpg,image/jpeg"
-            {...register('image', {
-              validate: {
-                fileSize: (files) => files[0]?.size <= 8000000,
-                fileType: (files) =>
-                  ['image/jpeg', 'image/png', 'image/jpg'].includes(files[0]?.type) ||
-                  'Akceptowane formaty to JPEG i PNG',
-              },
-            })}
-            disabled={isSubmitting}
-          />
-          <label className="error-message">Zdjęcie (tylko format jpg)</label>
-          {errors.image && <span className="error-message">{errors.image.message}</span>}
-        </div> */}
-
         <ImageUploader onImageUpload={setPicture} />
 
         {/* Date */}

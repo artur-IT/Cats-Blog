@@ -12,8 +12,6 @@ import express from 'express';
 import { connectToDatabase } from './dbConnection.js';
 const app = express();
 const port = 3000;
-// app.use(express.json({ limit: '8mb' }));
-// app.use(express.urlencoded({ limit: '8mb', extended: true }));
 app.use(express.json({ limit: process.env.MAX_BODY_SIZE || '10mb' }));
 app.use(express.urlencoded({ limit: process.env.MAX_BODY_SIZE || '10mb', extended: true }));
 
@@ -22,7 +20,6 @@ app.get('/api/getArticles', async (req, res) => {
   try {
     const database = await connectToDatabase();
     const articles = database.collection('posts');
-    // console.log(articles);
     const result = await articles.find().sort({ date: -1 }).toArray();
     res.json(result);
   } catch (error) {
@@ -36,7 +33,6 @@ app.post('/api/addArticle', async (req, res) => {
     const database = await connectToDatabase();
     const articles = database.collection('posts');
     const newArticle = req.body;
-    console.log(newArticle);
     const result = await articles.insertOne(newArticle);
     res.status(201).json({ message: 'Artykuł dodany pomyślnie', id: result.insertedId });
   } catch (error) {
