@@ -50,6 +50,7 @@ function App() {
               date={article.date}
               title={article.title}
               content={article.content}
+              picture={article.picture}
             />
           ))}
         </div>

@@ -1,6 +1,6 @@
 import { format } from '@formkit/tempo';
 
-export const Article = ({ author, date, title, content }) => {
+export const Article = ({ author, date, title, content, picture }) => {
   const addPostDate = format(date, 'medium');
   return (
     <div className="cd-timeline__block">
@@ -15,6 +15,7 @@ export const Article = ({ author, date, title, content }) => {
         <h2>{title}</h2>
         <span>{author}</span>
         <p className="color-contrast-medium">{content}</p>
+        <img src={picture} alt="image from this article" />
         <div className="flex justify-between items-center">
           <span className="cd-timeline__date">{addPostDate}</span>
         </div>

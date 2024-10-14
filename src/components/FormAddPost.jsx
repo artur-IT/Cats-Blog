@@ -7,12 +7,27 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
     formState: { errors, isSubmitting },
   } = useForm();
 
+  const fileToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  };
+
   // Add new post form handle
   const onSubmit = async (data) => {
+    let imageBase64 = null;
+    if (data.image[0]) {
+      imageBase64 = await fileToBase64(data.image[0]);
+    }
+
     let newArticle = {
       ...data,
       id: randKey,
       date: new Date(data.date).toISOString().substring(0, 10),
+      picture: imageBase64,
     };
 
     try {
@@ -23,6 +38,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
         },
         body: JSON.stringify(newArticle),
       });
+
       if (response.ok) {
         getPosts();
         setShowNewPost(false);
@@ -71,6 +87,23 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
             disabled={isSubmitting}
           />
           {errors.content && <span className="error-message">{errors.content.message}</span>}
+        </div>
+
+        <div className="image">
+          <input
+            type="file"
+            accept=".jpg,image/jpeg"
+            {...register('image', {
+              validate: {
+                fileSize: (files) => files[0]?.size <= 2000000 || 'Plik jest za duży (max 2MB)',
+                fileType: (files) =>
+                  ['image/jpeg', 'image/jpg'].includes(files[0]?.type) || 'Dozwolony tylko format JPG',
+              },
+            })}
+            disabled={isSubmitting}
+          />
+          <label className="error-message">Zdjęcie (max 450px, format jpg)</label>
+          {errors.image && <span className="error-message">{errors.image.message}</span>}
         </div>
 
         <div className="container_date-author">
