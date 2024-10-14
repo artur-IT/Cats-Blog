@@ -4,7 +4,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm();
 
   // Add new post form handle
@@ -52,6 +52,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
             className={`title_content ${errors.title ? 'error' : ''}`}
             type="text"
             id="title"
+            disabled={isSubmitting}
           />
           {errors.title && <span className="error-message">{errors.title.message}</span>}
         </div>
@@ -67,6 +68,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
             })}
             className={`blog_content ${errors.content ? 'error' : ''}`}
             id="content"
+            disabled={isSubmitting}
           />
           {errors.content && <span className="error-message">{errors.content.message}</span>}
         </div>
@@ -80,6 +82,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
                 className={`date_content ${errors.date ? 'error' : ''}`}
                 type="date"
                 id="date"
+                disabled={isSubmitting}
               />
             </div>
           </div>
@@ -91,6 +94,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
                 {...register('author', { required: 'Autor jest wymagany' })}
                 className={`author ${errors.author ? 'error' : ''}`}
                 id="author"
+                disabled={isSubmitting}
               >
                 <option value="">Wybierz</option>
                 <option>Indi</option>
@@ -99,8 +103,8 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
             </div>
           </div>
 
-          <button className="btn_add" type="submit">
-            Dodaj
+          <button className="btn_add" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? 'Dodawanie...' : 'Dodaj'}
           </button>
         </div>
       </form>
