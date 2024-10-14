@@ -31,10 +31,13 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
     // Change image to Base64 format and resize it
     let imageBase64 = null;
     // let resizedImage = null;
+    // console.log(picture);
     if (picture) {
       // resizedImage = await changeImageSize(data.image[0], 450);
       imageBase64 = await fileToBase64(picture);
     }
+
+    // console.log(imageBase64);
 
     let newArticle = {
       ...data,
@@ -42,6 +45,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
       date: new Date(data.date).toISOString().substring(0, 10),
       picture: imageBase64,
     };
+    // console.log(newArticle);
 
     try {
       const response = await fetch('/api/addArticle', {
