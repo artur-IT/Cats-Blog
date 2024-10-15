@@ -11,6 +11,9 @@ It's simple, short blog authoring my 2 young cat's. Indi & Tiger. He's describe 
 - Responsive Vertical Timeline (show posts after scroll)
 - Login Panel to add new simple post
 - very simple animation css
+- Almost perfect for mobile devices and PC's
+
+![](/public/img/results.png)
 
 &nbsp;
 
@@ -35,7 +38,8 @@ It's simple, short blog authoring my 2 young cat's. Indi & Tiger. He's describe 
 
 ## 💭 Conclusions for future projects
 
-- add 1 small image to post
+- max. 20 artcles on page?
+- max. all articles to 200 in mongoDB?
 
 &nbsp;
 
