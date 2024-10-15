@@ -17,7 +17,7 @@ export const Header = ({ login, showNewPostWindow, loginTopButton, showNewPost }
       {login && <LoginPanel showNewPostWindow={showNewPostWindow} loginTopButton={loginTopButton} />}
 
       <h1>Cat's Blog</h1>
-      <h3>our crazy, lazy life</h3>
+      <p className="slogan">our crazy, lazy life</p>
     </header>
   );
 };

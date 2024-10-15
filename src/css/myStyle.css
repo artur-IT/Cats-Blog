@@ -1,3 +1,9 @@
+:root {
+  --my-green: #5aba23;
+  --wave-color: #0076de;
+  --content-color: #444;
+}
+
 /* Author's - start */
 .cats_indi,
 .cats_tiger,
@@ -7,7 +13,7 @@
   width: 100px;
   height: 40px;
   line-height: 40px;
-  background-color: #4caf50;
+  background-color: var(--my-green);
   cursor: pointer;
 }
 
@@ -22,7 +28,7 @@
 }
 .login_top_btn:hover {
   background-color: #fff;
-  color: #0099ff;
+  color: var(--wave-color);
 }
 
 .cats_info {
@@ -79,7 +85,7 @@ img.tiger {
   top: -268px;
   transition: 0.5s;
   z-index: -1;
-  border: 7px solid #4caf50;
+  border: 7px solid var(--my-green);
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
@@ -93,12 +99,14 @@ img.tiger_show {
 }
 /* Author's - end  */
 
-h3 {
+p.slogan {
+  font-family: 'Handlee', 'Afacad Flux';
+  font-size: 2rem;
   color: #fff;
 }
 
 .cd-main-header {
-  background-color: #0099ff;
+  background-color: #0076de;
 }
 
 span {
