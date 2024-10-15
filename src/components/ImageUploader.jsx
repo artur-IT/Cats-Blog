@@ -1,9 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import changeImageSize from '../js/changeImageSize.js';
 
 const ImageUploader = ({ onImageUpload }) => {
   const [preview, setPreview] = useState(null);
-  const fileInputRef = useRef(null);
 
   // Resize image and set preview
   const handleFileChange = async (event) => {
@@ -15,16 +14,29 @@ const ImageUploader = ({ onImageUpload }) => {
     }
   };
 
+  const fileInputStyles = {
+    position: 'relative',
+    display: 'inline-block',
+    cursor: 'pointer',
+  };
+
+  const customButtonStyles = {
+    backgroundColor: '#4CAF50',
+    border: 'none',
+    color: 'white',
+    padding: '10px 15px',
+    fontSize: '16px',
+    cursor: 'pointer',
+    borderRadius: '4px',
+    transition: 'background-color 0.3s',
+  };
+
   return (
-    // <div className="file_area">
-    //   <input type="file" accept="image/*" onChange={handleFileChange} />
-    //   {preview && <img src={preview} alt="Preview" style={{ maxWidth: '100%', marginTop: '10px' }} />}
-    // </div>
     <div className="file_area">
-      <input type="file" accept="image/*" onChange={handleFileChange} ref={fileInputRef} style={{ display: 'none' }} />
-      <button className="file-input-button" onClick={() => fileInputRef.current.click()}>
-        Dodasz zdjęcie?
-      </button>
+      <label style={fileInputStyles}>
+        <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
+        <span style={customButtonStyles}>Dodasz zdjęcie ?</span>
+      </label>
       {preview && <img src={preview} alt="Preview" style={{ maxWidth: '100%', marginTop: '10px' }} />}
     </div>
   );
