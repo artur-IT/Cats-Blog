@@ -18,12 +18,15 @@
 }
 
 .login_top_btn {
+  top: -2px;
   right: calc(10% - 50px);
   height: 30px;
-  line-height: 27px;
+  line-height: 24px;
   font-size: 1rem;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
+  border: 2px solid var(--my-green);
+  background-color: transparent;
   transition: 0.5s;
 }
 .login_top_btn:hover {
