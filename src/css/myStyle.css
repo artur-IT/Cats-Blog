@@ -47,15 +47,13 @@
   width: 150px;
   height: 30px;
   line-height: 30px;
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.2rem;
   transition: 0.5s;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
 
 .cats_tiger {
-  width: 150px;
   right: 0;
 }
 .cats_tiger:hover {
@@ -73,7 +71,8 @@
   content: 'Indi';
 }
 
-img.indi {
+img.indi,
+img.tiger {
   position: relative;
   top: -190px;
   transition: 0.5s;
@@ -84,13 +83,7 @@ img.indi {
 }
 
 img.tiger {
-  position: relative;
-  top: -268px;
-  transition: 0.5s;
-  z-index: -1;
-  border: 7px solid var(--my-green);
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
+  top: -280px;
 }
 
 img.indi_show {
@@ -128,7 +121,7 @@ span {
   .cats_indi,
   .cats_tiger {
     height: 15px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 15px;
   }
   .cats_indi:hover,
