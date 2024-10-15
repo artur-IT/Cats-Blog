@@ -83,8 +83,7 @@ input {
   margin-right: 20px;
 }
 
-.btn_add,
-.file-input-button {
+.btn_add {
   height: 43px;
   padding: 0px 15px;
   border: none;
@@ -96,7 +95,7 @@ input {
 }
 
 .btn_add:hover {
-  background-color: #99cc32;
+  background-color: #4caf50;
 }
 
 .error {

@@ -23,7 +23,6 @@
     "nanoid": "^5.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-dropzone": "^14.2.9",
     "react-hook-form": "^7.53.0",
     "react-native-image-picker": "^7.1.2",
     "require": "^0.4.4",
