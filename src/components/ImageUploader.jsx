@@ -16,19 +16,14 @@ const ImageUploader = ({ onImageUpload }) => {
 
   const fileInputStyles = {
     position: 'relative',
-    display: 'inline-block',
-    cursor: 'pointer',
   };
 
   const customButtonStyles = {
     backgroundColor: '#4CAF50',
-    border: 'none',
     color: 'white',
     padding: '10px 15px',
-    fontSize: '16px',
     cursor: 'pointer',
     borderRadius: '4px',
-    transition: 'background-color 0.3s',
   };
 
   return (
