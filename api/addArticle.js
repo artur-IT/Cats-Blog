@@ -1,6 +1,6 @@
 import { connectToDatabase } from './dbConnection.js';
 
-export default async function handler(req, res) {
+export default async function addArticle(req, res) {
   if (req.method === 'POST') {
     const { id, title, content, author, date, picture } = req.body;
     try {

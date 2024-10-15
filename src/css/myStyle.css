@@ -102,8 +102,7 @@ h3 {
 }
 
 span {
-  padding-bottom: 5px;
-  font-weight: 700;
+  padding: 5px 0;
 }
 
 .wave {

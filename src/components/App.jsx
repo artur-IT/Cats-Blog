@@ -40,6 +40,7 @@ function App() {
         showNewPost={showNewPost}
       />
       <img src="img/wave.svg" className="wave" alt="blue wave" />
+
       {/* Section with all articles */}
       <section className="cd-timeline js-cd-timeline">
         <div className="container max-width-lg cd-timeline__container" id="blog_container">
@@ -55,6 +56,7 @@ function App() {
           ))}
         </div>
       </section>
+
       {/* Popup with add new post form after successful login */}
       {showNewPost && (
         <div className="add_content">

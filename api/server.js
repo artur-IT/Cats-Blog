@@ -1,4 +1,4 @@
-// Plik TYLKO do lokalnego TESTOWANIA - pobierania i zapisywania danych !!!
+// Plik TYLKO do LOKALNEGO TESTOWANIA - pobierania i zapisywania danych !!!
 //-------------------------------------------------------------------------
 export const config = {
   api: {

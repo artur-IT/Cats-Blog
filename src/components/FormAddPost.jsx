@@ -20,9 +20,8 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
     });
   };
 
-  // Add new post form handle
   const onSubmit = async (data) => {
-    // Change image to Base64 format and resize it
+    // Change image to Base64 format
     let imageBase64 = null;
     if (picture) {
       imageBase64 = await fileToBase64(picture);
@@ -35,6 +34,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
       picture: imageBase64,
     };
 
+    // Send data to MongoDB
     try {
       const response = await fetch('/api/addArticle', {
         method: 'POST',
@@ -61,6 +61,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
           <img src="../img/icon_close.svg" alt="close" />
         </div>
 
+        {/* Title post */}
         <div className="title">
           <label>Tytuł</label>
           <div className="title_field">
@@ -99,7 +100,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
         {/*  Image upload */}
         <ImageUploader onImageUpload={setPicture} />
 
-        {/* Date */}
+        {/* Date of publishing */}
         <div className="container_date-author">
           <div className="date">
             <label>Data</label>

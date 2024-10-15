@@ -4,6 +4,7 @@ import changeImageSize from '../js/changeImageSize.js';
 const ImageUploader = ({ onImageUpload }) => {
   const [preview, setPreview] = useState(null);
 
+  // Resize image and set preview
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
