@@ -1062,8 +1062,6 @@ u,
 .text-component h4 {
   line-height: 1.2;
   line-height: var(--component-heading-line-height, 1.2);
-  margin-bottom: 0.25em;
-  margin-bottom: calc(var(--space-xxxs) * var(--text-vspace-multiplier, 1));
 }
 .text-component h2,
 .text-component h3,
