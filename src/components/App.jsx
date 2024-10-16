@@ -5,10 +5,10 @@ import { Header } from '../components/Header';
 import { Article } from '../components/Article';
 import { FormAddPost } from '../components/FormAddPost';
 
-import '../css/style.css';
 import '../css/myStyle.css';
-import '../css/formAddPost.css';
+import '../css/header.css';
 import '../css/loginPanel.css';
+import '../css/formAddPost.css';
 
 function App() {
   const [articlesDB, setArticles] = useState([]);
@@ -41,22 +41,6 @@ function App() {
       />
       <img src="img/wave.svg" className="wave" alt="blue wave" />
 
-      {/* Section with all articles */}
-      <section className="cd-timeline js-cd-timeline">
-        <div className="container max-width-lg cd-timeline__container" id="blog_container">
-          {articlesDB.map((article) => (
-            <Article
-              key={article.id}
-              author={article.author}
-              date={article.date}
-              title={article.title}
-              content={article.content}
-              picture={article.picture}
-            />
-          ))}
-        </div>
-      </section>
-
       {/* Popup with add new post form after successful login */}
       {showNewPost && (
         <div className="add_content">
@@ -72,6 +56,22 @@ function App() {
           />
         </div>
       )}
+
+      {/* Section with all articles */}
+      <section className="cd-timeline js-cd-timeline">
+        <div className="container max-width-lg cd-timeline__container" id="blog_container">
+          {articlesDB.map((article) => (
+            <Article
+              key={article.id}
+              author={article.author}
+              date={article.date}
+              title={article.title}
+              content={article.content}
+              picture={article.picture}
+            />
+          ))}
+        </div>
+      </section>
     </>
   );
 }

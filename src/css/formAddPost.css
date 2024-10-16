@@ -126,3 +126,11 @@ input {
     height: 37px;
   }
 }
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .layout {
+    top: 0%;
+    /* height: 100vw; */
+    background-color: #000;
+  }
+}

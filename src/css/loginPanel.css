@@ -34,3 +34,9 @@
     transition: 1s;
   }
 }
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .login-panel {
+    right: 0;
+  }
+}
