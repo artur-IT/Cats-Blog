@@ -2,7 +2,6 @@
   position: absolute;
   top: 40px;
   right: calc(10% - 100px);
-  max-width: 200px;
   padding: 20px;
   background-color: rgb(0, 0, 0, 80%);
   z-index: 2;
@@ -21,14 +20,15 @@
 
 @media (max-width: 600px) and (orientation: portrait) {
   .login_top_btn {
-    top: 50px;
+    top: 185px;
     right: 0;
     border-right: 0px;
+    z-index: 2;
   }
 
   .login-panel {
     top: 50px;
-    right: calc(50% - 25%);
+    right: calc(50% - 30%);
     background-color: #000;
     z-index: 5;
     border-radius: 15px;

@@ -189,7 +189,7 @@ svg {
   --max-width-xxs: 32rem;
   --max-width-xs: 38rem;
   --max-width-sm: 48rem;
-  --max-width-md: 64rem;
+  --max-width-md: 48rem;
   --max-width-lg: 80rem;
   --max-width-xl: 90rem;
   --max-width-xxl: 120rem;
@@ -213,7 +213,7 @@ svg {
   max-width: var(--max-width-sm);
 }
 .max-width-md {
-  max-width: 64rem;
+  max-width: 48rem;
   max-width: var(--max-width-md);
 }
 .max-width-lg {
@@ -232,7 +232,7 @@ svg {
   max-width: 38rem;
   max-width: var(--max-width-xs);
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .max-width-adaptive-sm {
     max-width: 48rem;
     max-width: var(--max-width-sm);
@@ -242,9 +242,9 @@ svg {
   max-width: 38rem;
   max-width: var(--max-width-xs);
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .max-width-adaptive-md {
-    max-width: 64rem;
+    max-width: 48rem;
     max-width: var(--max-width-md);
   }
 }
@@ -253,10 +253,10 @@ svg {
   max-width: 38rem;
   max-width: var(--max-width-xs);
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .max-width-adaptive,
   .max-width-adaptive-lg {
-    max-width: 64rem;
+    max-width: 48rem;
     max-width: var(--max-width-md);
   }
 }
@@ -271,9 +271,9 @@ svg {
   max-width: 38rem;
   max-width: var(--max-width-xs);
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .max-width-adaptive-xl {
-    max-width: 64rem;
+    max-width: 48rem;
     max-width: var(--max-width-md);
   }
 }
@@ -652,7 +652,7 @@ svg {
     max-width: calc(100% - 0.01px - var(--grid-gap, 1em));
   }
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .col\@md {
     -ms-flex-positive: 1;
     flex-grow: 1;
@@ -1439,12 +1439,12 @@ u,
     display: none !important;
   }
 }
-@media not all and (min-width: 64rem) {
+@media not all and (min-width: 48rem) {
   .display\@md {
     display: none !important;
   }
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .hide\@md {
     display: none !important;
   }
@@ -1641,7 +1641,7 @@ u,
     align-items: flex-end;
   }
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .flex-wrap\@md {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -2274,7 +2274,7 @@ u,
     margin: 0 !important;
   }
 }
-@media not all and (min-width: 64rem) {
+@media not all and (min-width: 48rem) {
   .has-margin\@md {
     margin: 0 !important;
   }
@@ -2683,7 +2683,7 @@ u,
     padding: 0 !important;
   }
 }
-@media not all and (min-width: 64rem) {
+@media not all and (min-width: 48rem) {
   .has-padding\@md {
     padding: 0 !important;
   }
@@ -2740,7 +2740,7 @@ u,
     text-align: right;
   }
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .text-center\@md {
     text-align: center;
   }
@@ -2972,7 +2972,7 @@ u,
   --color-contrast-higher-l: 12%;
 }
 @supports (--css: variables) {
-  @media (min-width: 64rem) {
+  @media (min-width: 48rem) {
     :root {
       --space-unit: 1.25em;
     }
@@ -2997,7 +2997,7 @@ u,
   --font-primary-capital-letter: 1;
 }
 @supports (--css: variables) {
-  @media (min-width: 64rem) {
+  @media (min-width: 48rem) {
     :root {
       --text-base-size: 1.25em;
       --text-scale-ratio: 1.25;
@@ -3130,7 +3130,7 @@ mark {
   --font-secondary: 'Open Sans', sans-serif;
 }
 @supports (--css: variables) {
-  @media (min-width: 64rem) {
+  @media (min-width: 48rem) {
     :root {
       --cd-header-height: 300px;
     }
@@ -3183,7 +3183,7 @@ mark {
   background: hsl(205, 38%, 89%);
   background: var(--cd-color-2);
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__container::before {
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -3202,7 +3202,7 @@ mark {
 .cd-timeline__block:last-child {
   margin-bottom: 0;
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__block:nth-child(even) {
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
@@ -3233,7 +3233,7 @@ mark {
   width: 24px;
   height: 24px;
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__img {
     width: 60px;
     height: 60px;
@@ -3290,7 +3290,7 @@ mark {
   color: hsl(206, 21%, 24%);
   color: var(--cd-color-1);
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__content {
     width: 45%;
     -ms-flex-positive: 0;
@@ -3320,7 +3320,7 @@ mark {
   width: 24px;
   height: 24px;
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__img {
     width: 60px;
     height: 60px;
@@ -3376,7 +3376,7 @@ mark {
   color: hsl(206, 21%, 24%);
   color: var(--cd-color-1);
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__content {
     width: 45%;
     -ms-flex-positive: 0;
@@ -3406,7 +3406,7 @@ mark {
   width: 24px;
   height: 24px;
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__img {
     width: 60px;
     height: 60px;
@@ -3462,7 +3462,7 @@ mark {
   color: hsl(206, 21%, 24%);
   color: var(--cd-color-1);
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__content {
     width: 45%;
     -ms-flex-positive: 0;
@@ -3488,7 +3488,7 @@ mark {
 .cd-timeline__date {
   color: #292929;
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__date {
     position: absolute;
     width: 100%;
@@ -3501,7 +3501,7 @@ mark {
     text-align: right;
   }
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__img--hidden,
   .cd-timeline__content--hidden {
     visibility: hidden;
