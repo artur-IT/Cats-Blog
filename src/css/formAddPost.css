@@ -1,9 +1,11 @@
 .layout {
   position: absolute;
-  top: 50%;
+  top: 7%;
   left: 50%;
+  transform: translateX(-50%);
+  max-height: 100vh;
+  overflow-y: auto;
   font-family: 'Afacad Flux';
-  transform: translate(-50%, -50%);
   max-width: 600px;
   height: auto;
   padding: 30px;
@@ -13,6 +15,8 @@
   border: 5px solid #0099ff;
   background-color: rgb(0, 0, 0, 85%);
   border-radius: 20px;
+  text-align: left;
+  color: #fff;
 }
 
 .close {
@@ -27,6 +31,7 @@
 
 .title_top {
   text-align: center;
+  color: #fff;
 }
 
 .title_content {
@@ -46,29 +51,13 @@ label {
 
 .blog_content {
   width: 500px;
-  height: 200px;
+  height: 100px;
   max-height: 200px;
   line-height: 100%;
 }
 
-.add_content {
-  text-align: left;
-  color: #fff;
-}
-
 .file_area {
   margin-top: 15px;
-}
-
-select {
-  width: 90px;
-  padding: 5px;
-  border: none;
-  border-radius: 4px;
-}
-
-input {
-  padding: 5px;
 }
 
 .container_date-author {
@@ -80,11 +69,13 @@ input {
 
 .date,
 .author {
+  padding: 2px;
   margin-right: 20px;
+  border-radius: 4px;
 }
 
 .btn_add {
-  height: 43px;
+  height: 40px;
   padding: 0px 15px;
   border: none;
   background: #007acc;
@@ -114,6 +105,7 @@ input {
   .layout {
     max-width: 400px;
     background-color: #000;
+    padding: 20px;
   }
   .title_content,
   .blog_content {
@@ -129,8 +121,18 @@ input {
 
 @media (max-width: 900px) and (orientation: landscape) {
   .layout {
-    top: 0%;
-    /* height: 100vw; */
+    width: 400px;
+    padding: 20px;
     background-color: #000;
+    border-width: 3px;
+  }
+
+  .title_content,
+  .blog_content {
+    width: 355px;
+  }
+
+  .blog_content {
+    height: 70px;
   }
 }
