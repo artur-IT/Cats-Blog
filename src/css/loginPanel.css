@@ -22,6 +22,8 @@
 @media (max-width: 600px) and (orientation: portrait) {
   .login_top_btn {
     top: 50px;
+    right: 0;
+    border-right: 0px;
   }
 
   .login-panel {
@@ -37,6 +39,6 @@
 
 @media (max-width: 900px) and (orientation: landscape) {
   .login-panel {
-    right: 0;
+    right: 30px;
   }
 }
