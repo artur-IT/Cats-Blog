@@ -1,7 +1,8 @@
 .login-panel {
   position: absolute;
   top: 40px;
-  right: calc(10% - 100px);
+  right: calc(10% - 70px);
+  width: 150px;
   padding: 20px;
   background-color: rgb(0, 0, 0, 80%);
   z-index: 2;
@@ -28,7 +29,7 @@
 
   .login-panel {
     top: 50px;
-    right: calc(50% - 30%);
+    right: calc(50% - 20%);
     background-color: #000;
     z-index: 5;
     border-radius: 15px;
@@ -39,6 +40,6 @@
 
 @media (max-width: 900px) and (orientation: landscape) {
   .login-panel {
-    right: 30px;
+    right: 10px;
   }
 }
