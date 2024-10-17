@@ -16,8 +16,8 @@ export const Header = ({ login, showNewPostWindow, loginTopButton, showNewPost }
       {/* Login panel for admin for add new post */}
       {login && <LoginPanel showNewPostWindow={showNewPostWindow} loginTopButton={loginTopButton} />}
 
-      <h1>Cat's Blog</h1>
-      <p className="slogan">our crazy, lazy life</p>
+      <h1>Koci Blog</h1>
+      <p className="slogan">nasze szalone, leniwe życie</p>
     </header>
   );
 };
