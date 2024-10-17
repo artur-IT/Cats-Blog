@@ -14,15 +14,9 @@ const ImageUploader = ({ onImageUpload }) => {
     }
   };
 
-  const fileInputStyles = {
-    position: 'relative',
-  };
-
-  const customButtonStyles = {};
-
   return (
     <div className="file_area">
-      <label style={fileInputStyles}>
+      <label>
         <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
         <span className="btn_add_picture">Dodasz zdjęcie ?</span>
       </label>
