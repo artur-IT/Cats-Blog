@@ -60,7 +60,23 @@ label {
   margin-top: 15px;
 }
 
-.container_date-author {
+.btn_add_picture {
+  height: 40px;
+  padding: 5px 10px;
+  border: none;
+  background: #007acc;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 4px;
+}
+
+.file_preview {
+  max-width: 100%;
+  margin-top: 10px;
+}
+
+.container_two_date-author {
   display: flex;
   justify-content: start;
   align-items: end;
@@ -121,18 +137,76 @@ label {
 
 @media (max-width: 900px) and (orientation: landscape) {
   .layout {
-    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    top: 10%;
+    width: 700px;
+    min-width: 800px;
+    height: 340px;
     padding: 20px;
     background-color: #000;
     border-width: 3px;
   }
 
+  .title_top {
+    position: absolute;
+    top: 9%;
+    width: 100%;
+  }
+
+  .container_top {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+
   .title_content,
   .blog_content {
-    width: 355px;
+    display: flex;
+    width: 345px;
   }
 
   .blog_content {
-    height: 70px;
+    height: 90px;
+  }
+  .file_area {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 20px;
+    width: 200px;
+  }
+
+  .container_two_date-author {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .date,
+  .author {
+    margin-right: 0px;
+    padding: 0;
+  }
+
+  .btn_add_picture {
+    height: 40px;
+    padding: 5px 10px;
+    border: none;
+    background: #007acc;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 4px;
+  }
+
+  .btn_add {
+    margin-top: 15px;
+    height: 35px;
+    padding: 0px 10px;
+  }
+
+  .error-message {
+    font-size: 1rem;
   }
 }

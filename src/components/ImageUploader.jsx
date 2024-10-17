@@ -18,21 +18,15 @@ const ImageUploader = ({ onImageUpload }) => {
     position: 'relative',
   };
 
-  const customButtonStyles = {
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    padding: '10px 15px',
-    cursor: 'pointer',
-    borderRadius: '4px',
-  };
+  const customButtonStyles = {};
 
   return (
     <div className="file_area">
       <label style={fileInputStyles}>
         <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
-        <span style={customButtonStyles}>Dodasz zdjęcie ?</span>
+        <span className="btn_add_picture">Dodasz zdjęcie ?</span>
       </label>
-      {preview && <img src={preview} alt="Preview" style={{ maxWidth: '100%', marginTop: '10px' }} />}
+      {preview && <img src={preview} alt="Preview" className="file_preview" />}
     </div>
   );
 };

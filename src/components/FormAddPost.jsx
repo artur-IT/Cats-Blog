@@ -56,44 +56,48 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="layout">
+        {/* <div className="container_top"> */}
         <h3 className="title_top">Nowy wpis</h3>
         <div className="close" onClick={showNewPostWindow}>
           <img src="../img/icon_close.svg" alt="close" />
         </div>
+        {/* </div> */}
 
-        {/* Title post */}
-        <div className="title">
-          <label>Tytuł</label>
-          <div className="title_field">
-            <input
-              {...register('title', {
-                required: 'Tytuł jest wymagany',
-                maxLength: { value: 50, message: 'Maksymalna długość to 50 znaków' },
-              })}
-              className={`title_content ${errors.title ? 'error' : ''}`}
-              type="text"
-              id="title"
-              disabled={isSubmitting}
-            />
-            {errors.title && <span className="error-message">{errors.title.message}</span>}
+        <div className="container_one">
+          {/* Title post */}
+          <div className="title">
+            <label>Tytuł</label>
+            <div className="title_field">
+              <input
+                {...register('title', {
+                  required: 'Tytuł jest wymagany',
+                  maxLength: { value: 50, message: 'Maksymalna długość to 50 znaków' },
+                })}
+                className={`title_content ${errors.title ? 'error' : ''}`}
+                type="text"
+                id="title"
+                disabled={isSubmitting}
+              />
+              {errors.title && <span className="error-message">{errors.title.message}</span>}
+            </div>
           </div>
-        </div>
 
-        {/* Main content post */}
-        <div className="content">
-          <label>Treść</label>
+          {/* Main content post */}
+          <div className="content">
+            <label>Treść</label>
 
-          <div className="content_field">
-            <textarea
-              {...register('content', {
-                required: 'Treść jest wymagana',
-                maxLength: { value: 250, message: 'Maksymalna długość to 250 znaków' },
-              })}
-              className={`blog_content ${errors.content ? 'error' : ''}`}
-              id="content"
-              disabled={isSubmitting}
-            />
-            {errors.content && <span className="error-message">{errors.content.message}</span>}
+            <div className="content_field">
+              <textarea
+                {...register('content', {
+                  required: 'Treść jest wymagana',
+                  maxLength: { value: 250, message: 'Maksymalna długość to 250 znaków' },
+                })}
+                className={`blog_content ${errors.content ? 'error' : ''}`}
+                id="content"
+                disabled={isSubmitting}
+              />
+              {errors.content && <span className="error-message">{errors.content.message}</span>}
+            </div>
           </div>
         </div>
 
@@ -101,7 +105,7 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
         <ImageUploader onImageUpload={setPicture} />
 
         {/* Date of publishing */}
-        <div className="container_date-author">
+        <div className="container_two_date-author">
           <div className="date">
             <label>Data</label>
             <div className="date_field">
