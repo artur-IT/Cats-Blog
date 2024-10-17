@@ -1,4 +1,4 @@
-/* Author's - start */
+/* --------- Author's - start --------- */
 .cats_indi,
 .cats_tiger,
 .login_top_btn {
@@ -7,22 +7,24 @@
   width: 100px;
   height: 40px;
   line-height: 40px;
-  background-color: hsl(111, 51%, 60%);
   cursor: pointer;
 }
 
 .login_top_btn {
+  top: -2px;
   right: calc(10% - 50px);
   height: 30px;
-  line-height: 27px;
+  line-height: 24px;
   font-size: 1rem;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
+  border: 2px solid var(--my-green);
+  background-color: transparent;
   transition: 0.5s;
 }
 .login_top_btn:hover {
   background-color: #fff;
-  color: #0099ff;
+  color: var(--wave-color);
 }
 
 .cats_info {
@@ -30,7 +32,7 @@
   top: 0;
   width: 320px;
   height: 40px;
-  z-index: 5;
+  z-index: 2;
 }
 
 .cats_indi,
@@ -38,15 +40,13 @@
   width: 150px;
   height: 30px;
   line-height: 30px;
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.2rem;
   transition: 0.5s;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
 
 .cats_tiger {
-  width: 150px;
   right: 0;
 }
 .cats_tiger:hover {
@@ -54,68 +54,62 @@
   border-bottom-left-radius: 0px;
 }
 .cats_tiger:hover:before {
-  content: "Tiger";
+  content: 'Tiger';
 }
 .cats_indi:hover {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
 }
 .cats_indi:hover:before {
-  content: "Indi";
+  content: 'Indi';
 }
 
-img.indi {
+img.indi,
+img.tiger {
   position: relative;
-  top: -190px;
+  top: -110px;
   transition: 0.5s;
-  border: 7px solid hsl(111, 51%, 60%);
+  border: 10px solid #fff;
   z-index: -1;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
+  box-shadow: 5px 5px 5px 5px #111;
 }
 
 img.tiger {
-  position: relative;
-  top: -268px;
-  transition: 0.5s;
-  z-index: -1;
-  border: 7px solid hsl(111, 51%, 60%);
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
+  top: -229px;
 }
 
 img.indi_show {
-  top: 0px;
+  top: 5px;
 }
 
 img.tiger_show {
-  top: 0px;
+  top: 5px;
 }
-/* Author's - end  */
+/* --------- Author's - end ---------  */
+
+p.slogan {
+  font-family: 'Handlee', 'Afacad Flux';
+  font-size: 2rem;
+  color: #fff;
+}
 
 .cd-main-header {
-  background-color: #0099ff;
+  background-color: #0076de;
 }
 
 span {
-  display: inline-block;
-  padding-bottom: 5px;
-  font-weight: 700;
+  padding: 5px 0;
 }
 
 .wave {
   position: absolute;
 }
 
-.paw_bg-yellow {
-  background-color: yellow;
-}
-
 @media (max-width: 600px) and (orientation: portrait) {
   .cats_indi,
   .cats_tiger {
     height: 15px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 15px;
   }
   .cats_indi:hover,
@@ -125,11 +119,11 @@ span {
   }
 
   img.indi_show {
-    top: -15px;
+    top: 5px;
   }
 
   img.tiger_show {
-    top: -15px;
+    top: 5px;
   }
 
   h1 {
@@ -137,9 +131,13 @@ span {
   }
 
   .login_top_btn {
-    top: 170px;
+    top: 150px;
     width: 70px;
     font-size: 0.8rem;
     border-radius: 0px;
+  }
+
+  p.slogan {
+    font-size: 1.5rem;
   }
 }

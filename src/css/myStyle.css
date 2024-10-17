@@ -1,0 +1,9 @@
+:root {
+  --my-green: #5aba23;
+  --wave-color: #0076de;
+  --content-color: #444;
+}
+
+.paw_bg-yellow {
+  background-color: yellow;
+}
