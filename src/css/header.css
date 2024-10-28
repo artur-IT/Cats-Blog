@@ -29,7 +29,7 @@
 
 .cats_info {
   position: absolute;
-  top: 0;
+  top: -40px;
   width: 320px;
   height: 40px;
   z-index: 2;
@@ -37,6 +37,7 @@
 
 .cats_indi,
 .cats_tiger {
+  margin-top: 40px;
   width: 150px;
   height: 30px;
   line-height: 30px;
@@ -47,35 +48,52 @@
 }
 
 .cats_tiger {
+  top: -140px;
   right: 0;
+  transform-origin: top right;
+  transform: rotate(45deg);
 }
 .cats_tiger:hover {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
+  transform: rotate(0deg);
+  /* transform-origin: top left; */
+  margin-top: 175px;
 }
-.cats_tiger:hover:before {
-  content: 'Tiger';
+img.tiger ~ p {
+  display: none;
+}
+img.tiger:hover ~ p {
+  display: inline;
+}
+
+.cats_indi {
+  top: -50px;
+  transform-origin: top left;
+  transform: rotate(-45deg);
+  z-index: 1;
 }
 .cats_indi:hover {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
-}
-.cats_indi:hover:before {
-  content: 'Indi';
+  transform: rotate(0deg);
+  transform-origin: top left;
+  margin-top: 85px;
 }
 
 img.indi,
 img.tiger {
   position: relative;
-  top: -110px;
   transition: 0.5s;
   border: 10px solid #fff;
-  z-index: -1;
+  z-index: 1;
   box-shadow: 5px 5px 5px 5px #111;
 }
-
-img.tiger {
-  top: -229px;
+img.indi ~ p {
+  display: none;
+}
+img.indi:hover ~ p {
+  display: inline;
 }
 
 img.indi_show {
@@ -124,6 +142,11 @@ span {
 
   img.tiger_show {
     top: 5px;
+  }
+
+  img.tiger ~ p,
+  img.indi ~ p {
+    color: #000;
   }
 
   h1 {
