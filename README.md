@@ -2,7 +2,7 @@
 
 # Cats Blog
 
-See the live version of [Cats Blog](https://artur-it.github.io/Cats-Blog/) on Vercel.
+See the live version of [Cats Blog](https://cats-blog-new-branch.vercel.app/) on Vercel.
 
 It's simple, short blog authoring my 2 young cat's. Indi & Tiger. He's describe own crazy life in our flat.
 
