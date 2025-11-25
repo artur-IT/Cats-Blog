@@ -1,8 +1,5 @@
 const CatsInfo = () => {
   return (
-    // <>
-    //   <img src="img/indi2.jpg" className="indi_testy" alt="Indi" />
-    // </>
     <section className="cats_info">
       <div className="cats_indi" >
         <img src="img/indi2.jpg" className={`indi`} alt="Indi" />

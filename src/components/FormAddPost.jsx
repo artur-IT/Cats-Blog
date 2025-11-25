@@ -56,12 +56,10 @@ export const FormAddPost = ({ setShowNewPost, randKey, getPosts, showNewPostWind
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="layout">
-        {/* <div className="container_top"> */}
         <h3 className="title_top">Nowy wpis</h3>
         <div className="close" onClick={showNewPostWindow}>
           <img src="../img/icon_close.svg" alt="close" />
         </div>
-        {/* </div> */}
 
         <div className="container_one">
           {/* Title post */}

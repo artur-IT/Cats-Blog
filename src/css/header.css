@@ -119,11 +119,11 @@ img.indi:hover~p {
 
 /* --------- Author's - end ---------  */
 
-h1 {
+.cd-main-header h1 {
   margin-top: 100px;
 }
 
-p.slogan {
+.cd-main-header p.slogan {
   font-family: 'Handlee', 'Afacad Flux';
   font-size: 2rem;
   color: #fff;
@@ -156,15 +156,8 @@ span {
     line-height: 30px;
   }
 
-  img.indi_show {
-    top: 5px;
-  }
 
-  img.tiger_show {
-    top: 5px;
-  }
-
-  h1 {
+  .cd-main-header h1 {
     margin: 60px 50px 0 50px;
   }
 
