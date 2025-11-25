@@ -58,9 +58,10 @@ function App() {
       {/* Section with all articles */}
       <section className="cd-timeline js-cd-timeline">
         <div className="container max-width-lg cd-timeline__container" id="blog_container">
-          {articlesDB.map((article) => (
+          {articlesDB.map((article, index) => (
             <Article
               key={article.id}
+              index={index}
               author={article.author}
               date={article.date}
               title={article.title}

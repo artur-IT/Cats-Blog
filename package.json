@@ -6,6 +6,7 @@
   "homepage": "https://artur-it.github.io/Cats-Blog/",
   "scripts": {
     "dev": "vite",
+    "server": "node api/server.js",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
@@ -40,7 +41,7 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "gh-pages": "^6.1.1",
     "prettier": "^3.3.3",
-    "vite": "^5.1.4"
+    "vite": "^7.2.4"
   },
   "main": "vite.config.js",
   "keywords": [],
