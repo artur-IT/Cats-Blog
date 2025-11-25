@@ -22,6 +22,7 @@
   background-color: transparent;
   transition: 0.5s;
 }
+
 .login_top_btn:hover {
   background-color: #fff;
   color: var(--wave-color);
@@ -30,7 +31,7 @@
 .cats_info {
   position: absolute;
   top: -40px;
-  width: 320px;
+  width: 200px;
   height: 40px;
   z-index: 2;
 }
@@ -38,7 +39,7 @@
 .cats_indi,
 .cats_tiger {
   margin-top: 40px;
-  width: 150px;
+  width: 200px;
   height: 30px;
   line-height: 30px;
   font-size: 1.2rem;
@@ -53,32 +54,43 @@
   transform-origin: top right;
   transform: rotate(45deg);
 }
+
 .cats_tiger:hover {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
   transform: rotate(0deg);
   /* transform-origin: top left; */
   margin-top: 175px;
+  z-index: 1;
 }
-img.tiger ~ p {
+
+img.tiger~p {
   display: none;
 }
-img.tiger:hover ~ p {
+
+img.tiger:hover~p {
+  position: absolute;
+  left: 15px;
+  top: 300px;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 2px #000;
   display: inline;
+  z-index: 1;
 }
 
 .cats_indi {
   top: -50px;
   transform-origin: top left;
   transform: rotate(-45deg);
-  z-index: 1;
 }
+
 .cats_indi:hover {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
   transform: rotate(0deg);
   transform-origin: top left;
   margin-top: 85px;
+  z-index: 1;
 }
 
 img.indi,
@@ -89,20 +101,22 @@ img.tiger {
   z-index: 1;
   box-shadow: 5px 5px 5px 5px #111;
 }
-img.indi ~ p {
+
+img.indi~p {
   display: none;
 }
-img.indi:hover ~ p {
+
+img.indi:hover~p {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  font-size: 1.5rem;
+  /* color: #000; */
+  text-shadow: 2px 2px 2px #000;
   display: inline;
+  z-index: 1;
 }
 
-img.indi_show {
-  top: 5px;
-}
-
-img.tiger_show {
-  top: 5px;
-}
 /* --------- Author's - end ---------  */
 
 p.slogan {
@@ -124,12 +138,14 @@ span {
 }
 
 @media (max-width: 600px) and (orientation: portrait) {
+
   .cats_indi,
   .cats_tiger {
     height: 15px;
     font-size: 1rem;
     line-height: 15px;
   }
+
   .cats_indi:hover,
   .cats_tiger:hover {
     height: 30px;
@@ -142,11 +158,6 @@ span {
 
   img.tiger_show {
     top: 5px;
-  }
-
-  img.tiger ~ p,
-  img.indi ~ p {
-    color: #000;
   }
 
   h1 {
